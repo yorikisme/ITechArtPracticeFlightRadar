@@ -15,6 +15,9 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var animationView: AnimationView!
     
+    // MARK: - Properties
+    var viewModel: MainMenuViewModelProtocol!
+    
     // MARK: - Lifecycle load points
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +37,14 @@ class MainMenuViewController: UIViewController {
     private func setButtonsUp() {
         signInButton.layer.cornerRadius = 20
         signUpButton.layer.cornerRadius = 20
+    }
+    
+    // MARK: - Actions
+    @IBAction func signInButtonTapped(_ sender: UIButton) {
+        viewModel.signIn()
+    }
+    
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        viewModel.signUp()
     }
 }

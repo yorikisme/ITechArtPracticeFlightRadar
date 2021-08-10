@@ -29,6 +29,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jV8-Az-Cux"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB5-QL-7Ip">
                                         <rect key="frame" x="0.0" y="65" width="331" height="41"/>
@@ -37,6 +40,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wxa-pB-xgb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
