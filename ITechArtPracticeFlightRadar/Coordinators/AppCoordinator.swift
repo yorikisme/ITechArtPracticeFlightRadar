@@ -13,15 +13,11 @@ protocol Coordinator {
 }
 
 class AppCoordinator: Coordinator {
-    
     var childCoordinators: [Coordinator] = []
-    
     let window: UIWindow
-    
     init(window: UIWindow) {
         self.window = window
     }
-    
     func start() {
         let navigationController = UINavigationController()
         let mainMenuCoordinator = MainMenuCoordinator(navigationController: navigationController)
@@ -30,6 +26,4 @@ class AppCoordinator: Coordinator {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
-    
-    
 }

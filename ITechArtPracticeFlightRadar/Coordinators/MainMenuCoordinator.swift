@@ -8,15 +8,11 @@
 import UIKit
 
 class MainMenuCoordinator: Coordinator {
-    
     var childCoordinators: [Coordinator] = []
-    
     let navigationController: UINavigationController
-    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
     func start() {
         let mainMenuViewController = MainMenuViewController()
         let mainMenuViewModel = MainMenuViewModel()
@@ -24,11 +20,9 @@ class MainMenuCoordinator: Coordinator {
         mainMenuViewController.viewModel = mainMenuViewModel
         navigationController.setViewControllers([mainMenuViewController], animated: false)
     }
-    
     func startSignInProcedure() {
         let signInCoordinator = SignInCoordinator(navigationController: navigationController)
-        childCoordinators.append(signInCoordinator)
+        //childCoordinators.append(signInCoordinator)
         signInCoordinator.start()
     }
-    
 }

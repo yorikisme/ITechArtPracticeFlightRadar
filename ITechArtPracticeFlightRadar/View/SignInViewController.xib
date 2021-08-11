@@ -10,6 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="ITechArtPracticeFlightRadar" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="Q00-XQ-D9T" id="TvZ-ez-t97"/>
+                <outlet property="emailTextField" destination="caj-Pj-vWJ" id="iAc-rK-719"/>
+                <outlet property="passwordTextField" destination="ZGb-lb-aWe" id="hHl-u6-xS7"/>
+                <outlet property="signInButton" destination="ze8-2W-zC5" id="xyZ-hd-WaK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,18 +22,54 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBz-0I-T9d">
-                    <rect key="frame" x="85" y="424" width="244" height="48"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                    <nil key="textColor"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q00-XQ-D9T" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="537.5" width="414" height="358.5"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="tZh-Ap-3Lr">
+                    <rect key="frame" x="62" y="308.5" width="290" height="229"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="caj-Pj-vWJ">
+                            <rect key="frame" x="0.0" y="0.0" width="290" height="49.5"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZGb-lb-aWe">
+                            <rect key="frame" x="0.0" y="84.5" width="290" height="49.5"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ze8-2W-zC5">
+                            <rect key="frame" x="0.0" y="169" width="290" height="60"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                            <state key="normal" title="Sign In">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="signInButtonTapped:" destination="-1" eventType="touchUpInside" id="prK-f0-51k"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iTechArtFlightRadar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpm-72-pg6">
+                    <rect key="frame" x="33.5" y="144" width="347" height="64"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
+                    <color key="textColor" red="0.6160511971" green="0.89317280050000003" blue="0.9026809335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="oBz-0I-T9d" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="60L-Sl-a1K"/>
-                <constraint firstItem="oBz-0I-T9d" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ar2-VU-3sr"/>
+                <constraint firstItem="tZh-Ap-3Lr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8rY-f4-kJF"/>
+                <constraint firstAttribute="bottom" secondItem="Q00-XQ-D9T" secondAttribute="bottom" id="CPZ-nL-2Jk"/>
+                <constraint firstItem="Q00-XQ-D9T" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Hff-LG-jby"/>
+                <constraint firstItem="tZh-Ap-3Lr" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="K06-fi-P2y"/>
+                <constraint firstItem="Q00-XQ-D9T" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e5e-DU-evB"/>
+                <constraint firstItem="Q00-XQ-D9T" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="eWW-DY-lmZ"/>
+                <constraint firstItem="fpm-72-pg6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fO1-9L-Bs7"/>
+                <constraint firstItem="fpm-72-pg6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="yE1-KU-ePz"/>
+                <constraint firstItem="Q00-XQ-D9T" firstAttribute="top" secondItem="tZh-Ap-3Lr" secondAttribute="bottom" id="zNM-Ar-od2"/>
             </constraints>
             <point key="canvasLocation" x="133" y="116"/>
         </view>
@@ -37,6 +77,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
