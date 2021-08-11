@@ -18,7 +18,7 @@ class MainMenuCoordinator: Coordinator {
         let mainMenuViewModel = MainMenuViewModel()
         mainMenuViewModel.coordinator = self
         mainMenuViewController.viewModel = mainMenuViewModel
-        navigationController.setViewControllers([mainMenuViewController], animated: false)
+        navigationController.pushViewController(mainMenuViewController, animated: false)
     }
     func startSignInProcedure() {
         let signInCoordinator = SignInCoordinator(navigationController: navigationController)

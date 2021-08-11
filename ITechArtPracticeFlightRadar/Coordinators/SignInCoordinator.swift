@@ -14,8 +14,11 @@ class SignInCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     func start() {
-        let viewController = SignInViewController()
-        navigationController.pushViewController(viewController, animated: true)
+        let signInViewController = SignInViewController()
+        let signInViewModel = SignInViewModel()
+        signInViewModel.coordinator = self
+        signInViewController.viewModel = signInViewModel
+        navigationController.pushViewController(signInViewController, animated: true)
     }
     func signIn() {
         let listOfFlightsViewCoordinator = ListOfFlightsCoordinator(navigationController: navigationController)

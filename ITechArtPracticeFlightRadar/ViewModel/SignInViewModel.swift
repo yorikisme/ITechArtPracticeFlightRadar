@@ -9,10 +9,19 @@ import Foundation
 import Firebase
 
 protocol SignInProtocol {
-    func signIn()
+    func signInWith(email: String, password: String)
 }
 
 class SignInViewModel: SignInProtocol {
-    func signIn() {
+    var coordinator: SignInCoordinator!
+    func signInWith(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { [coordinator] result, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            coordinator?.signIn()
+            print("Successfully signed in")
+        }
     }
 }

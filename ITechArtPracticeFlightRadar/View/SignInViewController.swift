@@ -24,7 +24,7 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-        viewModel.signIn()
+        viewModel.signInWith(email: emailTextField.text!, password: passwordTextField.text!)
     }
     
     private func setupSignInButton() {
