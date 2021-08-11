@@ -22,7 +22,7 @@ class MainMenuCoordinator: Coordinator {
     }
     func startSignInProcedure() {
         let signInCoordinator = SignInCoordinator(navigationController: navigationController)
-        //childCoordinators.append(signInCoordinator)
+        childCoordinators.append(signInCoordinator)
         signInCoordinator.start()
     }
 }

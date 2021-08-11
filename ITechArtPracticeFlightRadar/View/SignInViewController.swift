@@ -10,7 +10,7 @@ import Lottie
 
 class SignInViewController: UIViewController {
     
-    var coordinator: SignInCoordinator!
+    var viewModel: SignInProtocol!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -21,10 +21,10 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         setupSignInButton()
         setupAnimation()
-        
     }
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
+        viewModel.signIn()
     }
     
     private func setupSignInButton() {
