@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B75D0EB626C2AA800075E4CA /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75D0EB526C2AA800075E4CA /* MainMenuViewController.xib */; };
+		B75D0EB926C2B2A60075E4CA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75D0EB726C2B2A60075E4CA /* SignInViewController.swift */; };
+		B75D0EBA26C2B2A60075E4CA /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75D0EB826C2B2A60075E4CA /* SignInViewController.xib */; };
+		B784067926C3CCCE00F5AF03 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */; };
+		B784067B26C3DB4E00F5AF03 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067A26C3DB4E00F5AF03 /* MainMenuCoordinator.swift */; };
+		B784067E26C3E27300F5AF03 /* SignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067D26C3E27300F5AF03 /* SignInCoordinator.swift */; };
+		B784068026C40E2500F5AF03 /* ListOfFlightsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */; };
+		B784068226C40FCE00F5AF03 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784068126C40FCE00F5AF03 /* SignInViewModel.swift */; };
+		B784068726C41BB400F5AF03 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B784068626C41BB400F5AF03 /* FirebaseAnalytics */; };
+		B7A1E75726C26DB60081554D /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1E75626C26DB60081554D /* MainMenuViewModel.swift */; };
+		B7A95B4C26C140B7009B1BA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95B4B26C140B7009B1BA8 /* AppDelegate.swift */; };
+		B7A95B4E26C140B7009B1BA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95B4D26C140B7009B1BA8 /* SceneDelegate.swift */; };
+		B7A95B5526C140B8009B1BA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B5426C140B8009B1BA8 /* Assets.xcassets */; };
+		B7A95B5826C140B8009B1BA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B5626C140B8009B1BA8 /* LaunchScreen.storyboard */; };
+		B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */; };
+		B7A95B6926C147E2009B1BA8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7A95B6826C147E2009B1BA8 /* FirebaseAuth */; };
+		B7D753F626C154DF0048F67E /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D753F526C154DF0048F67E /* MainMenuViewController.swift */; };
+		B7D753FB26C15ABC0048F67E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7D753FA26C15ABC0048F67E /* Lottie */; };
+		B7D7540026C161B00048F67E /* mainMenuBackgroundAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = B7D753FF26C161B00048F67E /* mainMenuBackgroundAircraft.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B7239A8B26C42FA40042C017 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B75D0EB526C2AA800075E4CA /* MainMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
+		B75D0EB726C2B2A60075E4CA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B75D0EB826C2B2A60075E4CA /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B784067A26C3DB4E00F5AF03 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
+		B784067D26C3E27300F5AF03 /* SignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCoordinator.swift; sourceTree = "<group>"; };
+		B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlightsCoordinator.swift; sourceTree = "<group>"; };
+		B784068126C40FCE00F5AF03 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		B7A1E75626C26DB60081554D /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
+		B7A95B4826C140B7009B1BA8 /* ITechArtPracticeFlightRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITechArtPracticeFlightRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A95B4B26C140B7009B1BA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B7A95B4D26C140B7009B1BA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B7A95B5426C140B8009B1BA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B7A95B5726C140B8009B1BA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7D753F526C154DF0048F67E /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		B7D753FF26C161B00048F67E /* mainMenuBackgroundAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mainMenuBackgroundAircraft.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7A95B4526C140B7009B1BA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7A95B6926C147E2009B1BA8 /* FirebaseAuth in Frameworks */,
+				B7D753FB26C15ABC0048F67E /* Lottie in Frameworks */,
+				B784068726C41BB400F5AF03 /* FirebaseAnalytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B784067C26C3E12F00F5AF03 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */,
+				B784067A26C3DB4E00F5AF03 /* MainMenuCoordinator.swift */,
+				B784067D26C3E27300F5AF03 /* SignInCoordinator.swift */,
+				B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B784068526C41BB400F5AF03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7A95B3F26C140B7009B1BA8 = {
+			isa = PBXGroup;
+			children = (
+				B7A95B4A26C140B7009B1BA8 /* ITechArtPracticeFlightRadar */,
+				B7A95B4926C140B7009B1BA8 /* Products */,
+				B784068526C41BB400F5AF03 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B7A95B4926C140B7009B1BA8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7A95B4826C140B7009B1BA8 /* ITechArtPracticeFlightRadar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7A95B4A26C140B7009B1BA8 /* ITechArtPracticeFlightRadar */ = {
+			isa = PBXGroup;
+			children = (
+				B7A95B6026C14107009B1BA8 /* Model */,
+				B7A95B6126C14112009B1BA8 /* View */,
+				B7A95B6226C14119009B1BA8 /* ViewModel */,
+				B784067C26C3E12F00F5AF03 /* Coordinators */,
+				B7D753FE26C161660048F67E /* Animation */,
+				B7A95B5F26C140DC009B1BA8 /* SupportingFiles */,
+				B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */,
+			);
+			path = ITechArtPracticeFlightRadar;
+			sourceTree = "<group>";
+		};
+		B7A95B5F26C140DC009B1BA8 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B7239A8B26C42FA40042C017 /* Info.plist */,
+				B7A95B4B26C140B7009B1BA8 /* AppDelegate.swift */,
+				B7A95B4D26C140B7009B1BA8 /* SceneDelegate.swift */,
+				B7A95B5426C140B8009B1BA8 /* Assets.xcassets */,
+				B7A95B5626C140B8009B1BA8 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		B7A95B6026C14107009B1BA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B7A95B6126C14112009B1BA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B7D753F526C154DF0048F67E /* MainMenuViewController.swift */,
+				B75D0EB526C2AA800075E4CA /* MainMenuViewController.xib */,
+				B75D0EB726C2B2A60075E4CA /* SignInViewController.swift */,
+				B75D0EB826C2B2A60075E4CA /* SignInViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B7A95B6226C14119009B1BA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B7A1E75626C26DB60081554D /* MainMenuViewModel.swift */,
+				B784068126C40FCE00F5AF03 /* SignInViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B7D753FE26C161660048F67E /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				B7D753FF26C161B00048F67E /* mainMenuBackgroundAircraft.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B7A95B4726C140B7009B1BA8 /* ITechArtPracticeFlightRadar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7A95B5C26C140B8009B1BA8 /* Build configuration list for PBXNativeTarget "ITechArtPracticeFlightRadar" */;
+			buildPhases = (
+				B7A95B4426C140B7009B1BA8 /* Sources */,
+				B7A95B4526C140B7009B1BA8 /* Frameworks */,
+				B7A95B4626C140B7009B1BA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ITechArtPracticeFlightRadar;
+			packageProductDependencies = (
+				B7A95B6826C147E2009B1BA8 /* FirebaseAuth */,
+				B7D753FA26C15ABC0048F67E /* Lottie */,
+				B784068626C41BB400F5AF03 /* FirebaseAnalytics */,
+			);
+			productName = ITechArtPracticeFlightRadar;
+			productReference = B7A95B4826C140B7009B1BA8 /* ITechArtPracticeFlightRadar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B7A95B4026C140B7009B1BA8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					B7A95B4726C140B7009B1BA8 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = B7A95B4326C140B7009B1BA8 /* Build configuration list for PBXProject "ITechArtPracticeFlightRadar" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B7A95B3F26C140B7009B1BA8;
+			packageReferences = (
+				B7A95B6726C147E2009B1BA8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B7D753F926C15ABC0048F67E /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
+			productRefGroup = B7A95B4926C140B7009B1BA8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7A95B4726C140B7009B1BA8 /* ITechArtPracticeFlightRadar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7A95B4626C140B7009B1BA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B75D0EB626C2AA800075E4CA /* MainMenuViewController.xib in Resources */,
+				B7D7540026C161B00048F67E /* mainMenuBackgroundAircraft.json in Resources */,
+				B7A95B5826C140B8009B1BA8 /* LaunchScreen.storyboard in Resources */,
+				B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */,
+				B75D0EBA26C2B2A60075E4CA /* SignInViewController.xib in Resources */,
+				B7A95B5526C140B8009B1BA8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7A95B4426C140B7009B1BA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7A1E75726C26DB60081554D /* MainMenuViewModel.swift in Sources */,
+				B784068026C40E2500F5AF03 /* ListOfFlightsCoordinator.swift in Sources */,
+				B7D753F626C154DF0048F67E /* MainMenuViewController.swift in Sources */,
+				B784067B26C3DB4E00F5AF03 /* MainMenuCoordinator.swift in Sources */,
+				B784068226C40FCE00F5AF03 /* SignInViewModel.swift in Sources */,
+				B75D0EB926C2B2A60075E4CA /* SignInViewController.swift in Sources */,
+				B7A95B4C26C140B7009B1BA8 /* AppDelegate.swift in Sources */,
+				B7A95B4E26C140B7009B1BA8 /* SceneDelegate.swift in Sources */,
+				B784067E26C3E27300F5AF03 /* SignInCoordinator.swift in Sources */,
+				B784067926C3CCCE00F5AF03 /* AppCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B7A95B5626C140B8009B1BA8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7A95B5726C140B8009B1BA8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B7A95B5A26C140B8009B1BA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B7A95B5B26C140B8009B1BA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7A95B5D26C140B8009B1BA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/ITechArtPracticeFlightRadar/SupportingFiles/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yaroslav.k.ITechArtPracticeFlightRadar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7A95B5E26C140B8009B1BA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/ITechArtPracticeFlightRadar/SupportingFiles/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yaroslav.k.ITechArtPracticeFlightRadar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7A95B4326C140B7009B1BA8 /* Build configuration list for PBXProject "ITechArtPracticeFlightRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7A95B5A26C140B8009B1BA8 /* Debug */,
+				B7A95B5B26C140B8009B1BA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7A95B5C26C140B8009B1BA8 /* Build configuration list for PBXNativeTarget "ITechArtPracticeFlightRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7A95B5D26C140B8009B1BA8 /* Debug */,
+				B7A95B5E26C140B8009B1BA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7A95B6726C147E2009B1BA8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.5.0;
+			};
+		};
+		B7D753F926C15ABC0048F67E /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B784068626C41BB400F5AF03 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7A95B6726C147E2009B1BA8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		B7A95B6826C147E2009B1BA8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7A95B6726C147E2009B1BA8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B7D753FA26C15ABC0048F67E /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7D753F926C15ABC0048F67E /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B7A95B4026C140B7009B1BA8 /* Project object */;
+}

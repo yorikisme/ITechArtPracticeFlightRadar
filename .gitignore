@@ -19,16 +19,3 @@ fastlane/test_output
 .build/
 Packages
 xcuserdata
-*.xcodeproj
-
-# Xcode
-
-#Gcc Patch
-/*.gcno
-
-# Xcode Patch
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
-**/xcshareddata/WorkspaceSettings.xcsettings
