@@ -13,8 +13,12 @@ protocol MainMenuViewModelProtocol {
     func signUp()
 }
 
-struct MainMenuViewModel: MainMenuViewModelProtocol {
+class MainMenuViewModel: MainMenuViewModelProtocol {
+    
+    var coordinator: MainMenuCoordinator!
+    
     func signIn() {
+        coordinator.startSignInProcedure()
     }
     
     func signUp() {
