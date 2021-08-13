@@ -29,29 +29,29 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     
     func signInWithGoogle() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-
+        
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
-
-        // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: coordinator.navigationController.topViewController!) { user, error in
-
-          if let error = error {
-            print(error.localizedDescription)
-            return
-          }
-
-          guard
-            let authentication = user?.authentication,
-            let idToken = authentication.idToken
-          else {
-            return
-          }
-
-          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                         accessToken: authentication.accessToken)
-
-          // ...
+        
+        coordinator.getVC { vc in
+            // Start the sign in flow!
+            GIDSignIn.sharedInstance.signIn(with: config, presenting: vc) { user, error in
+                
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let authentication = user?.authentication,
+                      let idToken = authentication.idToken else { return }
+                
+                let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                               accessToken: authentication.accessToken)
+                print(credential)
+                
+            }
         }
+        
     }
+    
 }

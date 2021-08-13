@@ -7,7 +7,11 @@
 
 import UIKit
 
-class AuthenticationCoordinator: Coordinator {
+protocol AuthenticationCoordinatorProtocol: Coordinator {
+    func signIn()
+}
+
+class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
     var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
     init(navigationController: UINavigationController) {
@@ -24,5 +28,9 @@ class AuthenticationCoordinator: Coordinator {
         let listOfFlightsViewCoordinator = ListOfFlightsCoordinator(navigationController: navigationController)
         childCoordinators.append(listOfFlightsViewCoordinator)
         listOfFlightsViewCoordinator.start()
+    }
+    
+    func getVC(handler: (UINavigationController) -> ()) {
+        handler(navigationController)
     }
 }
