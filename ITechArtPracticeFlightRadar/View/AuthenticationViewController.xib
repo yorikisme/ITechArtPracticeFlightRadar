@@ -51,6 +51,11 @@
                             <state key="normal" title="Sign In">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="signInButtonTapped:" destination="-1" eventType="touchUpInside" id="prK-f0-51k"/>
                             </connections>
@@ -91,7 +96,7 @@
                     </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iTechArtFlightRadar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpm-72-pg6">
-                    <rect key="frame" x="40.666666666666657" y="94" width="347" height="64"/>
+                    <rect key="frame" x="40.666666666666657" y="90" width="347" height="64"/>
                     <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
                     <color key="textColor" red="0.6160511971" green="0.89317280050000003" blue="0.9026809335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -104,10 +109,10 @@
                 <constraint firstAttribute="bottom" secondItem="Q00-XQ-D9T" secondAttribute="bottom" id="CPZ-nL-2Jk"/>
                 <constraint firstItem="Q00-XQ-D9T" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Hff-LG-jby"/>
                 <constraint firstItem="tZh-Ap-3Lr" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="K06-fi-P2y"/>
+                <constraint firstItem="tZh-Ap-3Lr" firstAttribute="top" secondItem="fpm-72-pg6" secondAttribute="bottom" constant="30" id="P7i-NF-qFt"/>
                 <constraint firstItem="Q00-XQ-D9T" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e5e-DU-evB"/>
                 <constraint firstItem="Q00-XQ-D9T" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="eWW-DY-lmZ"/>
                 <constraint firstItem="fpm-72-pg6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fO1-9L-Bs7"/>
-                <constraint firstItem="fpm-72-pg6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="yE1-KU-ePz"/>
                 <constraint firstItem="Q00-XQ-D9T" firstAttribute="top" secondItem="tZh-Ap-3Lr" secondAttribute="bottom" id="zNM-Ar-od2"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>

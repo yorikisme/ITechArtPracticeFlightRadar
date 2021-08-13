@@ -25,7 +25,8 @@ class AuthenticationViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupSignInButton()
+        navigationController?.navigationBar.isHidden = true
+        signInWithGoogle.style = .wide
         setupAnimation()
     }
     
@@ -35,10 +36,6 @@ class AuthenticationViewController: UIViewController {
     
     @IBAction func signInWithGoogleTapped(_ sender: GIDSignInButton) {
         viewModel.signInWithGoogle()
-    }
-    
-    private func setupSignInButton() {
-        signInButton.layer.cornerRadius = 20
     }
     
     private func setupAnimation() {

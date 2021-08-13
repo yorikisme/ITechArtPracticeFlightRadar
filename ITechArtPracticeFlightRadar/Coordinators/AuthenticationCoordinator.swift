@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 protocol AuthenticationCoordinatorProtocol: Coordinator {
     func signIn()
+    func signInWithGoogle(handler: @escaping (GIDGoogleUser?, Error?) -> Void)
 }
 
 class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
@@ -30,7 +33,13 @@ class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
         listOfFlightsViewCoordinator.start()
     }
     
-    func getVC(handler: (UINavigationController) -> ()) {
-        handler(navigationController)
+    func signInWithGoogle(handler: @escaping (GIDGoogleUser?, Error?) -> Void) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+            handler(nil, GIDSignInError.init(.noCurrentUser))
+            return
+        }
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: navigationController, callback: handler)
     }
 }
