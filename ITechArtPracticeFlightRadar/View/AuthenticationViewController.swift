@@ -9,10 +9,11 @@ import UIKit
 import Lottie
 import GoogleSignIn
 
-class AuthenticationViewController: UIViewController {
+class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     
     var viewModel: AuthenticationViewModelProtocol!
-    
+    var timer: Timer?
+        
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
@@ -21,6 +22,7 @@ class AuthenticationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signInButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +38,23 @@ class AuthenticationViewController: UIViewController {
     
     @IBAction func signInWithGoogleTapped(_ sender: GIDSignInButton) {
         viewModel.signInWithGoogle()
+    }
+    
+    @IBAction func emailChanged(_ sender: UITextField) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5,
+                                     repeats: false,
+                                     block: { [weak self] timer in
+                                        let emailIsValid = self?.viewModel.validateEmail(candidate: sender.text!)
+                                        if emailIsValid! {
+                                            self?.signInButton.isEnabled = true
+                                            self?.signInButton.backgroundColor = .green
+                                        } else {
+                                            self?.signInButton.isEnabled = false
+                                            self?.signInButton.backgroundColor = .gray
+                                        }
+                                        print("Sorry! Your email format is invalid!")
+                                     })
     }
     
     private func setupAnimation() {
