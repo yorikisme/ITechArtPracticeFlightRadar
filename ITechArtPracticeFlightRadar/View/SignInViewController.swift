@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import GoogleSignIn
 
 class SignInViewController: UIViewController {
     
@@ -16,15 +17,24 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet weak var signInWithGoogle: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupSignInButton()
         setupAnimation()
     }
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         viewModel.signInWith(email: emailTextField.text!, password: passwordTextField.text!)
+    }
+    
+    @IBAction func signInWithGoogleTapped(_ sender: GIDSignInButton) {
+        viewModel.signInWithGoogle()
     }
     
     private func setupSignInButton() {

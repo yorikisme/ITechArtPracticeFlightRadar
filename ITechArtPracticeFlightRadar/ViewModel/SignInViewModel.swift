@@ -7,9 +7,11 @@
 
 import Foundation
 import Firebase
+import GoogleSignIn
 
 protocol SignInProtocol {
     func signInWith(email: String, password: String)
+    func signInWithGoogle()
 }
 
 class SignInViewModel: SignInProtocol {
@@ -22,6 +24,34 @@ class SignInViewModel: SignInProtocol {
             }
             coordinator?.signIn()
             print("Successfully signed in")
+        }
+    }
+    
+    func signInWithGoogle() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: coordinator.navigationController.topViewController!) { user, error in
+
+          if let error = error {
+            print(error.localizedDescription)
+            return
+          }
+
+          guard
+            let authentication = user?.authentication,
+            let idToken = authentication.idToken
+          else {
+            return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: authentication.accessToken)
+
+          // ...
         }
     }
 }
