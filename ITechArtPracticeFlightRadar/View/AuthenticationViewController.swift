@@ -1,5 +1,5 @@
 //
-//  SignInViewController.swift
+//  AuthenticationViewController.swift
 //  ITechArtPracticeFlightRadar
 //
 //  Created by Yaroslav Karpulevich on 8/10/21.
@@ -9,9 +9,9 @@ import UIKit
 import Lottie
 import GoogleSignIn
 
-class SignInViewController: UIViewController {
+class AuthenticationViewController: UIViewController {
     
-    var viewModel: SignInProtocol!
+    var viewModel: AuthenticationViewModelProtocol!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -50,7 +50,7 @@ class SignInViewController: UIViewController {
     }
     
     deinit {
-        print("SignInViewController deinited")
+        print("AuthenticationViewController deinitialized")
     }
 
 }

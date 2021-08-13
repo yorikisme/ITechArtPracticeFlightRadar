@@ -20,9 +20,9 @@ class AppCoordinator: Coordinator {
     }
     func start() {
         let navigationController = UINavigationController()
-        let signInCoordinator = SignInCoordinator(navigationController: navigationController)
-        childCoordinators.append(signInCoordinator)
-        signInCoordinator.start()
+        let authenticationCoordinator = AuthenticationCoordinator(navigationController: navigationController)
+        childCoordinators.append(authenticationCoordinator)
+        authenticationCoordinator.start()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }

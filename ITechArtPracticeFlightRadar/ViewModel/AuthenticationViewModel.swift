@@ -1,5 +1,5 @@
 //
-//  SignInViewModel.swift
+//  AuthenticationViewModel.swift
 //  ITechArtPracticeFlightRadar
 //
 //  Created by Yaroslav Karpulevich on 8/11/21.
@@ -9,13 +9,13 @@ import Foundation
 import Firebase
 import GoogleSignIn
 
-protocol SignInProtocol {
+protocol AuthenticationViewModelProtocol {
     func signInWith(email: String, password: String)
     func signInWithGoogle()
 }
 
-class SignInViewModel: SignInProtocol {
-    var coordinator: SignInCoordinator!
+class AuthenticationViewModel: AuthenticationViewModelProtocol {
+    var coordinator: AuthenticationCoordinator!
     func signInWith(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { [coordinator] result, error in
             if let error = error {
