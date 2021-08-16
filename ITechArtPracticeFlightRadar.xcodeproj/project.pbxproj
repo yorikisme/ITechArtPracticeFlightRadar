@@ -21,6 +21,7 @@
 		B7A95B5826C140B8009B1BA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B5626C140B8009B1BA8 /* LaunchScreen.storyboard */; };
 		B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */; };
 		B7A95B6926C147E2009B1BA8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7A95B6826C147E2009B1BA8 /* FirebaseAuth */; };
+		B7AFC5BF26CA5781004EE523 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B7AFC5BE26CA5781004EE523 /* Toast */; };
 		B7D753FB26C15ABC0048F67E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7D753FA26C15ABC0048F67E /* Lottie */; };
 		B7D7540026C161B00048F67E /* mainMenuBackgroundAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = B7D753FF26C161B00048F67E /* mainMenuBackgroundAircraft.json */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 				B7A95B6926C147E2009B1BA8 /* FirebaseAuth in Frameworks */,
 				B7A4AF3F26C54619004B98FC /* GoogleSignIn in Frameworks */,
 				B7D753FB26C15ABC0048F67E /* Lottie in Frameworks */,
+				B7AFC5BF26CA5781004EE523 /* Toast in Frameworks */,
 				B784068726C41BB400F5AF03 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +172,7 @@
 				B7D753FA26C15ABC0048F67E /* Lottie */,
 				B784068626C41BB400F5AF03 /* FirebaseAnalytics */,
 				B7A4AF3E26C54619004B98FC /* GoogleSignIn */,
+				B7AFC5BE26CA5781004EE523 /* Toast */,
 			);
 			productName = ITechArtPracticeFlightRadar;
 			productReference = B7A95B4826C140B7009B1BA8 /* ITechArtPracticeFlightRadar.app */;
@@ -202,6 +205,7 @@
 				B7A95B6726C147E2009B1BA8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B7D753F926C15ABC0048F67E /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				B7A4AF3D26C54619004B98FC /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				B7AFC5BD26CA5781004EE523 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = B7A95B4926C140B7009B1BA8 /* Products */;
 			projectDirPath = "";
@@ -448,6 +452,14 @@
 				minimumVersion = 8.5.0;
 			};
 		};
+		B7AFC5BD26CA5781004EE523 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		B7D753F926C15ABC0048F67E /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -473,6 +485,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7A95B6726C147E2009B1BA8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		B7AFC5BE26CA5781004EE523 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7AFC5BD26CA5781004EE523 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 		B7D753FA26C15ABC0048F67E /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
