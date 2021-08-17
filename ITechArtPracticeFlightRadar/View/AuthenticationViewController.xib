@@ -32,7 +32,7 @@
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="caj-Pj-vWJ">
                             <rect key="frame" x="0.0" y="0.0" width="299.33333333333331" height="48.333333333333336"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                             <connections>
                                 <action selector="emailChanged:" destination="-1" eventType="editingChanged" id="dfA-Sn-Hls"/>
                             </connections>

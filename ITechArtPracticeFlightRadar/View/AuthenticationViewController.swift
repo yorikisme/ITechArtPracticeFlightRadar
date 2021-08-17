@@ -8,6 +8,7 @@
 import UIKit
 import Lottie
 import GoogleSignIn
+import Toast
 
 class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     
@@ -52,8 +53,8 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                                         } else {
                                             self?.signInButton.isEnabled = false
                                             self?.signInButton.backgroundColor = .gray
+                                            self?.view.makeToast("Invalid email format", duration: 1.5)
                                         }
-                                        print("Sorry! Your email format is invalid!")
                                      })
     }
     
