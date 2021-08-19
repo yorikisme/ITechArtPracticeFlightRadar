@@ -33,9 +33,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="299.33333333333331" height="48.333333333333336"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
-                            <connections>
-                                <action selector="emailChanged:" destination="-1" eventType="editingChanged" id="dfA-Sn-Hls"/>
-                            </connections>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZGb-lb-aWe">
                             <rect key="frame" x="0.0" y="60.333333333333343" width="299.33333333333331" height="47"/>
@@ -47,7 +44,7 @@
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="18"/>
                             <state key="normal" title="Forgot passoword?"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ze8-2W-zC5">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ze8-2W-zC5">
                             <rect key="frame" x="0.0" y="172.33333333333331" width="299.33333333333331" height="51"/>
                             <color key="backgroundColor" systemColor="systemGrayColor"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>

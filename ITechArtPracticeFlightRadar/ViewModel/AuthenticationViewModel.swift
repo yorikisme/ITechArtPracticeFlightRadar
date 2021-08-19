@@ -6,16 +6,24 @@
 //
 
 import Foundation
+import RxSwift
 import Firebase
 import GoogleSignIn
 
 protocol AuthenticationViewModelProtocol {
     func signInWith(email: String, password: String)
     func signInWithGoogle()
-    func validateEmail(candidate: String) -> Bool
+    var email: PublishSubject<String> { get }
+    var password: PublishSubject<String> { get }
+    func areEmailAndPasswordValid() -> Observable<Bool>
 }
 
 class AuthenticationViewModel: AuthenticationViewModelProtocol {
+    
+    let disposeBag = DisposeBag()
+    var email = PublishSubject<String>()
+    var password = PublishSubject<String>()
+    
     var coordinator: AuthenticationCoordinatorProtocol!
     func signInWith(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { [coordinator] result, error in
@@ -46,9 +54,11 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         
     }
     
-    func validateEmail(candidate: String) -> Bool {
-     let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
+    func areEmailAndPasswordValid() -> Observable<Bool> {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        return Observable.combineLatest(email.asObservable(), password.asObservable()).map { email, password in
+            return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email) && password.count > 5
+        }
     }
     
 }

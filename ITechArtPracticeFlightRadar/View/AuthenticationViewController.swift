@@ -6,14 +6,16 @@
 //
 
 import UIKit
-import Lottie
+import RxSwift
+import RxCocoa
 import GoogleSignIn
+import Lottie
 import Toast
 
-class AuthenticationViewController: UIViewController, UITextFieldDelegate {
+class AuthenticationViewController: UIViewController {
     
     var viewModel: AuthenticationViewModelProtocol!
-    var timer: Timer?
+    let disposeBag = DisposeBag()
         
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -23,7 +25,27 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        signInButton.isEnabled = false
+        
+        emailTextField.rx.text.orEmpty
+            .bind(to: viewModel.email)
+            .disposed(by: disposeBag)
+        
+        passwordTextField.rx.text.orEmpty
+            .bind(to: viewModel.password)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .areEmailAndPasswordValid()
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .bind(to: signInButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .areEmailAndPasswordValid()
+            .map { $0 ? .green : .gray }
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .bind(to: signInButton.rx.backgroundColor)
+            .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,23 +61,6 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signInWithGoogleTapped(_ sender: GIDSignInButton) {
         viewModel.signInWithGoogle()
-    }
-    
-    @IBAction func emailChanged(_ sender: UITextField) {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5,
-                                     repeats: false,
-                                     block: { [weak self] timer in
-                                        let emailIsValid = self?.viewModel.validateEmail(candidate: sender.text!)
-                                        if emailIsValid! {
-                                            self?.signInButton.isEnabled = true
-                                            self?.signInButton.backgroundColor = .green
-                                        } else {
-                                            self?.signInButton.isEnabled = false
-                                            self?.signInButton.backgroundColor = .gray
-                                            self?.view.makeToast("Invalid email format", duration: 1.5)
-                                        }
-                                     })
     }
     
     private func setupAnimation() {
