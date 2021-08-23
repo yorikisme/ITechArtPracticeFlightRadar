@@ -26,26 +26,47 @@ class AuthenticationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailTextField.rx.text.orEmpty
+        viewModel
+            .email
+            .bind(to: emailTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .password
+            .bind(to: passwordTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .isSignInEnabled
+            .bind(to: signInButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        emailTextField
+            .rx
+            .text
+            .orEmpty
             .bind(to: viewModel.email)
             .disposed(by: disposeBag)
         
-        passwordTextField.rx.text.orEmpty
+        passwordTextField
+            .rx
+            .text
+            .orEmpty
             .bind(to: viewModel.password)
             .disposed(by: disposeBag)
         
         viewModel
-            .areEmailAndPasswordValid()
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
-            .bind(to: signInButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-        
-        viewModel
-            .areEmailAndPasswordValid()
+            .isSignInEnabled
             .map { $0 ? .green : .gray }
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .bind(to: signInButton.rx.backgroundColor)
             .disposed(by: disposeBag)
+        
+        signInButton
+            .rx
+            .tap
+            .bind(to: viewModel.signIn)
+            .disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,11 +77,11 @@ class AuthenticationViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-        viewModel.signInWith(email: emailTextField.text!, password: passwordTextField.text!)
+        //viewModel.signInWith(email: emailTextField.text!, password: passwordTextField.text!)
     }
     
     @IBAction func signInWithGoogleTapped(_ sender: GIDSignInButton) {
-        viewModel.signInWithGoogle()
+        //viewModel.signInWithGoogle()
     }
     
     private func setupAnimation() {

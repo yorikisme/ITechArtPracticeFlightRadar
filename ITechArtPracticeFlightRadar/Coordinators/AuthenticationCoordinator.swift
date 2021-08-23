@@ -22,8 +22,7 @@ class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
     }
     func start() {
         let authenticationViewController = AuthenticationViewController()
-        let authenticationViewModel = AuthenticationViewModel()
-        authenticationViewModel.coordinator = self
+        let authenticationViewModel = AuthenticationViewModel(coordinator: self)
         authenticationViewController.viewModel = authenticationViewModel
         navigationController.pushViewController(authenticationViewController, animated: true)
     }

@@ -7,35 +7,68 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 import Firebase
 import GoogleSignIn
 
 protocol AuthenticationViewModelProtocol {
-    func signInWith(email: String, password: String)
-    func signInWithGoogle()
-    var email: PublishSubject<String> { get }
-    var password: PublishSubject<String> { get }
-    func areEmailAndPasswordValid() -> Observable<Bool>
+    var email: BehaviorRelay<String> { get }
+    var password: BehaviorRelay<String> { get }
+    var invalidEmailMessage: BehaviorRelay<String?> { get }
+    var invalidPasswordMessage: BehaviorRelay<String?> { get }
+    var isSignInEnabled: BehaviorRelay<Bool> { get }
+    var signIn: PublishRelay<Void> { get }
 }
 
 class AuthenticationViewModel: AuthenticationViewModelProtocol {
     
-    let disposeBag = DisposeBag()
-    var email = PublishSubject<String>()
-    var password = PublishSubject<String>()
-    
+    // MARK: - Properties
     var coordinator: AuthenticationCoordinatorProtocol!
-    func signInWith(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { [coordinator] result, error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            coordinator?.signIn()
-            print("Successfully signed in")
+    let disposeBag = DisposeBag()
+    
+    // Protocol conformation
+    let email = BehaviorRelay<String>(value: "")
+    let password = BehaviorRelay<String>(value: "")
+    let invalidEmailMessage = BehaviorRelay<String?>(value: nil)
+    let invalidPasswordMessage = BehaviorRelay<String?>(value: nil)
+    let isSignInEnabled = BehaviorRelay<Bool>(value: false)
+    let signIn = PublishRelay<Void>()
+    
+    // MARK: - Initializers
+    init(coordinator: AuthenticationCoordinator) {
+        
+        let validatedEmail = email.map {
+            ($0, $0.emailValid)
+        }.share(replay: 1, scope: .whileConnected)
+        
+        let validatedPassword = password.map {
+            ($0, $0.passwordValid)
+        }.share(replay: 1, scope: .whileConnected)
+        
+        
+        Observable.combineLatest (validatedEmail, validatedPassword) {
+            $0.1 && $1.1
         }
+        .subscribe(onNext: { [isSignInEnabled] in
+            isSignInEnabled.accept($0)
+        })
+        .disposed(by: disposeBag)
+
+        
+        signIn
+            .withLatestFrom(Observable.combineLatest(validatedEmail, validatedPassword))
+            .flatMapLatest {Observable.of(($0.0, $1.0))}
+            .flatMapLatest {Auth.auth().rx.signInWith(email: $0.0, password: $0.1)}
+            .do(onError: { print($0.localizedDescription)})
+            .retry()
+            .subscribe(onNext: { [coordinator] _ in
+                print("Success")
+                coordinator.signIn()
+            })
+            .disposed(by: disposeBag)
     }
     
+    // MARK: - Methods
     func signInWithGoogle() {
         coordinator.signInWithGoogle { user, error in
             guard error == nil else {
@@ -54,11 +87,29 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         
     }
     
-    func areEmailAndPasswordValid() -> Observable<Bool> {
+}
+
+extension String {
+    var emailValid: Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return Observable.combineLatest(email.asObservable(), password.asObservable()).map { email, password in
-            return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email) && password.count > 5
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: self)
+    }
+    var passwordValid: Bool { self.count > 5 }
+}
+
+extension Reactive where Base: Auth {
+    func signInWith(email: String, password: String) -> Single<AuthDataResult>  {
+        return Single<AuthDataResult>.create { observer in
+            self.base.signIn(withEmail: email, password: password) { result, error in
+                if let result = result {
+                    observer(.success(result))
+                } else {
+                    observer(.failure(error ?? NSError()))
+                }
+            }
+            return Disposables.create {
+                //Auth.auth().cancelRequest()
+            }
         }
     }
-    
 }
