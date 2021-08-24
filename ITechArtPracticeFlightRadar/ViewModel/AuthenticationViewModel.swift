@@ -18,6 +18,7 @@ protocol AuthenticationViewModelProtocol {
     var invalidPasswordMessage: BehaviorRelay<String?> { get }
     var isSignInEnabled: BehaviorRelay<Bool> { get }
     var signIn: PublishRelay<Void> { get }
+    var isInvalidEmailFormatLabelVisible: BehaviorRelay<Bool> { get }
 }
 
 class AuthenticationViewModel: AuthenticationViewModelProtocol {
@@ -33,19 +34,22 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     let invalidPasswordMessage = BehaviorRelay<String?>(value: nil)
     let isSignInEnabled = BehaviorRelay<Bool>(value: false)
     let signIn = PublishRelay<Void>()
+    let isInvalidEmailFormatLabelVisible = BehaviorRelay<Bool>(value: false)
     
     // MARK: - Initializers
     init(coordinator: AuthenticationCoordinator) {
         
-        let validatedEmail = email.map {
-            ($0, $0.emailValid)
-        }.share(replay: 1, scope: .whileConnected)
+        // Shared instance of validated email
+        let validatedEmail = email
+            .map { ($0, $0.emailValid) }
+            .share(replay: 1, scope: .whileConnected)
         
-        let validatedPassword = password.map {
-            ($0, $0.passwordValid)
-        }.share(replay: 1, scope: .whileConnected)
+        // Shared instance of validated password
+        let validatedPassword = password
+            .map { ($0, $0.passwordValid) }
+            .share(replay: 1, scope: .whileConnected)
         
-        
+        // isSignInEnabled check
         Observable.combineLatest (validatedEmail, validatedPassword) {
             $0.1 && $1.1
         }
@@ -54,17 +58,22 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         })
         .disposed(by: disposeBag)
 
-        
+        // Authentication
         signIn
             .withLatestFrom(Observable.combineLatest(validatedEmail, validatedPassword))
-            .flatMapLatest {Observable.of(($0.0, $1.0))}
-            .flatMapLatest {Auth.auth().rx.signInWith(email: $0.0, password: $0.1)}
+            .flatMapLatest { Observable.of(($0.0, $1.0)) }
+            .flatMapLatest { Auth.auth().rx.signInWith(email: $0.0, password: $0.1) }
             .do(onError: { print($0.localizedDescription)})
             .retry()
             .subscribe(onNext: { [coordinator] _ in
-                print("Success")
                 coordinator.signIn()
             })
+            .disposed(by: disposeBag)
+        
+        // Invalid email format check
+        validatedEmail
+            .map { $0.0.isEmpty || $0.1 }
+            .bind(to: isInvalidEmailFormatLabelVisible)
             .disposed(by: disposeBag)
     }
     
