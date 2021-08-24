@@ -18,7 +18,9 @@ protocol AuthenticationViewModelProtocol {
     var invalidPasswordMessage: BehaviorRelay<String?> { get }
     var isSignInEnabled: BehaviorRelay<Bool> { get }
     var signIn: PublishRelay<Void> { get }
-    var isInvalidEmailFormatLabelVisible: BehaviorRelay<Bool> { get }
+    var isEmailFormatValid: BehaviorRelay<Bool> { get }
+    var isPasswordSecure: BehaviorRelay<Bool> { get }
+    
 }
 
 class AuthenticationViewModel: AuthenticationViewModelProtocol {
@@ -34,7 +36,8 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     let invalidPasswordMessage = BehaviorRelay<String?>(value: nil)
     let isSignInEnabled = BehaviorRelay<Bool>(value: false)
     let signIn = PublishRelay<Void>()
-    let isInvalidEmailFormatLabelVisible = BehaviorRelay<Bool>(value: false)
+    let isEmailFormatValid = BehaviorRelay<Bool>(value: false)
+    let isPasswordSecure = BehaviorRelay<Bool>(value: false)
     
     // MARK: - Initializers
     init(coordinator: AuthenticationCoordinator) {
@@ -73,8 +76,15 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         // Invalid email format check
         validatedEmail
             .map { $0.0.isEmpty || $0.1 }
-            .bind(to: isInvalidEmailFormatLabelVisible)
+            .bind(to: isEmailFormatValid)
             .disposed(by: disposeBag)
+        
+        // Password security check
+        validatedPassword
+            .map { $0.0.isEmpty || $0.1 }
+            .bind(to: isPasswordSecure)
+            .disposed(by: disposeBag)
+        
     }
     
     // MARK: - Methods

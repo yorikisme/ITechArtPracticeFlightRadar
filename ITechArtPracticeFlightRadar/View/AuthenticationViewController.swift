@@ -22,6 +22,7 @@ class AuthenticationViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var invalidEmailFormatLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var insecurePasswordLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var signInWithGoogle: GIDSignInButton!
@@ -63,6 +64,7 @@ class AuthenticationViewController: UIViewController {
             .rx
             .text
             .orEmpty
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
             .bind(to: viewModel.password)
             .disposed(by: disposeBag)
         
@@ -73,7 +75,16 @@ class AuthenticationViewController: UIViewController {
             .disposed(by: disposeBag)
         
         // Invalid email format check
-        viewModel.isInvalidEmailFormatLabelVisible.bind(to: invalidEmailFormatLabel.rx.isHidden).disposed(by: disposeBag)
+        viewModel
+            .isEmailFormatValid
+            .bind(to: invalidEmailFormatLabel.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        // Password security check
+        viewModel
+            .isPasswordSecure
+            .bind(to: insecurePasswordLabel.rx.isHidden)
+            .disposed(by: disposeBag)
         
     }
     
