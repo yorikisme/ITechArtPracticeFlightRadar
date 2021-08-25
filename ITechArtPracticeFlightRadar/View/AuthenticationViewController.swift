@@ -86,6 +86,12 @@ class AuthenticationViewController: UIViewController {
             .bind(to: insecurePasswordLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
+        // Authentication with Google
+        signInWithGoogle
+            .rx
+            .controlEvent(.touchUpInside)
+            .bind(to: viewModel.googleAuthentication)
+            .disposed(by: disposeBag)
     }
     
     // MARK: - ViewWillAppear

@@ -18,6 +18,7 @@ protocol AuthenticationViewModelProtocol {
     var signIn: PublishRelay<Void> { get }
     var isEmailFormatValid: BehaviorRelay<Bool> { get }
     var isPasswordSecure: BehaviorRelay<Bool> { get }
+    var googleAuthentication: PublishRelay<Void> { get }
 }
 
 class AuthenticationViewModel: AuthenticationViewModelProtocol {
@@ -32,9 +33,11 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     let signIn = PublishRelay<Void>()
     let isEmailFormatValid = BehaviorRelay<Bool>(value: false)
     let isPasswordSecure = BehaviorRelay<Bool>(value: false)
+    let googleAuthentication = PublishRelay<Void>()
     
     // MARK: - Initializers
     init(coordinator: AuthenticationCoordinator) {
+        self.coordinator = coordinator
         // Shared instance of validated email
         let validatedEmail = email
             .map { ($0, $0.emailValid) }
@@ -78,6 +81,13 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
             .map { $0.0.isEmpty || $0.1 }
             .bind(to: isPasswordSecure)
             .disposed(by: disposeBag)
+        
+        // Authentication with Google
+        googleAuthentication.subscribe(onNext: { [weak self] in
+            self?.signInWithGoogle()
+        }, onError: {
+            print($0.localizedDescription)
+        }).disposed(by: disposeBag)
     }
     
     // MARK: - Methods
