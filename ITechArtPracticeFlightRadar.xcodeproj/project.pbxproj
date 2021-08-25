@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */; };
 		B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */; };
+		B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34B26D62F5900798B6C /* StringExtensions.swift */; };
+		B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */; };
 		B784067926C3CCCE00F5AF03 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */; };
 		B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */; };
 		B784068026C40E2500F5AF03 /* ListOfFlightsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */; };
@@ -33,6 +35,8 @@
 		B7239A8B26C42FA40042C017 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
+		B766E34B26D62F5900798B6C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExtensions.swift; sourceTree = "<group>"; };
 		B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlightsCoordinator.swift; sourceTree = "<group>"; };
@@ -65,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B766E34D26D62F5D00798B6C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B766E34B26D62F5900798B6C /* StringExtensions.swift */,
+				B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B784067C26C3E12F00F5AF03 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +119,8 @@
 				B7A95B6126C14112009B1BA8 /* View */,
 				B7A95B6226C14119009B1BA8 /* ViewModel */,
 				B784067C26C3E12F00F5AF03 /* Coordinators */,
-				B7D753FE26C161660048F67E /* Animation */,
+				B766E34D26D62F5D00798B6C /* Extensions */,
+				B7D753FE26C161660048F67E /* Animations */,
 				B7A95B5F26C140DC009B1BA8 /* SupportingFiles */,
 				B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */,
 			);
@@ -149,12 +163,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		B7D753FE26C161660048F67E /* Animation */ = {
+		B7D753FE26C161660048F67E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
 				B7D753FF26C161B00048F67E /* mainMenuBackgroundAircraft.json */,
 			);
-			path = Animation;
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,12 +260,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */,
 				B784068026C40E2500F5AF03 /* ListOfFlightsCoordinator.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
 				B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */,
 				B7A95B4C26C140B7009B1BA8 /* AppDelegate.swift in Sources */,
 				B7A95B4E26C140B7009B1BA8 /* SceneDelegate.swift in Sources */,
 				B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */,
+				B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */,
 				B784067926C3CCCE00F5AF03 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
