@@ -23,9 +23,10 @@
 		B7A95B5826C140B8009B1BA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B5626C140B8009B1BA8 /* LaunchScreen.storyboard */; };
 		B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */; };
 		B7A95B6926C147E2009B1BA8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7A95B6826C147E2009B1BA8 /* FirebaseAuth */; };
+		B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */; };
+		B7A9A6EB26D9137A005F559A /* spinner.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A9A6EA26D9137A005F559A /* spinner.json */; };
 		B7AFC5BF26CA5781004EE523 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B7AFC5BE26CA5781004EE523 /* Toast */; };
 		B7D753FB26C15ABC0048F67E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7D753FA26C15ABC0048F67E /* Lottie */; };
-		B7D7540026C161B00048F67E /* mainMenuBackgroundAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = B7D753FF26C161B00048F67E /* mainMenuBackgroundAircraft.json */; };
 		B7EB6F4C26CBD45000104EDF /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B7EB6F4B26CBD45000104EDF /* RxRelay */; };
 		B7EB6F4E26CBD45000104EDF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7EB6F4D26CBD45000104EDF /* RxSwift */; };
 		B7EB6F5026CBD45000104EDF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B7EB6F4F26CBD45000104EDF /* RxCocoa */; };
@@ -47,7 +48,8 @@
 		B7A95B5426C140B8009B1BA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7A95B5726C140B8009B1BA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B7D753FF26C161B00048F67E /* mainMenuBackgroundAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mainMenuBackgroundAircraft.json; sourceTree = "<group>"; };
+		B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authenticationScreenBackgroundAircraft.json; sourceTree = "<group>"; };
+		B7A9A6EA26D9137A005F559A /* spinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spinner.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +168,8 @@
 		B7D753FE26C161660048F67E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				B7D753FF26C161B00048F67E /* mainMenuBackgroundAircraft.json */,
+				B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */,
+				B7A9A6EA26D9137A005F559A /* spinner.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -245,10 +248,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7D7540026C161B00048F67E /* mainMenuBackgroundAircraft.json in Resources */,
 				B7A95B5826C140B8009B1BA8 /* LaunchScreen.storyboard in Resources */,
 				B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */,
+				B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */,
 				B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */,
+				B7A9A6EB26D9137A005F559A /* spinner.json in Resources */,
 				B7A95B5526C140B8009B1BA8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

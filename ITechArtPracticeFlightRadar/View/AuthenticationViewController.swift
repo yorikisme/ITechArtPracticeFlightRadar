@@ -104,7 +104,7 @@ class AuthenticationViewController: UIViewController {
     
     // MARK: - Methods
     private func setupAnimation() {
-        animationView.animation = Animation.named("mainMenuBackgroundAircraft")
+        animationView.animation = Animation.named("authenticationScreenBackgroundAircraft")
         animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .loop
         animationView.play()

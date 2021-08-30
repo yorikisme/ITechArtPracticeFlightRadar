@@ -40,31 +40,40 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         self.coordinator = coordinator
         // Shared instance of validated email
         let validatedEmail = email
-            .map { ($0, $0.emailValid) }
-        //            .share(replay: 1, scope: .whileConnected)
+            .observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .map { ($0, $0.emailValid)
+            }
+            .share(replay: 1, scope: .whileConnected)
         
         // Shared instance of validated password
         let validatedPassword = password
+            .observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .map { ($0, $0.passwordValid) }
-        //            .share(replay: 1, scope: .whileConnected)
+            .share(replay: 1, scope: .whileConnected)
         
         // isSignInEnabled check
         Observable.combineLatest (validatedEmail, validatedPassword) {
             $0.1 && $1.1
         }
+        .observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
         .subscribe(onNext: { [isSignInEnabled] in
             isSignInEnabled.accept($0)
         })
         .disposed(by: disposeBag)
-        
         // Authentication
         signIn
             .withLatestFrom(Observable.combineLatest(validatedEmail, validatedPassword))
+            .debug()
             .filter { $0.1 && $1.1 }
             .map{ ($0.0, $1.0) }
-            .flatMapLatest { Auth.auth().rx.signInWith(email: $0.0, password: $0.1) }
+
+            .observe(on: SerialDispatchQueueScheduler(qos: .userInitiated))
+            .flatMapLatest {
+                Auth.auth().rx.signInWith(email: $0.0, password: $0.1)
+            }
             .do(onError: { print($0.localizedDescription)})
             .retry()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [coordinator] _ in
                 coordinator.signIn()
             })
@@ -72,19 +81,20 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         
         // Invalid email format check
         validatedEmail
-            .map { $0.0.isEmpty || $0.1 }
+            .map { $0.isEmpty || $1 }
             .bind(to: isEmailFormatValid)
             .disposed(by: disposeBag)
         
         // Password security check
         validatedPassword
-            .map { $0.0.isEmpty || $0.1 }
+            .map { $0.isEmpty || $1 }
             .bind(to: isPasswordSecure)
             .disposed(by: disposeBag)
         
         // Authentication with Google
-        googleAuthentication.subscribe(onNext: { [weak self] in
-            self?.signInWithGoogle()
+        googleAuthentication
+            .subscribe(onNext: { [weak self] in
+                self?.signInWithGoogle()
         }, onError: {
             print($0.localizedDescription)
         }).disposed(by: disposeBag)
@@ -92,7 +102,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     
     // MARK: - Methods
     func signInWithGoogle() {
-        coordinator.signInWithGoogle { user, error in
+        self.coordinator.signInWithGoogle { user, error in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
