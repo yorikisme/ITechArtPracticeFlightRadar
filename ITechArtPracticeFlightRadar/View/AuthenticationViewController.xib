@@ -25,6 +25,12 @@
             <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iTechArtFlightRadar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpm-72-pg6">
+                    <rect key="frame" x="40.666666666666657" y="114" width="347" height="64"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
+                    <color key="textColor" red="0.6160511971" green="0.89317280050000003" blue="0.9026809335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q00-XQ-D9T" customClass="AnimationView" customModule="Lottie">
                     <rect key="frame" x="0.0" y="555.66666666666663" width="428" height="370.33333333333337"/>
                 </imageView>
@@ -70,9 +76,6 @@
                                     <integer key="value" value="20"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="signInButtonTapped:" destination="-1" eventType="touchUpInside" id="prK-f0-51k"/>
-                            </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fRl-Hr-9Yx">
                             <rect key="frame" x="0.0" y="219.33333333333331" width="299.33333333333331" height="41"/>
@@ -99,9 +102,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idL-aB-29M" customClass="GIDSignInButton">
                             <rect key="frame" x="0.0" y="296.66666666666669" width="299.33333333333331" height="51"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <connections>
-                                <action selector="signInWithGoogleTapped:" destination="-1" eventType="touchUpInside" id="9gX-WC-WCf"/>
-                            </connections>
                         </view>
                     </subviews>
                     <constraints>
@@ -109,12 +109,6 @@
                         <constraint firstItem="idL-aB-29M" firstAttribute="width" secondItem="ze8-2W-zC5" secondAttribute="width" id="ifP-xB-SIC"/>
                     </constraints>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iTechArtFlightRadar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpm-72-pg6">
-                    <rect key="frame" x="40.666666666666657" y="114" width="347" height="64"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
-                    <color key="textColor" red="0.6160511971" green="0.89317280050000003" blue="0.9026809335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,7 +123,7 @@
                 <constraint firstItem="fpm-72-pg6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fO1-9L-Bs7"/>
                 <constraint firstItem="Q00-XQ-D9T" firstAttribute="top" secondItem="tZh-Ap-3Lr" secondAttribute="bottom" id="zNM-Ar-od2"/>
             </constraints>
-            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+            <point key="canvasLocation" x="131.77570093457942" y="115.33477321814256"/>
         </view>
     </objects>
     <resources>

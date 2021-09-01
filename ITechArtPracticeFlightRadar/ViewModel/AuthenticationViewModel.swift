@@ -9,9 +9,9 @@ import Foundation
 import RxSwift
 import RxRelay
 import Firebase
-import GoogleSignIn
 
 protocol AuthenticationViewModelProtocol {
+    var state: BehaviorRelay<State> { get }
     var email: BehaviorRelay<String> { get }
     var password: BehaviorRelay<String> { get }
     var isSignInEnabled: BehaviorRelay<Bool> { get }
@@ -27,6 +27,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     let disposeBag = DisposeBag()
     
     // Protocol conformation
+    let state = BehaviorRelay<State>(value: .standby)
     let email = BehaviorRelay<String>(value: "")
     let password = BehaviorRelay<String>(value: "")
     let isSignInEnabled = BehaviorRelay<Bool>(value: false)
@@ -60,18 +61,16 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
             isSignInEnabled.accept($0)
         })
         .disposed(by: disposeBag)
+        
         // Authentication
         signIn
             .withLatestFrom(Observable.combineLatest(validatedEmail, validatedPassword))
-            .debug()
             .filter { $0.1 && $1.1 }
-            .map{ ($0.0, $1.0) }
-
+            .map { ($0.0, $1.0) }
             .observe(on: SerialDispatchQueueScheduler(qos: .userInitiated))
-            .flatMapLatest {
-                Auth.auth().rx.signInWith(email: $0.0, password: $0.1)
-            }
-            .do(onError: { print($0.localizedDescription)})
+            .startProcessing(state: state)
+            .flatMapLatest { Auth.auth().rx.signInWith(email: $0.0, password: $0.1) }
+            .stopProcessing(state: state)
             .retry()
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [coordinator] _ in
@@ -93,16 +92,14 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         
         // Authentication with Google
         googleAuthentication
-            .subscribe(onNext: { [weak self] in
-                self?.signInWithGoogle()
-        }, onError: {
-            print($0.localizedDescription)
-        }).disposed(by: disposeBag)
+            .subscribe(onNext: { [weak self] in self?.signInWithGoogle() },
+                       onError: { print($0.localizedDescription) })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Methods
     func signInWithGoogle() {
-        self.coordinator.signInWithGoogle { user, error in
+        coordinator.signInWithGoogle { [weak self] user, error in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
@@ -113,7 +110,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
             }
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                            accessToken: authentication.accessToken)
-            self.coordinator?.signIn()
+            self?.coordinator?.signIn()
             print(credential)
         }
     }

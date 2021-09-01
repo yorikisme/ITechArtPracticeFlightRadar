@@ -11,6 +11,7 @@
 		B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */; };
 		B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34B26D62F5900798B6C /* StringExtensions.swift */; };
 		B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */; };
+		B77827F326DF9BEA0058ADD5 /* ObservableTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */; };
 		B784067926C3CCCE00F5AF03 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */; };
 		B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */; };
 		B784068026C40E2500F5AF03 /* ListOfFlightsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */; };
@@ -27,6 +28,9 @@
 		B7A9A6EB26D9137A005F559A /* spinner.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A9A6EA26D9137A005F559A /* spinner.json */; };
 		B7AFC5BF26CA5781004EE523 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B7AFC5BE26CA5781004EE523 /* Toast */; };
 		B7D753FB26C15ABC0048F67E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7D753FA26C15ABC0048F67E /* Lottie */; };
+		B7E5F2B626DCB732004010BF /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E5F2B526DCB732004010BF /* State.swift */; };
+		B7E5F2C426DD042C004010BF /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E5F2C326DD042C004010BF /* ProcessingView.swift */; };
+		B7E5F2C626DD044B004010BF /* ProcessingStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */; };
 		B7EB6F4C26CBD45000104EDF /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B7EB6F4B26CBD45000104EDF /* RxRelay */; };
 		B7EB6F4E26CBD45000104EDF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7EB6F4D26CBD45000104EDF /* RxSwift */; };
 		B7EB6F5026CBD45000104EDF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B7EB6F4F26CBD45000104EDF /* RxCocoa */; };
@@ -38,6 +42,7 @@
 		B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
 		B766E34B26D62F5900798B6C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExtensions.swift; sourceTree = "<group>"; };
+		B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTypeExtensions.swift; sourceTree = "<group>"; };
 		B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlightsCoordinator.swift; sourceTree = "<group>"; };
@@ -50,6 +55,9 @@
 		B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authenticationScreenBackgroundAircraft.json; sourceTree = "<group>"; };
 		B7A9A6EA26D9137A005F559A /* spinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spinner.json; sourceTree = "<group>"; };
+		B7E5F2B526DCB732004010BF /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		B7E5F2C326DD042C004010BF /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
+		B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProcessingStateView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 			children = (
 				B766E34B26D62F5900798B6C /* StringExtensions.swift */,
 				B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */,
+				B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -144,6 +153,7 @@
 		B7A95B6026C14107009B1BA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B7E5F2B526DCB732004010BF /* State.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +163,8 @@
 			children = (
 				B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */,
 				B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */,
+				B7E5F2C326DD042C004010BF /* ProcessingView.swift */,
+				B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +264,7 @@
 				B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */,
 				B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */,
 				B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */,
+				B7E5F2C626DD044B004010BF /* ProcessingStateView.xib in Resources */,
 				B7A9A6EB26D9137A005F559A /* spinner.json in Resources */,
 				B7A95B5526C140B8009B1BA8 /* Assets.xcassets in Resources */,
 			);
@@ -264,11 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B77827F326DF9BEA0058ADD5 /* ObservableTypeExtensions.swift in Sources */,
 				B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */,
 				B784068026C40E2500F5AF03 /* ListOfFlightsCoordinator.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
+				B7E5F2B626DCB732004010BF /* State.swift in Sources */,
 				B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */,
 				B7A95B4C26C140B7009B1BA8 /* AppDelegate.swift in Sources */,
+				B7E5F2C426DD042C004010BF /* ProcessingView.swift in Sources */,
 				B7A95B4E26C140B7009B1BA8 /* SceneDelegate.swift in Sources */,
 				B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */,
 				B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */,

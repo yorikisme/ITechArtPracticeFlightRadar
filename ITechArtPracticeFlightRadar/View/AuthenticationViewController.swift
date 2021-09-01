@@ -92,6 +92,30 @@ class AuthenticationViewController: UIViewController {
             .controlEvent(.touchUpInside)
             .bind(to: viewModel.googleAuthentication)
             .disposed(by: disposeBag)
+        
+        // State determination
+        var processingView: ProcessingView?
+        
+        viewModel
+            .state
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                switch $0 {
+                case .standby:
+                    if let processingView = processingView {
+                        processingView.removeFromSuperview()
+                    }
+                case .processing:
+                    processingView = ProcessingView.createView()
+                    self?.view.addSubview(processingView!)
+                case .failure(let error):
+                    if let processingView = processingView {
+                        processingView.removeFromSuperview()
+                        self?.view.makeToast(error.localizedDescription)
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - ViewWillAppear
@@ -104,20 +128,11 @@ class AuthenticationViewController: UIViewController {
     
     // MARK: - Methods
     private func setupAnimation() {
+        // Background animation
         animationView.animation = Animation.named("authenticationScreenBackgroundAircraft")
         animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .loop
         animationView.play()
-        view.addSubview(animationView)
-    }
-    
-    
-    @IBAction func signInButtonTapped(_ sender: UIButton) {
-        //viewModel.signInWith(email: emailTextField.text!, password: passwordTextField.text!)
-    }
-    
-    @IBAction func signInWithGoogleTapped(_ sender: GIDSignInButton) {
-        //viewModel.signInWithGoogle()
     }
     
     deinit {
