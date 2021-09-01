@@ -1,97 +1,53 @@
 //
-//  AuthenticationViewController.swift
+//  ForgotPasswordViewController.swift
 //  ITechArtPracticeFlightRadar
 //
-//  Created by Yaroslav Karpulevich on 8/10/21.
+//  Created by Yaroslav Karpulevich on 9/1/21.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
-import GoogleSignIn
 import Lottie
-import Toast
 
-class AuthenticationViewController: UIViewController {
+class ForgotPasswordViewController: UIViewController {
     
     // MARK: - Properties
-    var viewModel: AuthenticationViewModelProtocol!
+    var viewModel: ForgotPasswordViewModelProtocol!
     let disposeBag = DisposeBag()
     
     // MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var invalidEmailFormatLabel: UILabel!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var insecurePasswordLabel: UILabel!
-    @IBOutlet weak var forgotPasswordButton: UIButton!
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var sendRequestButton: UIButton!
     @IBOutlet weak var animationView: AnimationView!
-    @IBOutlet weak var signInWithGoogle: GIDSignInButton!
     
-    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel
-            .email
-            .bind(to: emailTextField.rx.text)
-            .disposed(by: disposeBag)
-        
-        viewModel
-            .password
-            .bind(to: passwordTextField.rx.text)
-            .disposed(by: disposeBag)
-        
-        viewModel
-            .isSignInEnabled
-            .bind(to: signInButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-        
-        viewModel
-            .isSignInEnabled
-            .map { $0 ? .green : .gray }
-            .bind(to: signInButton.rx.backgroundColor)
-            .disposed(by: disposeBag)
-        
-        emailTextField
-            .rx
+        emailTextField.rx
             .text
             .orEmpty
             .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
             .bind(to: viewModel.email)
             .disposed(by: disposeBag)
         
-        passwordTextField
-            .rx
-            .text
-            .orEmpty
-            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
-            .bind(to: viewModel.password)
-            .disposed(by: disposeBag)
-        
-        signInButton
-            .rx
+        sendRequestButton.rx
             .tap
-            .bind(to: viewModel.signIn)
+            .bind(to: viewModel.sendResetRequest)
             .disposed(by: disposeBag)
         
-        // Invalid email format check
+        // Setting up the invalidEmailFormatLabel's isHidden property true or false
         viewModel
             .isEmailFormatValid
             .bind(to: invalidEmailFormatLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
-        // Password security check
+        // Setting up the sendRequestButton color
         viewModel
-            .isPasswordSecure
-            .bind(to: insecurePasswordLabel.rx.isHidden)
-            .disposed(by: disposeBag)
-        
-        // Authentication with Google
-        signInWithGoogle
-            .rx
-            .controlEvent(.touchUpInside)
-            .bind(to: viewModel.googleAuthentication)
+            .isSendResetRequestEnabled
+            .map { $0 ? .green : .gray }
+            .bind(to: sendRequestButton.rx.backgroundColor)
             .disposed(by: disposeBag)
         
         // State determination
@@ -117,19 +73,11 @@ class AuthenticationViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
-        // Forgot password
-        forgotPasswordButton.rx
-            .tap
-            .bind(to: viewModel.forgotPassword)
-            .disposed(by: disposeBag)
     }
     
-    // MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-        signInWithGoogle.style = .wide
+        navigationController?.navigationBar.isHidden = false
         setupAnimation()
     }
     
@@ -140,10 +88,6 @@ class AuthenticationViewController: UIViewController {
         animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .loop
         animationView.play()
-    }
-    
-    deinit {
-        print("AuthenticationViewController deinitialized")
     }
 
 }

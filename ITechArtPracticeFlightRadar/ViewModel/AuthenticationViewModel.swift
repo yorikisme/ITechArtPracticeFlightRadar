@@ -16,6 +16,7 @@ protocol AuthenticationViewModelProtocol {
     var password: BehaviorRelay<String> { get }
     var isSignInEnabled: BehaviorRelay<Bool> { get }
     var signIn: PublishRelay<Void> { get }
+    var forgotPassword: PublishRelay<Void> { get }
     var isEmailFormatValid: BehaviorRelay<Bool> { get }
     var isPasswordSecure: BehaviorRelay<Bool> { get }
     var googleAuthentication: PublishRelay<Void> { get }
@@ -32,6 +33,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     let password = BehaviorRelay<String>(value: "")
     let isSignInEnabled = BehaviorRelay<Bool>(value: false)
     let signIn = PublishRelay<Void>()
+    let forgotPassword = PublishRelay<Void>()
     let isEmailFormatValid = BehaviorRelay<Bool>(value: false)
     let isPasswordSecure = BehaviorRelay<Bool>(value: false)
     let googleAuthentication = PublishRelay<Void>()
@@ -94,6 +96,11 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         googleAuthentication
             .subscribe(onNext: { [weak self] in self?.signInWithGoogle() },
                        onError: { print($0.localizedDescription) })
+            .disposed(by: disposeBag)
+        
+        // Forgot password
+        forgotPassword
+            .subscribe(onNext: { coordinator.forgotPassword() })
             .disposed(by: disposeBag)
     }
     

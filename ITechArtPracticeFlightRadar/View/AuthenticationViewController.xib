@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="animationView" destination="Q00-XQ-D9T" id="TvZ-ez-t97"/>
                 <outlet property="emailTextField" destination="caj-Pj-vWJ" id="iAc-rK-719"/>
+                <outlet property="forgotPasswordButton" destination="vB3-IZ-C2X" id="MW2-eM-7F5"/>
                 <outlet property="insecurePasswordLabel" destination="VwE-Mp-fE2" id="6P6-Qp-8qf"/>
                 <outlet property="invalidEmailFormatLabel" destination="ovj-BC-2k7" id="a8v-6K-P3y"/>
                 <outlet property="passwordTextField" destination="ZGb-lb-aWe" id="hHl-u6-xS7"/>

@@ -11,6 +11,7 @@ import GoogleSignIn
 
 protocol AuthenticationCoordinatorProtocol: Coordinator {
     func signIn()
+    func forgotPassword()
     func signInWithGoogle(handler: @escaping (GIDGoogleUser?, Error?) -> Void)
 }
 
@@ -43,5 +44,10 @@ class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.signIn(with: config, presenting: navigationController, callback: handler)
+    }
+    
+    func forgotPassword() {
+        let forgotPasswordCoordinator = ForgotPasswordCoordinator(navigationController: navigationController)
+        forgotPasswordCoordinator.start()
     }
 }

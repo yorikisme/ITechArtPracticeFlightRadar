@@ -23,4 +23,20 @@ extension Reactive where Base: Auth {
             }
         }
     }
+    
+    func forgotPassword(email: String) -> Single<Void> {
+        return Single<Void>.create { observer in
+            self.base.sendPasswordReset(withEmail: email) { error in
+                if let error = error {
+                    observer(.failure(error))
+                    print(error.localizedDescription)
+                } else {
+                    observer(.success(Void()))
+                    print("Success")
+                }
+            }
+            return Disposables.create {
+            }
+        }
+    }
 }
