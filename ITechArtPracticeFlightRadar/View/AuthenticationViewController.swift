@@ -25,6 +25,7 @@ class AuthenticationViewController: UIViewController {
     @IBOutlet weak var insecurePasswordLabel: UILabel!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var signInWithGoogle: GIDSignInButton!
     
@@ -122,6 +123,12 @@ class AuthenticationViewController: UIViewController {
         forgotPasswordButton.rx
             .tap
             .bind(to: viewModel.forgotPassword)
+            .disposed(by: disposeBag)
+        
+        // Sign up with a personal email
+        signUpButton.rx
+            .tap
+            .bind(to: viewModel.signUp)
             .disposed(by: disposeBag)
     }
     

@@ -24,6 +24,20 @@ extension Reactive where Base: Auth {
         }
     }
     
+    func signUpWith(email: String, password: String) -> Single<AuthDataResult> {
+        return Single<AuthDataResult>.create { observer in
+            self.base.createUser(withEmail: email, password: password) { result, error in
+                if let result = result {
+                    observer(.success(result))
+                } else {
+                    observer(.failure(error ?? NSError()))
+                }
+            }
+            return Disposables.create {
+            }
+        }
+    }
+    
     func forgotPassword(email: String) -> Single<Void> {
         return Single<Void>.create { observer in
             self.base.sendPasswordReset(withEmail: email) { error in
@@ -32,11 +46,11 @@ extension Reactive where Base: Auth {
                     print(error.localizedDescription)
                 } else {
                     observer(.success(Void()))
-                    print("Success")
+                    print("Reset password letter sent")
                 }
             }
-            return Disposables.create {
-            }
+            return Disposables.create {}
         }
     }
+    
 }

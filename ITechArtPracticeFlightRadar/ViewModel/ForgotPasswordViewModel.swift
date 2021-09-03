@@ -35,6 +35,7 @@ class ForgotPasswordViewModel: ForgotPasswordViewModelProtocol {
     init(coordinator: ForgotPasswordCoordinatorProtocol) {
         self.coordinator = coordinator
         
+        // Shared instance of validated email
         let validatedEmail = email
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .map { ($0, $0.emailValid) }

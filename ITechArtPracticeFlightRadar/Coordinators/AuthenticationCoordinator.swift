@@ -11,6 +11,7 @@ import GoogleSignIn
 
 protocol AuthenticationCoordinatorProtocol: Coordinator {
     func signIn()
+    func signUp()
     func forgotPassword()
     func signInWithGoogle(handler: @escaping (GIDGoogleUser?, Error?) -> Void)
 }
@@ -34,6 +35,11 @@ class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
         let listOfFlightsViewCoordinator = ListOfFlightsCoordinator(navigationController: navigationController)
         childCoordinators.append(listOfFlightsViewCoordinator)
         listOfFlightsViewCoordinator.start()
+    }
+    
+    func signUp() {
+        let signUpCoordinator = SignUpCoordinator(navigationController: navigationController)
+        signUpCoordinator.start()
     }
     
     func signInWithGoogle(handler: @escaping (GIDGoogleUser?, Error?) -> Void) {

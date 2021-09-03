@@ -18,6 +18,7 @@
                 <outlet property="passwordTextField" destination="ZGb-lb-aWe" id="hHl-u6-xS7"/>
                 <outlet property="signInButton" destination="ze8-2W-zC5" id="xyZ-hd-WaK"/>
                 <outlet property="signInWithGoogle" destination="idL-aB-29M" id="ly5-V4-6Ja"/>
+                <outlet property="signUpButton" destination="crt-ik-utV" id="5gW-mU-7Jr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

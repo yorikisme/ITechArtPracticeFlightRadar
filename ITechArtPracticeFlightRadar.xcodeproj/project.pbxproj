@@ -21,6 +21,10 @@
 		B784068026C40E2500F5AF03 /* ListOfFlightsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */; };
 		B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784068126C40FCE00F5AF03 /* AuthenticationViewModel.swift */; };
 		B784068726C41BB400F5AF03 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B784068626C41BB400F5AF03 /* FirebaseAnalytics */; };
+		B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE46126E0C62E0019F860 /* SignUpViewController.swift */; };
+		B79DE46426E0C62E0019F860 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79DE46226E0C62E0019F860 /* SignUpViewController.xib */; };
+		B79DE46626E0C6450019F860 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE46526E0C6450019F860 /* SignUpViewModel.swift */; };
+		B79DE46826E0C6590019F860 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE46726E0C6590019F860 /* SignUpCoordinator.swift */; };
 		B7A4AF3F26C54619004B98FC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B7A4AF3E26C54619004B98FC /* GoogleSignIn */; };
 		B7A95B4C26C140B7009B1BA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95B4B26C140B7009B1BA8 /* AppDelegate.swift */; };
 		B7A95B4E26C140B7009B1BA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95B4D26C140B7009B1BA8 /* SceneDelegate.swift */; };
@@ -55,6 +59,10 @@
 		B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFlightsCoordinator.swift; sourceTree = "<group>"; };
 		B784068126C40FCE00F5AF03 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		B79DE46126E0C62E0019F860 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B79DE46226E0C62E0019F860 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		B79DE46526E0C6450019F860 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		B79DE46726E0C6590019F860 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		B7A95B4826C140B7009B1BA8 /* ITechArtPracticeFlightRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITechArtPracticeFlightRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A95B4B26C140B7009B1BA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7A95B4D26C140B7009B1BA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 				B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */,
 				B784067F26C40E2500F5AF03 /* ListOfFlightsCoordinator.swift */,
 				B77827FA26DFA88D0058ADD5 /* ForgotPasswordCoordinator.swift */,
+				B79DE46726E0C6590019F860 /* SignUpCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -176,6 +185,8 @@
 				B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */,
 				B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */,
 				B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */,
+				B79DE46126E0C62E0019F860 /* SignUpViewController.swift */,
+				B79DE46226E0C62E0019F860 /* SignUpViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 			children = (
 				B784068126C40FCE00F5AF03 /* AuthenticationViewModel.swift */,
 				B77827F826DFA8780058ADD5 /* ForgotPasswordViewModel.swift */,
+				B79DE46526E0C6450019F860 /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -276,6 +288,7 @@
 				B7A95B5826C140B8009B1BA8 /* LaunchScreen.storyboard in Resources */,
 				B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */,
 				B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */,
+				B79DE46426E0C62E0019F860 /* SignUpViewController.xib in Resources */,
 				B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */,
 				B7E5F2C626DD044B004010BF /* ProcessingStateView.xib in Resources */,
 				B7A9A6EB26D9137A005F559A /* spinner.json in Resources */,
@@ -291,15 +304,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77827F326DF9BEA0058ADD5 /* ObservableTypeExtensions.swift in Sources */,
+				B79DE46626E0C6450019F860 /* SignUpViewModel.swift in Sources */,
 				B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */,
 				B784068026C40E2500F5AF03 /* ListOfFlightsCoordinator.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
 				B7E5F2B626DCB732004010BF /* State.swift in Sources */,
 				B77827FB26DFA88D0058ADD5 /* ForgotPasswordCoordinator.swift in Sources */,
 				B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */,
+				B79DE46826E0C6590019F860 /* SignUpCoordinator.swift in Sources */,
 				B7A95B4C26C140B7009B1BA8 /* AppDelegate.swift in Sources */,
 				B7E5F2C426DD042C004010BF /* ProcessingView.swift in Sources */,
 				B7A95B4E26C140B7009B1BA8 /* SceneDelegate.swift in Sources */,
+				B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */,
 				B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */,
 				B77827F926DFA8780058ADD5 /* ForgotPasswordViewModel.swift in Sources */,
 				B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */,

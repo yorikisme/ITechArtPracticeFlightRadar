@@ -16,6 +16,7 @@ protocol AuthenticationViewModelProtocol {
     var password: BehaviorRelay<String> { get }
     var isSignInEnabled: BehaviorRelay<Bool> { get }
     var signIn: PublishRelay<Void> { get }
+    var signUp: PublishRelay<Void> { get }
     var forgotPassword: PublishRelay<Void> { get }
     var isEmailFormatValid: BehaviorRelay<Bool> { get }
     var isPasswordSecure: BehaviorRelay<Bool> { get }
@@ -33,6 +34,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     let password = BehaviorRelay<String>(value: "")
     let isSignInEnabled = BehaviorRelay<Bool>(value: false)
     let signIn = PublishRelay<Void>()
+    let signUp = PublishRelay<Void>()
     let forgotPassword = PublishRelay<Void>()
     let isEmailFormatValid = BehaviorRelay<Bool>(value: false)
     let isPasswordSecure = BehaviorRelay<Bool>(value: false)
@@ -41,6 +43,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     // MARK: - Initializers
     init(coordinator: AuthenticationCoordinator) {
         self.coordinator = coordinator
+        
         // Shared instance of validated email
         let validatedEmail = email
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
@@ -100,7 +103,12 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         
         // Forgot password
         forgotPassword
-            .subscribe(onNext: { coordinator.forgotPassword() })
+            .subscribe(onNext: { [coordinator] in coordinator.forgotPassword() })
+            .disposed(by: disposeBag)
+        
+        // Sign up with a personal email
+        signUp
+            .subscribe(onNext: { [coordinator] in coordinator.signUp() })
             .disposed(by: disposeBag)
     }
     
