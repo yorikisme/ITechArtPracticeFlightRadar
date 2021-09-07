@@ -9,9 +9,10 @@ import RxSwift
 import Firebase
 
 extension Reactive where Base: Auth {
+    
     func signInWith(email: String, password: String) -> Single<AuthDataResult>  {
         return Single<AuthDataResult>.create { observer in
-            self.base.signIn(withEmail: email, password: password) { result, error in
+            base.signIn(withEmail: email, password: password) { result, error in
                 if let result = result {
                     observer(.success(result))
                 } else {
@@ -26,7 +27,7 @@ extension Reactive where Base: Auth {
     
     func signUpWith(email: String, password: String) -> Single<AuthDataResult> {
         return Single<AuthDataResult>.create { observer in
-            self.base.createUser(withEmail: email, password: password) { result, error in
+            base.createUser(withEmail: email, password: password) { result, error in
                 if let result = result {
                     observer(.success(result))
                 } else {
@@ -40,7 +41,7 @@ extension Reactive where Base: Auth {
     
     func forgotPassword(email: String) -> Single<Void> {
         return Single<Void>.create { observer in
-            self.base.sendPasswordReset(withEmail: email) { error in
+            base.sendPasswordReset(withEmail: email) { error in
                 if let error = error {
                     observer(.failure(error))
                     print(error.localizedDescription)
@@ -48,6 +49,20 @@ extension Reactive where Base: Auth {
                     observer(.success(Void()))
                     print("Reset password letter sent")
                 }
+            }
+            return Disposables.create {}
+        }
+    }
+    
+    func signOut() -> Single<Void> {
+        return Single<Void>.create { observer in
+            do {
+                try base.signOut()
+                observer(.success(Void()))
+                print("Sign out success")
+            } catch {
+                observer(.failure(error))
+                print("Sign out error: \(error.localizedDescription)")
             }
             return Disposables.create {}
         }

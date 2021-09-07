@@ -13,6 +13,7 @@
 		B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */; };
 		B76A198126E7589F00B75EDE /* RadarDashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198026E7589F00B75EDE /* RadarDashboardCoordinator.swift */; };
 		B76A198326E758B800B75EDE /* RadarDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */; };
+		B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */; };
 		B77827F326DF9BEA0058ADD5 /* ObservableTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */; };
 		B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */; };
 		B77827F726DFA84F0058ADD5 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */; };
@@ -55,6 +56,7 @@
 		B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExtensions.swift; sourceTree = "<group>"; };
 		B76A198026E7589F00B75EDE /* RadarDashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarDashboardCoordinator.swift; sourceTree = "<group>"; };
 		B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarDashboardViewModel.swift; sourceTree = "<group>"; };
+		B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExtensions.swift; sourceTree = "<group>"; };
 		B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTypeExtensions.swift; sourceTree = "<group>"; };
 		B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				B766E34B26D62F5900798B6C /* StringExtensions.swift */,
 				B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */,
 				B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */,
+				B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				B76A198126E7589F00B75EDE /* RadarDashboardCoordinator.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
 				B7E5F2B626DCB732004010BF /* State.swift in Sources */,
+				B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */,
 				B77827FB26DFA88D0058ADD5 /* ForgotPasswordCoordinator.swift in Sources */,
 				B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */,
 				B77D40FD26E6595700BA945E /* RadarDashboardViewController.swift in Sources */,

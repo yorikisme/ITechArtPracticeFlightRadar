@@ -42,7 +42,11 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     
     // MARK: - Initializers
     init(coordinator: AuthenticationCoordinator) {
+        
         self.coordinator = coordinator
+        Auth.auth().addStateDidChangeListener { auth, user in
+            print(auth.currentUser?.email ?? "No current user")
+        }
         
         // Shared instance of validated email
         let validatedEmail = email

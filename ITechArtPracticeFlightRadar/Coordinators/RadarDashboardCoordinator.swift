@@ -8,6 +8,7 @@
 import UIKit
 
 protocol RadarDashboardCoordinatorProtocol: Coordinator {
+    func signOut()
 }
 
 class RadarDashboardCoordinator: RadarDashboardCoordinatorProtocol {
@@ -26,7 +27,8 @@ class RadarDashboardCoordinator: RadarDashboardCoordinatorProtocol {
         navigationController.pushViewController(radarDashboardViewController, animated: true)
     }
     
-
-    
+    func signOut() {
+        navigationController.popViewController(animated: true)
+    }
     
 }

@@ -22,9 +22,13 @@ class AppCoordinator: Coordinator {
     
     func start() {
         let navigationController = UINavigationController()
-        let authenticationCoordinator = AuthenticationCoordinator(navigationController: navigationController)
-        childCoordinators.append(authenticationCoordinator)
-        authenticationCoordinator.start()
+        //let authenticationCoordinator = AuthenticationCoordinator(navigationController: navigationController)
+        //childCoordinators.append(authenticationCoordinator)
+        //authenticationCoordinator.start()
+        
+        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController)
+        radarDashboardCoordinator.start()
+        
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
