@@ -30,7 +30,8 @@ class SignUpCoordinator: SignUpCoordinatorProtocol {
     }
     
     func signUp() {
-        print("Signed up")
+        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController)
+        radarDashboardCoordinator.start()
     }
     
     func sendVerificationLetter(completion: @escaping (Error?) -> Void) {

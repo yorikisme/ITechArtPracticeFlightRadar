@@ -32,9 +32,8 @@ class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
     }
     
     func signIn() {
-        let listOfFlightsViewCoordinator = ListOfFlightsCoordinator(navigationController: navigationController)
-        childCoordinators.append(listOfFlightsViewCoordinator)
-        listOfFlightsViewCoordinator.start()
+        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController)
+        radarDashboardCoordinator.start()
     }
     
     func signUp() {
