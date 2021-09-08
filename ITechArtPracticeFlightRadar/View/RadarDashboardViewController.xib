@@ -37,7 +37,7 @@
                     <state key="normal" backgroundImage="gearshape" catalog="system"/>
                 </button>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kji-vY-iUG">
-                    <rect key="frame" x="20" y="93" width="374" height="769"/>
+                    <rect key="frame" x="20" y="93" width="374" height="516"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </mapView>
             </subviews>

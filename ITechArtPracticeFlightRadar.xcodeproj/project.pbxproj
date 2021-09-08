@@ -14,6 +14,7 @@
 		B76A198126E7589F00B75EDE /* RadarDashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198026E7589F00B75EDE /* RadarDashboardCoordinator.swift */; };
 		B76A198326E758B800B75EDE /* RadarDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */; };
 		B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */; };
+		B76A198726E78FA500B75EDE /* CoordinateRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */; };
 		B77827F326DF9BEA0058ADD5 /* ObservableTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */; };
 		B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */; };
 		B77827F726DFA84F0058ADD5 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */; };
@@ -25,6 +26,8 @@
 		B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */; };
 		B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B784068126C40FCE00F5AF03 /* AuthenticationViewModel.swift */; };
 		B784068726C41BB400F5AF03 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B784068626C41BB400F5AF03 /* FirebaseAnalytics */; };
+		B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79039E726E8C1BD000908AD /* RxMapViewDelegateProxy.swift */; };
+		B79039EA26E8C27F000908AD /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79039E926E8C27F000908AD /* MKMapView+Rx.swift */; };
 		B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE46126E0C62E0019F860 /* SignUpViewController.swift */; };
 		B79DE46426E0C62E0019F860 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79DE46226E0C62E0019F860 /* SignUpViewController.xib */; };
 		B79DE46626E0C6450019F860 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE46526E0C6450019F860 /* SignUpViewModel.swift */; };
@@ -57,6 +60,7 @@
 		B76A198026E7589F00B75EDE /* RadarDashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarDashboardCoordinator.swift; sourceTree = "<group>"; };
 		B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarDashboardViewModel.swift; sourceTree = "<group>"; };
 		B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExtensions.swift; sourceTree = "<group>"; };
+		B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateRectangle.swift; sourceTree = "<group>"; };
 		B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTypeExtensions.swift; sourceTree = "<group>"; };
 		B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 		B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		B784068126C40FCE00F5AF03 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		B79039E726E8C1BD000908AD /* RxMapViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMapViewDelegateProxy.swift; sourceTree = "<group>"; };
+		B79039E926E8C27F000908AD /* MKMapView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
 		B79DE46126E0C62E0019F860 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B79DE46226E0C62E0019F860 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		B79DE46526E0C6450019F860 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +116,8 @@
 				B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */,
 				B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */,
 				B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */,
+				B79039E726E8C1BD000908AD /* RxMapViewDelegateProxy.swift */,
+				B79039E926E8C27F000908AD /* MKMapView+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -181,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				B7E5F2B526DCB732004010BF /* State.swift */,
+				B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,8 +328,10 @@
 				B77827F326DF9BEA0058ADD5 /* ObservableTypeExtensions.swift in Sources */,
 				B79DE46626E0C6450019F860 /* SignUpViewModel.swift in Sources */,
 				B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */,
+				B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */,
 				B76A198126E7589F00B75EDE /* RadarDashboardCoordinator.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
+				B76A198726E78FA500B75EDE /* CoordinateRectangle.swift in Sources */,
 				B7E5F2B626DCB732004010BF /* State.swift in Sources */,
 				B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */,
 				B77827FB26DFA88D0058ADD5 /* ForgotPasswordCoordinator.swift in Sources */,
@@ -333,6 +344,7 @@
 				B7A95B4E26C140B7009B1BA8 /* SceneDelegate.swift in Sources */,
 				B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */,
 				B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */,
+				B79039EA26E8C27F000908AD /* MKMapView+Rx.swift in Sources */,
 				B77827F926DFA8780058ADD5 /* ForgotPasswordViewModel.swift in Sources */,
 				B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */,
 				B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */,
