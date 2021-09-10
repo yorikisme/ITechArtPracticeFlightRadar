@@ -19,9 +19,11 @@ protocol AuthenticationCoordinatorProtocol: Coordinator {
 class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
     var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
+    let service: ServiceProtocol
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, service: ServiceProtocol) {
         self.navigationController = navigationController
+        self.service = service
     }
     
     func start() {
@@ -32,12 +34,12 @@ class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
     }
     
     func signIn() {
-        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController)
+        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController, service: service)
         radarDashboardCoordinator.start()
     }
     
     func signUp() {
-        let signUpCoordinator = SignUpCoordinator(navigationController: navigationController)
+        let signUpCoordinator = SignUpCoordinator(navigationController: navigationController, service: service)
         signUpCoordinator.start()
     }
     
@@ -52,7 +54,7 @@ class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
     }
     
     func forgotPassword() {
-        let forgotPasswordCoordinator = ForgotPasswordCoordinator(navigationController: navigationController)
+        let forgotPasswordCoordinator = ForgotPasswordCoordinator(navigationController: navigationController, service: service)
         forgotPasswordCoordinator.start()
     }
 }

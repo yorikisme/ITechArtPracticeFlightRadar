@@ -15,14 +15,16 @@ class RadarDashboardCoordinator: RadarDashboardCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
+    let service: ServiceProtocol
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, service: ServiceProtocol) {
         self.navigationController = navigationController
+        self.service = service
     }
     
     func start() {
         let radarDashboardViewController = RadarDashboardViewController()
-        let radarDashboardViewModel = RadarDashboardViewModel(coordinator: self)
+        let radarDashboardViewModel = RadarDashboardViewModel(coordinator: self, service: service)
         radarDashboardViewController.viewModel = radarDashboardViewModel
         navigationController.pushViewController(radarDashboardViewController, animated: true)
     }

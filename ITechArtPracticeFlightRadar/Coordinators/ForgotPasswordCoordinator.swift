@@ -18,7 +18,7 @@ class ForgotPasswordCoordinator: ForgotPasswordCoordinatorProtocol {
     var childCoordinators: [Coordinator] = []
     
     let navigationController: UINavigationController
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, service: ServiceProtocol) {
         self.navigationController = navigationController
     }
     

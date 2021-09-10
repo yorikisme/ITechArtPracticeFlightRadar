@@ -18,6 +18,7 @@ open class RxMapViewDelegateProxy: DelegateProxy<MKMapView, MKMapViewDelegate>,
                                         MKMapViewDelegate {
     
     internal let resultsSubject = PublishSubject<MKCoordinateRegion>()
+    internal let pins = PublishSubject<MKAnnotationView>()
     
     /// Typed parent object.
     public weak private(set) var mapView: MKMapView?
@@ -35,6 +36,13 @@ open class RxMapViewDelegateProxy: DelegateProxy<MKMapView, MKMapViewDelegate>,
     
     public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         resultsSubject.on(.next(mapView.region))
+    }
+    
+    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        pin.canShowCallout = true
+        pin.image = UIImage(systemName: "airplane.circle")
+        return pin
     }
     
 }

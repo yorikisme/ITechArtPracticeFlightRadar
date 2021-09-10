@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B72FF43E26EB511C00BC6EE1 /* MyJSON2.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF43D26EB511C00BC6EE1 /* MyJSON2.json */; };
+		B72FF44026EB585A00BC6EE1 /* MyJSON3.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF43F26EB585A00BC6EE1 /* MyJSON3.json */; };
+		B72FF44226EB587300BC6EE1 /* MyJSON4.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF44126EB587300BC6EE1 /* MyJSON4.json */; };
+		B72FF44426EB588700BC6EE1 /* MyJSON5.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF44326EB588700BC6EE1 /* MyJSON5.json */; };
+		B72FF44626EB58CD00BC6EE1 /* MyJSON6.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF44526EB58CD00BC6EE1 /* MyJSON6.json */; };
+		B72FF44826EB58DA00BC6EE1 /* MyJSON7.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF44726EB58DA00BC6EE1 /* MyJSON7.json */; };
+		B72FF44A26EB6E9900BC6EE1 /* MyJSON8.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF44926EB6E9900BC6EE1 /* MyJSON8.json */; };
+		B72FF44C26EB6EA800BC6EE1 /* MyJSON9.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF44B26EB6EA800BC6EE1 /* MyJSON9.json */; };
+		B72FF44E26EB6EFE00BC6EE1 /* MyJSON10.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF44D26EB6EFE00BC6EE1 /* MyJSON10.json */; };
+		B72FF45026EB6F0D00BC6EE1 /* MyJSON11.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF44F26EB6F0D00BC6EE1 /* MyJSON11.json */; };
+		B72FF45226EB6F2100BC6EE1 /* MyJSON12.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45126EB6F2100BC6EE1 /* MyJSON12.json */; };
+		B72FF45426EB6F2E00BC6EE1 /* MyJSON13.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */; };
+		B72FF45626EB6F3900BC6EE1 /* MyJSON14.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */; };
 		B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */; };
 		B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */; };
 		B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34B26D62F5900798B6C /* StringExtensions.swift */; };
@@ -28,6 +41,7 @@
 		B784068726C41BB400F5AF03 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B784068626C41BB400F5AF03 /* FirebaseAnalytics */; };
 		B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79039E726E8C1BD000908AD /* RxMapViewDelegateProxy.swift */; };
 		B79039EA26E8C27F000908AD /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79039E926E8C27F000908AD /* MKMapView+Rx.swift */; };
+		B79039EC26E8ED6C000908AD /* FlightInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79039EB26E8ED6C000908AD /* FlightInfo.swift */; };
 		B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE46126E0C62E0019F860 /* SignUpViewController.swift */; };
 		B79DE46426E0C62E0019F860 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79DE46226E0C62E0019F860 /* SignUpViewController.xib */; };
 		B79DE46626E0C6450019F860 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE46526E0C6450019F860 /* SignUpViewModel.swift */; };
@@ -42,6 +56,10 @@
 		B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */; };
 		B7A9A6EB26D9137A005F559A /* spinner.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A9A6EA26D9137A005F559A /* spinner.json */; };
 		B7AFC5BF26CA5781004EE523 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B7AFC5BE26CA5781004EE523 /* Toast */; };
+		B7C0855F26EA01A80001C807 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B7C0855E26EA01A80001C807 /* Alamofire */; };
+		B7C0856226EA02750001C807 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C0856126EA02750001C807 /* NetworkManager.swift */; };
+		B7C0856426EA05D40001C807 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C0856326EA05D40001C807 /* Service.swift */; };
+		B7C0856C26EA5A2C0001C807 /* MyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = B7C0856B26EA5A2C0001C807 /* MyJSON.json */; };
 		B7D753FB26C15ABC0048F67E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7D753FA26C15ABC0048F67E /* Lottie */; };
 		B7E5F2B626DCB732004010BF /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E5F2B526DCB732004010BF /* State.swift */; };
 		B7E5F2C426DD042C004010BF /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E5F2C326DD042C004010BF /* ProcessingView.swift */; };
@@ -53,6 +71,19 @@
 
 /* Begin PBXFileReference section */
 		B7239A8B26C42FA40042C017 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B72FF43D26EB511C00BC6EE1 /* MyJSON2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON2.json; sourceTree = "<group>"; };
+		B72FF43F26EB585A00BC6EE1 /* MyJSON3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON3.json; sourceTree = "<group>"; };
+		B72FF44126EB587300BC6EE1 /* MyJSON4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON4.json; sourceTree = "<group>"; };
+		B72FF44326EB588700BC6EE1 /* MyJSON5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON5.json; sourceTree = "<group>"; };
+		B72FF44526EB58CD00BC6EE1 /* MyJSON6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON6.json; sourceTree = "<group>"; };
+		B72FF44726EB58DA00BC6EE1 /* MyJSON7.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON7.json; sourceTree = "<group>"; };
+		B72FF44926EB6E9900BC6EE1 /* MyJSON8.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON8.json; sourceTree = "<group>"; };
+		B72FF44B26EB6EA800BC6EE1 /* MyJSON9.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON9.json; sourceTree = "<group>"; };
+		B72FF44D26EB6EFE00BC6EE1 /* MyJSON10.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON10.json; sourceTree = "<group>"; };
+		B72FF44F26EB6F0D00BC6EE1 /* MyJSON11.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON11.json; sourceTree = "<group>"; };
+		B72FF45126EB6F2100BC6EE1 /* MyJSON12.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON12.json; sourceTree = "<group>"; };
+		B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON13.json; sourceTree = "<group>"; };
+		B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON14.json; sourceTree = "<group>"; };
 		B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
 		B766E34B26D62F5900798B6C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -73,6 +104,7 @@
 		B784068126C40FCE00F5AF03 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		B79039E726E8C1BD000908AD /* RxMapViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMapViewDelegateProxy.swift; sourceTree = "<group>"; };
 		B79039E926E8C27F000908AD /* MKMapView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
+		B79039EB26E8ED6C000908AD /* FlightInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfo.swift; sourceTree = "<group>"; };
 		B79DE46126E0C62E0019F860 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B79DE46226E0C62E0019F860 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		B79DE46526E0C6450019F860 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -85,6 +117,9 @@
 		B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authenticationScreenBackgroundAircraft.json; sourceTree = "<group>"; };
 		B7A9A6EA26D9137A005F559A /* spinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spinner.json; sourceTree = "<group>"; };
+		B7C0856126EA02750001C807 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B7C0856326EA05D40001C807 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		B7C0856B26EA5A2C0001C807 /* MyJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON.json; sourceTree = "<group>"; };
 		B7E5F2B526DCB732004010BF /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		B7E5F2C326DD042C004010BF /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 		B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProcessingStateView.xib; sourceTree = "<group>"; };
@@ -95,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C0855F26EA01A80001C807 /* Alamofire in Frameworks */,
 				B7EB6F4C26CBD45000104EDF /* RxRelay in Frameworks */,
 				B7A95B6926C147E2009B1BA8 /* FirebaseAuth in Frameworks */,
 				B7A4AF3F26C54619004B98FC /* GoogleSignIn in Frameworks */,
@@ -144,6 +180,20 @@
 		B7A95B3F26C140B7009B1BA8 = {
 			isa = PBXGroup;
 			children = (
+				B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */,
+				B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */,
+				B72FF45126EB6F2100BC6EE1 /* MyJSON12.json */,
+				B72FF44F26EB6F0D00BC6EE1 /* MyJSON11.json */,
+				B72FF44D26EB6EFE00BC6EE1 /* MyJSON10.json */,
+				B72FF44B26EB6EA800BC6EE1 /* MyJSON9.json */,
+				B72FF44926EB6E9900BC6EE1 /* MyJSON8.json */,
+				B72FF44726EB58DA00BC6EE1 /* MyJSON7.json */,
+				B72FF44526EB58CD00BC6EE1 /* MyJSON6.json */,
+				B72FF44326EB588700BC6EE1 /* MyJSON5.json */,
+				B72FF44126EB587300BC6EE1 /* MyJSON4.json */,
+				B72FF43F26EB585A00BC6EE1 /* MyJSON3.json */,
+				B72FF43D26EB511C00BC6EE1 /* MyJSON2.json */,
+				B7C0856B26EA5A2C0001C807 /* MyJSON.json */,
 				B7A95B4A26C140B7009B1BA8 /* ITechArtPracticeFlightRadar */,
 				B7A95B4926C140B7009B1BA8 /* Products */,
 				B784068526C41BB400F5AF03 /* Frameworks */,
@@ -165,6 +215,7 @@
 				B7A95B6126C14112009B1BA8 /* View */,
 				B7A95B6226C14119009B1BA8 /* ViewModel */,
 				B784067C26C3E12F00F5AF03 /* Coordinators */,
+				B7C0856026EA02410001C807 /* Services */,
 				B766E34D26D62F5D00798B6C /* Extensions */,
 				B7D753FE26C161660048F67E /* Animations */,
 				B7A95B5F26C140DC009B1BA8 /* SupportingFiles */,
@@ -190,6 +241,7 @@
 			children = (
 				B7E5F2B526DCB732004010BF /* State.swift */,
 				B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */,
+				B79039EB26E8ED6C000908AD /* FlightInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +272,15 @@
 				B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B7C0856026EA02410001C807 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B7C0856126EA02750001C807 /* NetworkManager.swift */,
+				B7C0856326EA05D40001C807 /* Service.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B7D753FE26C161660048F67E /* Animations */ = {
@@ -256,6 +317,7 @@
 				B7EB6F4B26CBD45000104EDF /* RxRelay */,
 				B7EB6F4D26CBD45000104EDF /* RxSwift */,
 				B7EB6F4F26CBD45000104EDF /* RxCocoa */,
+				B7C0855E26EA01A80001C807 /* Alamofire */,
 			);
 			productName = ITechArtPracticeFlightRadar;
 			productReference = B7A95B4826C140B7009B1BA8 /* ITechArtPracticeFlightRadar.app */;
@@ -290,6 +352,7 @@
 				B7A4AF3D26C54619004B98FC /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				B7AFC5BD26CA5781004EE523 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				B7EB6F4A26CBD45000104EDF /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B7C0855D26EA01A80001C807 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B7A95B4926C140B7009B1BA8 /* Products */;
 			projectDirPath = "";
@@ -306,14 +369,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77827F726DFA84F0058ADD5 /* ForgotPasswordViewController.xib in Resources */,
+				B72FF44C26EB6EA800BC6EE1 /* MyJSON9.json in Resources */,
+				B72FF45226EB6F2100BC6EE1 /* MyJSON12.json in Resources */,
 				B7A95B5826C140B8009B1BA8 /* LaunchScreen.storyboard in Resources */,
+				B72FF45426EB6F2E00BC6EE1 /* MyJSON13.json in Resources */,
 				B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */,
+				B7C0856C26EA5A2C0001C807 /* MyJSON.json in Resources */,
 				B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */,
 				B79DE46426E0C62E0019F860 /* SignUpViewController.xib in Resources */,
+				B72FF44A26EB6E9900BC6EE1 /* MyJSON8.json in Resources */,
+				B72FF43E26EB511C00BC6EE1 /* MyJSON2.json in Resources */,
 				B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */,
 				B7E5F2C626DD044B004010BF /* ProcessingStateView.xib in Resources */,
 				B7A9A6EB26D9137A005F559A /* spinner.json in Resources */,
+				B72FF44826EB58DA00BC6EE1 /* MyJSON7.json in Resources */,
+				B72FF44626EB58CD00BC6EE1 /* MyJSON6.json in Resources */,
+				B72FF44026EB585A00BC6EE1 /* MyJSON3.json in Resources */,
 				B77D40FE26E6595700BA945E /* RadarDashboardViewController.xib in Resources */,
+				B72FF45626EB6F3900BC6EE1 /* MyJSON14.json in Resources */,
+				B72FF44426EB588700BC6EE1 /* MyJSON5.json in Resources */,
+				B72FF44226EB587300BC6EE1 /* MyJSON4.json in Resources */,
+				B72FF45026EB6F0D00BC6EE1 /* MyJSON11.json in Resources */,
+				B72FF44E26EB6EFE00BC6EE1 /* MyJSON10.json in Resources */,
 				B7A95B5526C140B8009B1BA8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,10 +402,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79039EC26E8ED6C000908AD /* FlightInfo.swift in Sources */,
 				B77827F326DF9BEA0058ADD5 /* ObservableTypeExtensions.swift in Sources */,
 				B79DE46626E0C6450019F860 /* SignUpViewModel.swift in Sources */,
 				B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */,
 				B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */,
+				B7C0856426EA05D40001C807 /* Service.swift in Sources */,
 				B76A198126E7589F00B75EDE /* RadarDashboardCoordinator.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
 				B76A198726E78FA500B75EDE /* CoordinateRectangle.swift in Sources */,
@@ -340,6 +419,7 @@
 				B76A198326E758B800B75EDE /* RadarDashboardViewModel.swift in Sources */,
 				B79DE46826E0C6590019F860 /* SignUpCoordinator.swift in Sources */,
 				B7A95B4C26C140B7009B1BA8 /* AppDelegate.swift in Sources */,
+				B7C0856226EA02750001C807 /* NetworkManager.swift in Sources */,
 				B7E5F2C426DD042C004010BF /* ProcessingView.swift in Sources */,
 				B7A95B4E26C140B7009B1BA8 /* SceneDelegate.swift in Sources */,
 				B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */,
@@ -568,6 +648,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		B7C0855D26EA01A80001C807 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
 		B7D753F926C15ABC0048F67E /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -606,6 +694,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7AFC5BD26CA5781004EE523 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		B7C0855E26EA01A80001C807 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7C0855D26EA01A80001C807 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		B7D753FA26C15ABC0048F67E /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

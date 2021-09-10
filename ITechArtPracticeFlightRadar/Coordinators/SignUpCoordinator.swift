@@ -16,10 +16,12 @@ protocol SignUpCoordinatorProtocol: Coordinator {
 class SignUpCoordinator: SignUpCoordinatorProtocol {
     
     var childCoordinators: [Coordinator] = []
-    
     let navigationController: UINavigationController
-    init(navigationController: UINavigationController) {
+    let service: ServiceProtocol
+    
+    init(navigationController: UINavigationController, service: ServiceProtocol) {
         self.navigationController = navigationController
+        self.service = service
     }
     
     func start() {
@@ -30,7 +32,7 @@ class SignUpCoordinator: SignUpCoordinatorProtocol {
     }
     
     func signUp() {
-        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController)
+        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController, service: service)
         radarDashboardCoordinator.start()
     }
     

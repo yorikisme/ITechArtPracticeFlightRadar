@@ -15,6 +15,7 @@ protocol Coordinator {
 class AppCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     let window: UIWindow
+    let service: ServiceProtocol = Service()
     
     init(window: UIWindow) {
         self.window = window
@@ -22,11 +23,12 @@ class AppCoordinator: Coordinator {
     
     func start() {
         let navigationController = UINavigationController()
-        //let authenticationCoordinator = AuthenticationCoordinator(navigationController: navigationController)
-        //childCoordinators.append(authenticationCoordinator)
-        //authenticationCoordinator.start()
+//        let authenticationCoordinator = AuthenticationCoordinator(navigationController: navigationController, service: service)
+//        childCoordinators.append(authenticationCoordinator)
+//        authenticationCoordinator.start()
         
-        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController)
+        // Temporary plug
+        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController, service: service)
         radarDashboardCoordinator.start()
         
         window.rootViewController = navigationController
