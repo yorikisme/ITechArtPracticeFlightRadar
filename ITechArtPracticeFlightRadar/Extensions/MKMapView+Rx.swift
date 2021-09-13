@@ -32,4 +32,9 @@ extension Reactive where Base: MKMapView {
         let proxy = RxMapViewDelegateProxy.proxy(for: base)
         return proxy.resultsSubject.asObservable()
     }
+    
+    public var viewForAnnotation: Observable<MKAnnotationView> {
+        let proxy = RxMapViewDelegateProxy.proxy(for: base)
+        return proxy.pins.asObservable()
+    }
 }

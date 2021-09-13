@@ -40,9 +40,24 @@ open class RxMapViewDelegateProxy: DelegateProxy<MKMapView, MKMapViewDelegate>,
     
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
-        pin.canShowCallout = true
-        pin.image = UIImage(systemName: "airplane.circle")
+        pins.on(.next(pin))
         return pin
     }
     
+}
+
+extension UIImage {
+    func rotatedBy(degree: CGFloat) -> UIImage? {
+        guard let cgImage = cgImage else { return nil }
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        defer { UIGraphicsEndImageContext() }
+        UIColor.white.setFill()
+        context.fill(.init(origin: .zero, size: size))
+        context.translateBy(x: size.width/2, y: size.height/2)
+        context.scaleBy(x: 1, y: -1)
+        context.rotate(by: -degree * .pi / 180)
+        context.draw(cgImage, in: CGRect(origin: .init(x: -size.width/2, y: -size.height/2), size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 }

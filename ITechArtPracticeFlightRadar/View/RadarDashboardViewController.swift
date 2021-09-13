@@ -19,11 +19,12 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Outlets
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
         
         // Sign out
         signOutButton.rx
@@ -38,22 +39,30 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
             .disposed(by: disposeBag)
         
         // Getting the coordinates of the visible box region on the map
-        map.rx
+        mapView.rx
             .didViewDidChangeVisibleRegion
             .map { CoordinateRectangle(region: $0) }
             .bind(to: viewModel.coordinates)
             .disposed(by: disposeBag)
         
-        // Positioning aircraft on the map
-        viewModel
-            .aircrafts
+        // Adding pins on the map
+        viewModel.aircrafts
             .map { [weak self] in
-                if let pins = self?.map.annotations { self?.map.removeAnnotations(pins) }
-                $0.forEach { aircraft in
-                    self?.addAircraftPinWith(transponder: aircraft.transponderIdentifier, flightNumber: aircraft.callsign ?? "No flight number", lat: CLLocationDegrees(aircraft.latitude ?? 0), lon: CLLocationDegrees(aircraft.longitude ?? 0))
-                }
+                $0.forEach({self?.addAircraftPinWith(transponder: $0.transponderIdentifier, flightNumber: $0.callsign ?? "No callsign", lat: CLLocationDegrees($0.latitude ?? 0), lon: CLLocationDegrees($0.longitude ?? 0), course: $0.course ?? 0)})
             }
             .subscribe()
+            .disposed(by: disposeBag)
+        
+        // Change standard pins to aircraft symbols and set their course
+        mapView.rx.viewForAnnotation
+            .withLatestFrom(viewModel.aircrafts, resultSelector: { return ($0, $1) })
+            .subscribe { pin, aircrafts in
+                if let aircraft = aircrafts.first(where: { aircraft in
+                    aircraft.transponderIdentifier == pin.annotation?.title
+                }) {
+                    pin.image = UIImage(systemName: "airplane")?.rotatedBy(degree: CGFloat(aircraft.course ?? 0))
+                }
+            }
             .disposed(by: disposeBag)
     }
     
@@ -63,16 +72,16 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
         let coordinates = CLLocationCoordinate2DMake(53.9036, 27.5593)
         let span = MKCoordinateSpan(latitudeDelta: 8, longitudeDelta: 8)
         let region = MKCoordinateRegion(center: coordinates, span: span)
-        map.setRegion(region, animated: true)
+        mapView.setRegion(region, animated: true)
     }
     
-    func addAircraftPinWith(transponder: String, flightNumber: String, lat: CLLocationDegrees, lon: CLLocationDegrees) {
+    func addAircraftPinWith(transponder: String, flightNumber: String, lat: CLLocationDegrees, lon: CLLocationDegrees, course: Float) {
         let pin = MKPointAnnotation()
         let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         pin.coordinate = coordinates
         pin.title = transponder
         pin.subtitle = flightNumber
-        map.addAnnotation(pin)
+        mapView.addAnnotation(pin)
     }
 
 }
