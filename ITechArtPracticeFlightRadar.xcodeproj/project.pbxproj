@@ -53,6 +53,10 @@
 		B7A95B5826C140B8009B1BA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B5626C140B8009B1BA8 /* LaunchScreen.storyboard */; };
 		B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */; };
 		B7A95B6926C147E2009B1BA8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7A95B6826C147E2009B1BA8 /* FirebaseAuth */; };
+		B7A95C0226EBA4EB00687210 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95C0026EBA4EB00687210 /* SettingsViewController.swift */; };
+		B7A95C0326EBA4EB00687210 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7A95C0126EBA4EB00687210 /* SettingsViewController.xib */; };
+		B7A95C0526EBA4FC00687210 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95C0426EBA4FC00687210 /* SettingsViewModel.swift */; };
+		B7A95C0726EBA54500687210 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95C0626EBA54500687210 /* SettingsCoordinator.swift */; };
 		B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */; };
 		B7A9A6EB26D9137A005F559A /* spinner.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A9A6EA26D9137A005F559A /* spinner.json */; };
 		B7AFC5BF26CA5781004EE523 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B7AFC5BE26CA5781004EE523 /* Toast */; };
@@ -115,6 +119,10 @@
 		B7A95B5426C140B8009B1BA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7A95B5726C140B8009B1BA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7A95C0026EBA4EB00687210 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B7A95C0126EBA4EB00687210 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		B7A95C0426EBA4FC00687210 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		B7A95C0626EBA54500687210 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authenticationScreenBackgroundAircraft.json; sourceTree = "<group>"; };
 		B7A9A6EA26D9137A005F559A /* spinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spinner.json; sourceTree = "<group>"; };
 		B7C0856126EA02750001C807 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -166,6 +174,7 @@
 				B77827FA26DFA88D0058ADD5 /* ForgotPasswordCoordinator.swift */,
 				B79DE46726E0C6590019F860 /* SignUpCoordinator.swift */,
 				B76A198026E7589F00B75EDE /* RadarDashboardCoordinator.swift */,
+				B7A95C0626EBA54500687210 /* SettingsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -180,20 +189,7 @@
 		B7A95B3F26C140B7009B1BA8 = {
 			isa = PBXGroup;
 			children = (
-				B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */,
-				B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */,
-				B72FF45126EB6F2100BC6EE1 /* MyJSON12.json */,
-				B72FF44F26EB6F0D00BC6EE1 /* MyJSON11.json */,
-				B72FF44D26EB6EFE00BC6EE1 /* MyJSON10.json */,
-				B72FF44B26EB6EA800BC6EE1 /* MyJSON9.json */,
-				B72FF44926EB6E9900BC6EE1 /* MyJSON8.json */,
-				B72FF44726EB58DA00BC6EE1 /* MyJSON7.json */,
-				B72FF44526EB58CD00BC6EE1 /* MyJSON6.json */,
-				B72FF44326EB588700BC6EE1 /* MyJSON5.json */,
-				B72FF44126EB587300BC6EE1 /* MyJSON4.json */,
-				B72FF43F26EB585A00BC6EE1 /* MyJSON3.json */,
-				B72FF43D26EB511C00BC6EE1 /* MyJSON2.json */,
-				B7C0856B26EA5A2C0001C807 /* MyJSON.json */,
+				B7A95BFF26EBA42E00687210 /* PlugJSON */,
 				B7A95B4A26C140B7009B1BA8 /* ITechArtPracticeFlightRadar */,
 				B7A95B4926C140B7009B1BA8 /* Products */,
 				B784068526C41BB400F5AF03 /* Frameworks */,
@@ -259,6 +255,8 @@
 				B79DE46226E0C62E0019F860 /* SignUpViewController.xib */,
 				B77D40FB26E6595700BA945E /* RadarDashboardViewController.swift */,
 				B77D40FC26E6595700BA945E /* RadarDashboardViewController.xib */,
+				B7A95C0026EBA4EB00687210 /* SettingsViewController.swift */,
+				B7A95C0126EBA4EB00687210 /* SettingsViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,8 +268,30 @@
 				B77827F826DFA8780058ADD5 /* ForgotPasswordViewModel.swift */,
 				B79DE46526E0C6450019F860 /* SignUpViewModel.swift */,
 				B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */,
+				B7A95C0426EBA4FC00687210 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B7A95BFF26EBA42E00687210 /* PlugJSON */ = {
+			isa = PBXGroup;
+			children = (
+				B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */,
+				B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */,
+				B72FF45126EB6F2100BC6EE1 /* MyJSON12.json */,
+				B72FF44F26EB6F0D00BC6EE1 /* MyJSON11.json */,
+				B72FF44D26EB6EFE00BC6EE1 /* MyJSON10.json */,
+				B72FF44B26EB6EA800BC6EE1 /* MyJSON9.json */,
+				B72FF44926EB6E9900BC6EE1 /* MyJSON8.json */,
+				B72FF44726EB58DA00BC6EE1 /* MyJSON7.json */,
+				B72FF44526EB58CD00BC6EE1 /* MyJSON6.json */,
+				B72FF44326EB588700BC6EE1 /* MyJSON5.json */,
+				B72FF44126EB587300BC6EE1 /* MyJSON4.json */,
+				B72FF43F26EB585A00BC6EE1 /* MyJSON3.json */,
+				B72FF43D26EB511C00BC6EE1 /* MyJSON2.json */,
+				B7C0856B26EA5A2C0001C807 /* MyJSON.json */,
+			);
+			name = PlugJSON;
 			sourceTree = "<group>";
 		};
 		B7C0856026EA02410001C807 /* Services */ = {
@@ -377,6 +397,7 @@
 				B7C0856C26EA5A2C0001C807 /* MyJSON.json in Resources */,
 				B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */,
 				B79DE46426E0C62E0019F860 /* SignUpViewController.xib in Resources */,
+				B7A95C0326EBA4EB00687210 /* SettingsViewController.xib in Resources */,
 				B72FF44A26EB6E9900BC6EE1 /* MyJSON8.json in Resources */,
 				B72FF43E26EB511C00BC6EE1 /* MyJSON2.json in Resources */,
 				B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */,
@@ -418,6 +439,7 @@
 				B77D40FD26E6595700BA945E /* RadarDashboardViewController.swift in Sources */,
 				B76A198326E758B800B75EDE /* RadarDashboardViewModel.swift in Sources */,
 				B79DE46826E0C6590019F860 /* SignUpCoordinator.swift in Sources */,
+				B7A95C0526EBA4FC00687210 /* SettingsViewModel.swift in Sources */,
 				B7A95B4C26C140B7009B1BA8 /* AppDelegate.swift in Sources */,
 				B7C0856226EA02750001C807 /* NetworkManager.swift in Sources */,
 				B7E5F2C426DD042C004010BF /* ProcessingView.swift in Sources */,
@@ -425,6 +447,8 @@
 				B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */,
 				B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */,
 				B79039EA26E8C27F000908AD /* MKMapView+Rx.swift in Sources */,
+				B7A95C0226EBA4EB00687210 /* SettingsViewController.swift in Sources */,
+				B7A95C0726EBA54500687210 /* SettingsCoordinator.swift in Sources */,
 				B77827F926DFA8780058ADD5 /* ForgotPasswordViewModel.swift in Sources */,
 				B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */,
 				B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */,

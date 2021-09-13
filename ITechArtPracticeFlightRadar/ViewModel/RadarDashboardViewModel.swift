@@ -30,8 +30,10 @@ class RadarDashboardViewModel: RadarDashboardViewModelProtocol {
     let coordinates = PublishRelay<CoordinateRectangle>()
     let aircrafts = PublishRelay<[Aircraft]>()
     
+    //let isActive = BehaviorRelay<Bool>()
+    
     // MARK: - Initializer
-    init(coordinator: RadarDashboardCoordinatorProtocol, service: ServiceProtocol) {
+    init(coordinator: RadarDashboardCoordinatorProtocol) {
         
         self.coordinator = coordinator
         
@@ -44,22 +46,27 @@ class RadarDashboardViewModel: RadarDashboardViewModelProtocol {
         
         // Settings
         setUp
-            .subscribe { _ in
-                coordinator.showAlertWith(title: "😅", message: "To be continued...", navigationController: (coordinator as! RadarDashboardCoordinator).navigationController)
-            }
+            .subscribe { _ in coordinator.goToSettings() }
             .disposed(by: disposeBag)
 
         // Getting aircrafts in the coordinate box
-        coordinates
-            .flatMapLatest { service.networkService.requestFlights(within: $0) }
-            .subscribe(onNext: { [aircrafts] in aircrafts.accept($0) })
-            .disposed(by: disposeBag)
+//        coordinates
+//            .flatMapLatest { coordinator.service.networkService.requestFlights(within: $0) }
+//            .subscribe(onNext: { [aircrafts] in aircrafts.accept($0) })
+//            .disposed(by: disposeBag)
 
-        
-        Observable<Int>.interval(.seconds(5), scheduler: ConcurrentMainScheduler.instance).withLatestFrom(coordinates)
-            .flatMap { service.networkService.requestFlights(within: $0) }
+        Observable.combineLatest(
+        Observable<Int>.interval(.seconds(5), scheduler: ConcurrentMainScheduler.instance), coordinates)
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .flatMap { coordinator.service.networkService.requestFlights(within: $0.1) }
             .subscribe(onNext: { [aircrafts] in aircrafts.accept($0) })
             .disposed(by: disposeBag)
+            
+//        Observable<Int>.interval(.seconds(5), scheduler: ConcurrentMainScheduler.instance)
+//            .withLatestFrom(coordinates)
+//            .flatMap { coordinator.service.networkService.requestFlights(within: $0) }
+//            .subscribe(onNext: { [aircrafts] in aircrafts.accept($0) })
+//            .disposed(by: disposeBag)
             
     }
     

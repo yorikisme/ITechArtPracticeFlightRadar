@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RadarDashboardViewController" customModule="ITechArtPracticeFlightRadar" customModuleProvider="target">
             <connections>
-                <outlet property="map" destination="kji-vY-iUG" id="w4b-CJ-PRH"/>
+                <outlet property="mapView" destination="kji-vY-iUG" id="w4b-CJ-PRH"/>
                 <outlet property="settingsButton" destination="kI5-cB-mzI" id="Frb-xD-xBK"/>
                 <outlet property="signOutButton" destination="mST-f4-2He" id="zhg-w5-3en"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,6 +22,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kji-vY-iUG">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </mapView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mST-f4-2He">
                     <rect key="frame" x="20" y="44" width="90" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -31,23 +34,30 @@
                         <color key="titleColor" systemColor="systemRedColor"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI5-cB-mzI">
-                    <rect key="frame" x="354" y="44" width="40" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI5-cB-mzI">
+                    <rect key="frame" x="314" y="44" width="80" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" backgroundImage="gearshape" catalog="system"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="tintColor" systemColor="labelColor"/>
+                    <state key="normal" image="gearshape.2.fill" catalog="system"/>
                 </button>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kji-vY-iUG">
-                    <rect key="frame" x="20" y="93" width="374" height="516"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </mapView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="kji-vY-iUG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zb6-yd-O6c"/>
+                <constraint firstItem="kji-vY-iUG" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="bH0-IB-xRN"/>
+                <constraint firstAttribute="bottom" secondItem="kji-vY-iUG" secondAttribute="bottom" id="dIV-DK-Cnu"/>
+                <constraint firstItem="kji-vY-iUG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="o7U-Z5-zjC"/>
+            </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
         </view>
     </objects>
     <resources>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="gearshape.2.fill" catalog="system" width="128" height="100"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

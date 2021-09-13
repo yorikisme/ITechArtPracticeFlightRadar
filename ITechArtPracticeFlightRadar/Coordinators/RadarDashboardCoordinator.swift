@@ -9,6 +9,8 @@ import UIKit
 
 protocol RadarDashboardCoordinatorProtocol: Coordinator {
     func signOut()
+    func goToSettings()
+    var service: ServiceProtocol { get }
 }
 
 class RadarDashboardCoordinator: RadarDashboardCoordinatorProtocol {
@@ -24,13 +26,18 @@ class RadarDashboardCoordinator: RadarDashboardCoordinatorProtocol {
     
     func start() {
         let radarDashboardViewController = RadarDashboardViewController()
-        let radarDashboardViewModel = RadarDashboardViewModel(coordinator: self, service: service)
+        let radarDashboardViewModel = RadarDashboardViewModel(coordinator: self)
         radarDashboardViewController.viewModel = radarDashboardViewModel
         navigationController.pushViewController(radarDashboardViewController, animated: true)
     }
     
     func signOut() {
         navigationController.popViewController(animated: true)
+    }
+    
+    func goToSettings() {
+        let settingsCoordinator = SettingsCoordinator(navigationController: navigationController)
+        settingsCoordinator.start()
     }
     
 }

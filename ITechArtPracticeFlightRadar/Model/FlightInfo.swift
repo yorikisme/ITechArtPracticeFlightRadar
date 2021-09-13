@@ -34,6 +34,7 @@ struct Aircraft: Decodable {
     var barometricAltitude: Float?
     var isOnGround: Bool
     var velocity: Float?
+    var course: Float?
     
     enum CodingKeys: String, CodingKey {
         case transponderIdentifier = "icao24"
@@ -46,6 +47,7 @@ struct Aircraft: Decodable {
         case barometricAltitude = "baro_altitude"
         case isOnGround = "on_ground"
         case velocity
+        case course = "true_track"
     }
     
     init(from decoder: Decoder) throws {
@@ -64,6 +66,7 @@ struct Aircraft: Decodable {
         barometricAltitude = try? container.decode(Float.self)
         isOnGround = try container.decode(Bool.self)
         velocity = try? container.decode(Float.self)
+        course = try? container.decode(Float.self)
     }
 }
 
