@@ -12,7 +12,7 @@ protocol SettingsCoordinatorProtocol: Coordinator {
 
 class SettingsCoordinator: SettingsCoordinatorProtocol {
     
-    var childCoordinators: [Coordinator] = []
+    //var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -20,9 +20,8 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
     }
     
     func start() {
-        let settingsViewController = SettingsViewController()
-        let settingsViewModel = SettingsViewModel(coordinator: self)
-        settingsViewController.viewModel = settingsViewModel
+        let settingsViewController = UIViewController()
+        settingsViewController.view.backgroundColor = .red
         navigationController.pushViewController(settingsViewController, animated: true)
     }
     

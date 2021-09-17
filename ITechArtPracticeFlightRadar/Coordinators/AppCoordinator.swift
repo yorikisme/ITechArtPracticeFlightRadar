@@ -8,14 +8,14 @@
 import UIKit
 
 protocol Coordinator {
-    var childCoordinators: [Coordinator] { get }
+    //var childCoordinators: [Coordinator] { get }
     func start()
 }
 
 class AppCoordinator: Coordinator {
-    var childCoordinators: [Coordinator] = []
+    //var childCoordinators: [Coordinator] = []
     let window: UIWindow
-    let service: ServiceProtocol = Service()
+    let service: NetworkManagerProtocol = NetworkManager()
     
     init(window: UIWindow) {
         self.window = window
@@ -28,8 +28,12 @@ class AppCoordinator: Coordinator {
 //        authenticationCoordinator.start()
         
         // Temporary plug
-        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController, service: service)
-        radarDashboardCoordinator.start()
+//        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController, service: service)
+//        radarDashboardCoordinator.start()
+        
+        // Temporary plug 2
+        let containerCoordinator = ContainerCoordinator(navigationController: navigationController, service: service)
+        containerCoordinator.start()
         
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

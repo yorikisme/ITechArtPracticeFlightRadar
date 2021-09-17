@@ -10,6 +10,14 @@ import RxSwift
 import RxCocoa
 import MapKit
 
+protocol RadarDashboardViewModelProtocol {
+    var openCloseSideMenu: PublishRelay<Void> { get }
+    var sideMenuState: BehaviorRelay<SideMenuState> { get }
+    var coordinates: PublishRelay<CoordinateRectangle> { get }
+    var aircrafts: PublishRelay<[Aircraft]> { get }
+    var openMenuAction: PublishRelay<Void> { get }
+}
+
 class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Properties
@@ -17,8 +25,7 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
     let disposeBag = DisposeBag()
     
     // MARK: - Outlets
-    @IBOutlet weak var signOutButton: UIButton!
-    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var sideMenuButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - viewDidLoad
@@ -26,16 +33,10 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         
-        // Sign out
-        signOutButton.rx
+        // Side menu button
+        sideMenuButton.rx
             .tap
-            .bind(to: viewModel.signOut)
-            .disposed(by: disposeBag)
-        
-        // Settings
-        settingsButton.rx
-            .tap
-            .bind(to: viewModel.setUp)
+            .bind(to: viewModel.openMenuAction)
             .disposed(by: disposeBag)
         
         // Getting the coordinates of the visible box region on the map
@@ -85,3 +86,8 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
     }
 
 }
+
+
+
+
+

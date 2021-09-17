@@ -17,11 +17,11 @@ protocol AuthenticationCoordinatorProtocol: Coordinator {
 }
 
 class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
-    var childCoordinators: [Coordinator] = []
+    //var childCoordinators: [Coordinator] = []
     let navigationController: UINavigationController
-    let service: ServiceProtocol
+    let service: NetworkManagerProtocol
     
-    init(navigationController: UINavigationController, service: ServiceProtocol) {
+    init(navigationController: UINavigationController, service: NetworkManagerProtocol) {
         self.navigationController = navigationController
         self.service = service
     }
@@ -34,7 +34,7 @@ class AuthenticationCoordinator: AuthenticationCoordinatorProtocol {
     }
     
     func signIn() {
-        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController, service: service)
+        let radarDashboardCoordinator = ContainerCoordinator(navigationController: navigationController, service: service)
         radarDashboardCoordinator.start()
     }
     

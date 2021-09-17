@@ -15,10 +15,10 @@ protocol ForgotPasswordCoordinatorProtocol: Coordinator {
 
 class ForgotPasswordCoordinator: ForgotPasswordCoordinatorProtocol {
     
-    var childCoordinators: [Coordinator] = []
+    //var childCoordinators: [Coordinator] = []
     
     let navigationController: UINavigationController
-    init(navigationController: UINavigationController, service: ServiceProtocol) {
+    init(navigationController: UINavigationController, service: NetworkManagerProtocol) {
         self.navigationController = navigationController
     }
     
