@@ -22,21 +22,18 @@ class RadarDashboardViewModel: RadarDashboardViewModelProtocol {
     
     // Protocol conformation
     let openCloseSideMenu = PublishRelay<Void>()
-    let sideMenuState = BehaviorRelay<SideMenuState>(value: .closed)
     let coordinates = PublishRelay<CoordinateRectangle>()
     let aircrafts = PublishRelay<[Aircraft]>()
-    //let isActive = BehaviorRelay<Bool>()
-    let openMenuAction: PublishRelay<Void>
     
     private let coordinator: RadarDashboardCoordinatorProtocol
     private let service: NetworkManagerProtocol
     
     
     // MARK: - Initializer
-    init(coordinator: RadarDashboardCoordinatorProtocol, service: NetworkManagerProtocol, menuAction: PublishRelay<Void>) {
+    init(coordinator: RadarDashboardCoordinatorProtocol, service: NetworkManagerProtocol) {
         self.service = service
         self.coordinator = coordinator
-        self.openMenuAction = menuAction
+        
         // Getting aircrafts in the coordinate box
 //        coordinates
 //            .flatMapLatest { coordinator.service.networkService.requestFlights(within: $0) }

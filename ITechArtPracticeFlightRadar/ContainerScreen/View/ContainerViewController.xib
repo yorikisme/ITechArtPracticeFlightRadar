@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContainerViewController" customModule="ITechArtPracticeFlightRadar" customModuleProvider="target">
             <connections>
+                <outlet property="radarView" destination="jAP-Po-8gl" id="BgR-WO-AOg"/>
+                <outlet property="radarViewWidth" destination="fex-kX-knX" id="Gfm-xK-rbi"/>
+                <outlet property="sideMenuButton" destination="8ek-CI-hpW" id="cb2-0z-TBe"/>
+                <outlet property="sideMenuView" destination="NGQ-pt-ab3" id="ldA-yQ-q1L"/>
                 <outlet property="view" destination="iN0-l3-epB" id="08h-B5-Ew7"/>
             </connections>
         </placeholder>
@@ -18,14 +22,52 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGQ-pt-ab3">
+                    <rect key="frame" x="0.0" y="0.0" width="148" height="926"/>
+                    <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAP-Po-8gl">
+                    <rect key="frame" x="148" y="0.0" width="280" height="926"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ek-CI-hpW">
+                    <rect key="frame" x="20" y="44" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" systemColor="labelColor"/>
+                    <state key="normal" image="list.bullet.below.rectangle" catalog="system">
+                        <color key="titleColor" systemColor="labelColor"/>
+                    </state>
+                </button>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="jAP-Po-8gl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7sw-Z4-HJp"/>
+                <constraint firstAttribute="trailing" secondItem="NGQ-pt-ab3" secondAttribute="trailing" constant="280" id="8LV-nT-Czc"/>
+                <constraint firstItem="NGQ-pt-ab3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HvB-kV-Kc9"/>
+                <constraint firstAttribute="bottom" secondItem="NGQ-pt-ab3" secondAttribute="bottom" id="ToD-9E-ebE"/>
+                <constraint firstAttribute="trailing" secondItem="jAP-Po-8gl" secondAttribute="trailing" id="a0k-h7-bc1"/>
+                <constraint firstItem="NGQ-pt-ab3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="akr-4K-3nu"/>
+                <constraint firstItem="jAP-Po-8gl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="148" id="fex-kX-knX"/>
+                <constraint firstAttribute="bottom" secondItem="jAP-Po-8gl" secondAttribute="bottom" id="kas-Za-ire"/>
+            </constraints>
             <point key="canvasLocation" x="131.77570093457942" y="115.98272138228943"/>
         </view>
     </objects>
     <resources>
+        <image name="list.bullet.below.rectangle" catalog="system" width="128" height="112"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

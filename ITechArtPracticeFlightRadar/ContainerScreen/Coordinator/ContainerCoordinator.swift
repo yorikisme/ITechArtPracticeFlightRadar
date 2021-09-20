@@ -15,9 +15,6 @@ protocol ContainerCoordinatorProtocol: Coordinator, AnyObject {
 }
 
 class ContainerCoordinator: ContainerCoordinatorProtocol {
-    
-    //var childCoordinators: [Coordinator] = []
-    
     let navigationController: UINavigationController
     let service: NetworkManagerProtocol
     
@@ -27,13 +24,11 @@ class ContainerCoordinator: ContainerCoordinatorProtocol {
     }
     
     func start() {
-        let menuAction = PublishRelay<Void>()
-        
         let containerViewController = ContainerViewController()
-        let containerViewModel = ContainerViewModel(coordinator: self, menuAction: menuAction.asObservable())
+        let containerViewModel = ContainerViewModel(coordinator: self)
         
         let sideMenuViewModel = SideMenuViewModel(coordinator: self, service: service)
-        let radarDashboardViewModel = RadarDashboardViewModel(coordinator: self, service: service, menuAction: menuAction)
+        let radarDashboardViewModel = RadarDashboardViewModel(coordinator: self, service: service)
         
         let sideMenuViewController = SideMenuViewController()
         let radarDashboardViewController = RadarDashboardViewController()
@@ -45,13 +40,8 @@ class ContainerCoordinator: ContainerCoordinatorProtocol {
         containerViewController.menuViewController = sideMenuViewController
         containerViewController.contentViewController = radarDashboardViewController
         
-
-        
         navigationController.pushViewController(containerViewController, animated: true)
     }
-    
-
-    
 }
 
 extension ContainerCoordinator : RadarDashboardCoordinatorProtocol {
@@ -60,8 +50,10 @@ extension ContainerCoordinator : RadarDashboardCoordinatorProtocol {
 
 extension ContainerCoordinator : SideMenuCoordinatorProtocol {
     func goToSettings() {
+        print("Settings")
     }
     
     func signOut() {
+        print("Sign out")
     }
 }

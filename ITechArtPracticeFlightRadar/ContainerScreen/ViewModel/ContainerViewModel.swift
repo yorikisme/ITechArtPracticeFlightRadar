@@ -13,19 +13,20 @@ import RxCocoa
 
 class ContainerViewModel: ContainerViewModelProtocol {
     
-    let isMenuOpened = BehaviorRelay<Bool> (value: false)
+    let isMenuOpen = BehaviorRelay<Bool> (value: false)
+    let menuAction = PublishRelay<Void>()
     
     let disposeBag = DisposeBag()
     private let coordinator: ContainerCoordinatorProtocol
     
     // MARK: - Initializer
-    init(coordinator: ContainerCoordinatorProtocol, menuAction: Observable<Void>) {
+    init(coordinator: ContainerCoordinatorProtocol) {
         self.coordinator = coordinator
         
         menuAction
-            .withLatestFrom(isMenuOpened)
+            .withLatestFrom(isMenuOpen)
             .map{ !$0 }
-            .bind(to: isMenuOpened)
+            .bind(to: isMenuOpen)
             .disposed(by: disposeBag)
     }
     

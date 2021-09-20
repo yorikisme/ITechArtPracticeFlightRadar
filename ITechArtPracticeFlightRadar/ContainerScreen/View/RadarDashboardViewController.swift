@@ -11,11 +11,8 @@ import RxCocoa
 import MapKit
 
 protocol RadarDashboardViewModelProtocol {
-    var openCloseSideMenu: PublishRelay<Void> { get }
-    var sideMenuState: BehaviorRelay<SideMenuState> { get }
     var coordinates: PublishRelay<CoordinateRectangle> { get }
     var aircrafts: PublishRelay<[Aircraft]> { get }
-    var openMenuAction: PublishRelay<Void> { get }
 }
 
 class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
@@ -25,19 +22,13 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
     let disposeBag = DisposeBag()
     
     // MARK: - Outlets
-    @IBOutlet weak var sideMenuButton: UIButton!
+    //@IBOutlet weak var sideMenuButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        
-        // Side menu button
-        sideMenuButton.rx
-            .tap
-            .bind(to: viewModel.openMenuAction)
-            .disposed(by: disposeBag)
         
         // Getting the coordinates of the visible box region on the map
         mapView.rx
@@ -90,7 +81,6 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
             mapView.addAnnotation(pin)
         }
     }
-    
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let pin = annotation as! MKPointAnnotation

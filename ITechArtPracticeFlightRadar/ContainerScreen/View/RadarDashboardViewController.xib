@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RadarDashboardViewController" customModule="ITechArtPracticeFlightRadar" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="kji-vY-iUG" id="w4b-CJ-PRH"/>
-                <outlet property="sideMenuButton" destination="l9G-le-t4E" id="bFN-6s-gEx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,12 +23,6 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kji-vY-iUG">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </mapView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9G-le-t4E">
-                    <rect key="frame" x="20" y="44" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" systemColor="labelColor"/>
-                    <state key="normal" image="list.bullet.below.rectangle" catalog="system"/>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -43,10 +36,6 @@
         </view>
     </objects>
     <resources>
-        <image name="list.bullet.below.rectangle" catalog="system" width="128" height="112"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,18 +11,32 @@ import RxCocoa
 
 class ContainerViewController: UIViewController {
     
+    // MARK - Outlets
+    @IBOutlet weak var sideMenuButton: UIButton!
+    @IBOutlet weak var radarView: UIView!
+    @IBOutlet weak var sideMenuView: UIView!
+    @IBOutlet weak var radarViewWidth: NSLayoutConstraint!
+    
     let disposeBag = DisposeBag()
     var viewModel: ContainerViewModelProtocol!
     var menuViewController: UIViewController!
     var contentViewController: UIViewController!
+    lazy var blur = UIBlurEffect(style: .dark)
+    lazy var blurEffectView = UIVisualEffectView(effect: blur)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+        blurEffectView.frame = radarView.bounds
         setChildViewControllers()
         
+        sideMenuButton.rx
+            .tap
+            .bind(to: viewModel.menuAction)
+            .disposed(by: disposeBag)
+        
         viewModel
-            .isMenuOpened
+            .isMenuOpen
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] in
                 if $0 {
@@ -32,40 +46,39 @@ class ContainerViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
     }
     
     func setChildViewControllers() {
         addChild(menuViewController)
-        menuViewController.view.frame = view.frame
-        view.addSubview(menuViewController.view)
+        menuViewController.view.frame = sideMenuView.bounds
+        sideMenuView.addSubview(menuViewController.view)
         menuViewController.didMove(toParent: self)
         
         addChild(contentViewController)
-        contentViewController.view.frame = view.frame
-        view.addSubview(contentViewController.view)
+        contentViewController.view.frame = radarView.bounds
+        radarView.addSubview(contentViewController.view)
         contentViewController.didMove(toParent: self)
     }
     
     func openSideMenu() {
-        guard contentViewController.view.frame.origin.x == 0 else { return }
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut) { [weak self] in
-            self?.contentViewController.view.frame.origin.x = (self?.contentViewController.view.frame.size.width)! - 150
+        radarView.addSubview(blurEffectView)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut) { [weak self] in
+            self?.radarViewWidth.constant = 148
+            self?.view.layoutIfNeeded()
         }
     }
     
     func closeSideMenu() {
-        guard contentViewController.view.frame.origin.x == contentViewController.view.frame.size.width - 150.0 else { return }
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut) { [weak self] in
-            self?.contentViewController.view.frame.origin.x = 0
+        blurEffectView.removeFromSuperview()
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseOut) { [weak self] in
+            self?.radarViewWidth.constant = 0
+            self?.view.layoutIfNeeded()
         }
     }
-
 }
 
-
+// MARK: - Protocols
 protocol ContainerViewModelProtocol {
-    var isMenuOpened: BehaviorRelay<Bool> { get }
+    var isMenuOpen: BehaviorRelay<Bool> { get }
+    var menuAction: PublishRelay<Void> { get }
 }
