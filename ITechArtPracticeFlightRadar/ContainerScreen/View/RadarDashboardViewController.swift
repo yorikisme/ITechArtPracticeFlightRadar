@@ -47,15 +47,17 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
             .disposed(by: disposeBag)
         
         // Adding pins on the map
-        viewModel.aircrafts
-            .map { [weak self] in
-                $0.forEach({self?.addAircraftPinWith(transponder: $0.transponderIdentifier, flightNumber: $0.callsign ?? "No callsign", lat: CLLocationDegrees($0.latitude ?? 0), lon: CLLocationDegrees($0.longitude ?? 0), course: $0.course ?? 0)})
-            }
-            .subscribe()
+        viewModel
+            .aircrafts
+            .subscribe(onNext: {
+                [weak self] in
+                $0.forEach({ self?.addAircraftPinWith(aircraft: $0) })
+            })
             .disposed(by: disposeBag)
         
         // Change standard pins to aircraft symbols and set their course
-        mapView.rx.viewForAnnotation
+        mapView.rx
+            .viewForAnnotation
             .withLatestFrom(viewModel.aircrafts, resultSelector: { return ($0, $1) })
             .subscribe { pin, aircrafts in
                 if let aircraft = aircrafts.first(where: { aircraft in
@@ -76,18 +78,23 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
         mapView.setRegion(region, animated: true)
     }
     
-    func addAircraftPinWith(transponder: String, flightNumber: String, lat: CLLocationDegrees, lon: CLLocationDegrees, course: Float) {
-        let pin = MKPointAnnotation()
-        let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-        pin.coordinate = coordinates
-        pin.title = transponder
-        pin.subtitle = flightNumber
-        mapView.addAnnotation(pin)
+    func addAircraftPinWith(aircraft: Aircraft) {
+        if let pin = mapView.annotations.first(where: { $0.title == aircraft.transponderIdentifier }) {
+            (pin as! MKPointAnnotation).coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(aircraft.latitude ?? 0), longitude: CLLocationDegrees(aircraft.longitude ?? 0))
+        } else {
+            let pin = MKPointAnnotation()
+            let coordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(aircraft.latitude ?? 0), longitude: CLLocationDegrees(aircraft.longitude ?? 0))
+            pin.coordinate = coordinates
+            pin.title = aircraft.transponderIdentifier
+            pin.subtitle = aircraft.callsign
+            mapView.addAnnotation(pin)
+        }
     }
-
+    
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let pin = annotation as! MKPointAnnotation
+        pin.coordinate = CLLocationCoordinate2D(latitude: 54, longitude: 27)
+        return MKAnnotationView(annotation: annotation, reuseIdentifier: "5")
+    }
 }
-
-
-
-
-

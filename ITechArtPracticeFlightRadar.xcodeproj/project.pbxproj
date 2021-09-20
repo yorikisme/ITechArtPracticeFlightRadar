@@ -24,7 +24,6 @@
 		B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */; };
 		B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34B26D62F5900798B6C /* StringExtensions.swift */; };
 		B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */; };
-		B76A198126E7589F00B75EDE /* RadarDashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198026E7589F00B75EDE /* RadarDashboardCoordinator.swift */; };
 		B76A198326E758B800B75EDE /* RadarDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */; };
 		B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */; };
 		B76A198726E78FA500B75EDE /* CoordinateRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */; };
@@ -58,7 +57,6 @@
 		B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */; };
 		B7A95B6926C147E2009B1BA8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7A95B6826C147E2009B1BA8 /* FirebaseAuth */; };
 		B7A95C0526EBA4FC00687210 /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95C0426EBA4FC00687210 /* SideMenuViewModel.swift */; };
-		B7A95C0726EBA54500687210 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A95C0626EBA54500687210 /* SettingsCoordinator.swift */; };
 		B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */; };
 		B7A9A6EB26D9137A005F559A /* spinner.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A9A6EA26D9137A005F559A /* spinner.json */; };
 		B7AFC5BF26CA5781004EE523 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B7AFC5BE26CA5781004EE523 /* Toast */; };
@@ -96,7 +94,6 @@
 		B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
 		B766E34B26D62F5900798B6C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExtensions.swift; sourceTree = "<group>"; };
-		B76A198026E7589F00B75EDE /* RadarDashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarDashboardCoordinator.swift; sourceTree = "<group>"; };
 		B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarDashboardViewModel.swift; sourceTree = "<group>"; };
 		B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExtensions.swift; sourceTree = "<group>"; };
 		B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateRectangle.swift; sourceTree = "<group>"; };
@@ -128,7 +125,6 @@
 		B7A95B5726C140B8009B1BA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7A95B6526C14756009B1BA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7A95C0426EBA4FC00687210 /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
-		B7A95C0626EBA54500687210 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		B7A9A6E826D91295005F559A /* authenticationScreenBackgroundAircraft.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authenticationScreenBackgroundAircraft.json; sourceTree = "<group>"; };
 		B7A9A6EA26D9137A005F559A /* spinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spinner.json; sourceTree = "<group>"; };
 		B7B59F3726F32E7D00E223FF /* ContainerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContainerViewController.xib; sourceTree = "<group>"; };
@@ -161,6 +157,198 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B719969C26F87ADD00B18256 /* AuthenticationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B719969E26F87B0100B18256 /* Model */,
+				B719969D26F87AFB00B18256 /* View */,
+				B719969F26F87B0900B18256 /* ViewModel */,
+				B71996A026F87B1400B18256 /* Coordinator */,
+			);
+			path = AuthenticationScreen;
+			sourceTree = "<group>";
+		};
+		B719969D26F87AFB00B18256 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */,
+				B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B719969E26F87B0100B18256 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B719969F26F87B0900B18256 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B784068126C40FCE00F5AF03 /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B71996A026F87B1400B18256 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B71996A126F87B7400B18256 /* ForgotPasswordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B71996A226F87B8700B18256 /* Model */,
+				B71996A326F87B9000B18256 /* View */,
+				B71996A426F87B9700B18256 /* VIewModel */,
+				B71996A526F87B9F00B18256 /* Coordinator */,
+			);
+			path = ForgotPasswordScreen;
+			sourceTree = "<group>";
+		};
+		B71996A226F87B8700B18256 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B71996A326F87B9000B18256 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */,
+				B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B71996A426F87B9700B18256 /* VIewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B77827F826DFA8780058ADD5 /* ForgotPasswordViewModel.swift */,
+			);
+			path = VIewModel;
+			sourceTree = "<group>";
+		};
+		B71996A526F87B9F00B18256 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B77827FA26DFA88D0058ADD5 /* ForgotPasswordCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B71996A626F87C0400B18256 /* SignUpScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B71996AA26F87C2500B18256 /* Model */,
+				B71996A926F87C1F00B18256 /* View */,
+				B71996A826F87C1700B18256 /* ViewModel */,
+				B71996A726F87C0E00B18256 /* Coordinator */,
+			);
+			path = SignUpScreen;
+			sourceTree = "<group>";
+		};
+		B71996A726F87C0E00B18256 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B79DE46726E0C6590019F860 /* SignUpCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B71996A826F87C1700B18256 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B79DE46526E0C6450019F860 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B71996A926F87C1F00B18256 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B79DE46126E0C62E0019F860 /* SignUpViewController.swift */,
+				B79DE46226E0C62E0019F860 /* SignUpViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B71996AA26F87C2500B18256 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B71996AB26F87C4E00B18256 /* ContainerScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B71996AF26F87CD800B18256 /* Model */,
+				B71996AE26F87CD300B18256 /* View */,
+				B71996AD26F87CCD00B18256 /* ViewModel */,
+				B71996AC26F87CC500B18256 /* Coordinator */,
+			);
+			path = ContainerScreen;
+			sourceTree = "<group>";
+		};
+		B71996AC26F87CC500B18256 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B7A6156626F0A14100E91809 /* ContainerCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B71996AD26F87CCD00B18256 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */,
+				B7A95C0426EBA4FC00687210 /* SideMenuViewModel.swift */,
+				B7B59F3926F3627E00E223FF /* ContainerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B71996AE26F87CD300B18256 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B7A6156826F0A49800E91809 /* ContainerViewController.swift */,
+				B7B59F3726F32E7D00E223FF /* ContainerViewController.xib */,
+				B77D40FB26E6595700BA945E /* RadarDashboardViewController.swift */,
+				B77D40FC26E6595700BA945E /* RadarDashboardViewController.xib */,
+				B7A6156C26F0CAA500E91809 /* SideMenuViewController.swift */,
+				B7A6156D26F0CAA500E91809 /* SideMenuViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B71996AF26F87CD800B18256 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */,
+				B79039EB26E8ED6C000908AD /* FlightInfo.swift */,
+				B7B59F3B26F377BA00E223FF /* SideMenuState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B71996B026F87F0A00B18256 /* AppCommon */ = {
+			isa = PBXGroup;
+			children = (
+				B7E5F2B526DCB732004010BF /* State.swift */,
+				B7E5F2C326DD042C004010BF /* ProcessingView.swift */,
+				B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */,
+				B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */,
+			);
+			path = AppCommon;
+			sourceTree = "<group>";
+		};
 		B766E34D26D62F5D00798B6C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,20 +360,6 @@
 				B79039E926E8C27F000908AD /* MKMapView+Rx.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		B784067C26C3E12F00F5AF03 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */,
-				B784067D26C3E27300F5AF03 /* AuthenticationCoordinator.swift */,
-				B77827FA26DFA88D0058ADD5 /* ForgotPasswordCoordinator.swift */,
-				B79DE46726E0C6590019F860 /* SignUpCoordinator.swift */,
-				B7A6156626F0A14100E91809 /* ContainerCoordinator.swift */,
-				B76A198026E7589F00B75EDE /* RadarDashboardCoordinator.swift */,
-				B7A95C0626EBA54500687210 /* SettingsCoordinator.swift */,
-			);
-			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		B784068526C41BB400F5AF03 /* Frameworks */ = {
@@ -216,10 +390,11 @@
 		B7A95B4A26C140B7009B1BA8 /* ITechArtPracticeFlightRadar */ = {
 			isa = PBXGroup;
 			children = (
-				B7A95B6026C14107009B1BA8 /* Model */,
-				B7A95B6126C14112009B1BA8 /* View */,
-				B7A95B6226C14119009B1BA8 /* ViewModel */,
-				B784067C26C3E12F00F5AF03 /* Coordinators */,
+				B719969C26F87ADD00B18256 /* AuthenticationScreen */,
+				B71996A626F87C0400B18256 /* SignUpScreen */,
+				B71996A126F87B7400B18256 /* ForgotPasswordScreen */,
+				B71996AB26F87C4E00B18256 /* ContainerScreen */,
+				B71996B026F87F0A00B18256 /* AppCommon */,
 				B7C0856026EA02410001C807 /* Services */,
 				B766E34D26D62F5D00798B6C /* Extensions */,
 				B7D753FE26C161660048F67E /* Animations */,
@@ -239,51 +414,6 @@
 				B7A95B5626C140B8009B1BA8 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		B7A95B6026C14107009B1BA8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B7E5F2B526DCB732004010BF /* State.swift */,
-				B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */,
-				B79039EB26E8ED6C000908AD /* FlightInfo.swift */,
-				B7B59F3B26F377BA00E223FF /* SideMenuState.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B7A95B6126C14112009B1BA8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */,
-				B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */,
-				B7E5F2C326DD042C004010BF /* ProcessingView.swift */,
-				B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */,
-				B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */,
-				B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */,
-				B79DE46126E0C62E0019F860 /* SignUpViewController.swift */,
-				B79DE46226E0C62E0019F860 /* SignUpViewController.xib */,
-				B7A6156826F0A49800E91809 /* ContainerViewController.swift */,
-				B7B59F3726F32E7D00E223FF /* ContainerViewController.xib */,
-				B77D40FB26E6595700BA945E /* RadarDashboardViewController.swift */,
-				B77D40FC26E6595700BA945E /* RadarDashboardViewController.xib */,
-				B7A6156C26F0CAA500E91809 /* SideMenuViewController.swift */,
-				B7A6156D26F0CAA500E91809 /* SideMenuViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		B7A95B6226C14119009B1BA8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				B784068126C40FCE00F5AF03 /* AuthenticationViewModel.swift */,
-				B77827F826DFA8780058ADD5 /* ForgotPasswordViewModel.swift */,
-				B79DE46526E0C6450019F860 /* SignUpViewModel.swift */,
-				B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */,
-				B7A95C0426EBA4FC00687210 /* SideMenuViewModel.swift */,
-				B7B59F3926F3627E00E223FF /* ContainerViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B7A95BFF26EBA42E00687210 /* PlugJSON */ = {
@@ -443,7 +573,6 @@
 				B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */,
 				B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */,
 				B7A6156E26F0CAA500E91809 /* SideMenuViewController.swift in Sources */,
-				B76A198126E7589F00B75EDE /* RadarDashboardCoordinator.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
 				B76A198726E78FA500B75EDE /* CoordinateRectangle.swift in Sources */,
 				B7E5F2B626DCB732004010BF /* State.swift in Sources */,
@@ -463,7 +592,6 @@
 				B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */,
 				B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */,
 				B79039EA26E8C27F000908AD /* MKMapView+Rx.swift in Sources */,
-				B7A95C0726EBA54500687210 /* SettingsCoordinator.swift in Sources */,
 				B77827F926DFA8780058ADD5 /* ForgotPasswordViewModel.swift in Sources */,
 				B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */,
 				B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */,
