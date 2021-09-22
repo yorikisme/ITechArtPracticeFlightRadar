@@ -68,4 +68,27 @@ extension Reactive where Base: Auth {
         }
     }
     
+    func reloadUser() -> Single<Bool> {
+        return Single<Bool>.create { observer in
+            base.currentUser?.reload(completion: { error in
+                if let error = error {
+                    observer(.failure(error))
+                    print("Reload error")
+                } else {
+                    if let status = base.currentUser?.isEmailVerified {
+                        if status {
+                            observer(.success(status))
+                            print("EVS1: \(status)")
+                        } else {
+                            observer(.failure(NSError()))
+                            print("EVS2: \(status)")
+                        }
+                    }
+                }
+            })
+            return Disposables.create {
+            }
+        }
+    }
+    
 }

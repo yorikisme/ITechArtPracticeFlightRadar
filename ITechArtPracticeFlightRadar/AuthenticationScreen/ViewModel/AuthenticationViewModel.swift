@@ -44,9 +44,6 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     init(coordinator: AuthenticationCoordinator) {
         
         self.coordinator = coordinator
-        Auth.auth().addStateDidChangeListener { auth, user in
-            print(auth.currentUser?.email ?? "No current user")
-        }
         
         // Shared instance of validated email
         let validatedEmail = email
@@ -114,6 +111,11 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
         signUp
             .subscribe(onNext: { [coordinator] in coordinator.signUp() })
             .disposed(by: disposeBag)
+        
+        #if DEBUG
+        email.accept("itechpractice@gmail.com")
+        password.accept("1234567")
+        #endif
     }
     
     // MARK: - Methods

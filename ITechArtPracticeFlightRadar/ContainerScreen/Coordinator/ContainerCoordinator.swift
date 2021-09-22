@@ -37,23 +37,23 @@ class ContainerCoordinator: ContainerCoordinatorProtocol {
         radarDashboardViewController.viewModel = radarDashboardViewModel
         containerViewController.viewModel = containerViewModel
         
-        containerViewController.menuViewController = sideMenuViewController
+        containerViewController.sideMenuViewController = sideMenuViewController
         containerViewController.contentViewController = radarDashboardViewController
         
         navigationController.pushViewController(containerViewController, animated: true)
     }
 }
 
-extension ContainerCoordinator : RadarDashboardCoordinatorProtocol {
+extension ContainerCoordinator: RadarDashboardCoordinatorProtocol {
     
 }
 
-extension ContainerCoordinator : SideMenuCoordinatorProtocol {
+extension ContainerCoordinator: SideMenuCoordinatorProtocol {
     func goToSettings() {
         print("Settings")
     }
     
     func signOut() {
-        print("Sign out")
+        navigationController.popToRootViewController(animated: true)
     }
 }

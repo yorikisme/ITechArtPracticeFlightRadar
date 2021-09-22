@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SideMenuViewController" customModule="ITechArtPracticeFlightRadar" customModuleProvider="target">
             <connections>
                 <outlet property="settingsButton" destination="PT8-zB-nlh" id="fj6-5T-ZNa"/>
+                <outlet property="signOutButton" destination="EZv-rc-rWn" id="Iy2-Zw-mxM"/>
                 <outlet property="view" destination="IfU-TA-2xh" id="WVx-Ka-RqT"/>
             </connections>
         </placeholder>
@@ -35,7 +36,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q08-K7-vgQ"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="42" y="19"/>
+            <point key="canvasLocation" x="40.579710144927539" y="18.75"/>
         </view>
     </objects>
     <resources>

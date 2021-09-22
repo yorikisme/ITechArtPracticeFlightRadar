@@ -23,17 +23,16 @@ class AppCoordinator: Coordinator {
     
     func start() {
         let navigationController = UINavigationController()
-//        let authenticationCoordinator = AuthenticationCoordinator(navigationController: navigationController, service: service)
-//        childCoordinators.append(authenticationCoordinator)
-//        authenticationCoordinator.start()
+        let authenticationCoordinator = AuthenticationCoordinator(navigationController: navigationController, service: service)
+        authenticationCoordinator.start()
         
         // Temporary plug
 //        let radarDashboardCoordinator = RadarDashboardCoordinator(navigationController: navigationController, service: service)
 //        radarDashboardCoordinator.start()
         
         // Temporary plug 2
-        let containerCoordinator = ContainerCoordinator(navigationController: navigationController, service: service)
-        containerCoordinator.start()
+//        let containerCoordinator = ContainerCoordinator(navigationController: navigationController, service: service)
+//        containerCoordinator.start()
         
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

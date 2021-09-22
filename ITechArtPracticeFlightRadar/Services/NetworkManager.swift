@@ -47,11 +47,11 @@ class NetworkManager: NetworkManagerProtocol {
                 path9, path10, path11, path12, path13, path14
             ]
             
-            print(self.count)
+            //print(self.count)
             
             let url = URL(fileURLWithPath: paths[self.count]!)
             
-            print(url)
+            //print(url)
             
             self.count += 1
             

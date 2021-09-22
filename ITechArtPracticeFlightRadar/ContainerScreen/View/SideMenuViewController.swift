@@ -17,6 +17,7 @@ protocol SideMenuViewModelProtocol {
 class SideMenuViewController: UIViewController {
     
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var signOutButton: UIButton!
     
     var viewModel: SideMenuViewModelProtocol!
     let disposeBag = DisposeBag()
@@ -27,6 +28,11 @@ class SideMenuViewController: UIViewController {
         settingsButton.rx
             .tap
             .bind(to: viewModel.settings)
+            .disposed(by: disposeBag)
+        
+        signOutButton.rx
+            .tap
+            .bind(to: viewModel.signOut)
             .disposed(by: disposeBag)
     }
 }

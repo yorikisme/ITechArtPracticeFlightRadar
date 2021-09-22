@@ -31,9 +31,9 @@ class SideMenuViewModel: SideMenuViewModelProtocol {
         
         // Signing out
         signOut
+            .debounce(.milliseconds(300), scheduler: ConcurrentMainScheduler.instance)
             .flatMapLatest { Auth.auth().rx.signOut() }
-            .subscribe(onNext: { coordinator.signOut() },
-                       onError: { print($0.localizedDescription) })
+            .subscribe(onNext: { coordinator.signOut() })
             .disposed(by: disposeBag)
     }
     
