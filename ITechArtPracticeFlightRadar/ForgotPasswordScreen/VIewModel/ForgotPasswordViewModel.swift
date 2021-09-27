@@ -11,11 +11,13 @@ import RxSwift
 import RxRelay
 
 protocol ForgotPasswordViewModelProtocol {
-    var state: BehaviorRelay<State> { get }
+    var errorMessage: PublishRelay<String?> { get }
     var email: BehaviorRelay<String> { get }
     var isEmailFormatValid: BehaviorRelay<Bool> { get }
     var isSendResetRequestEnabled: BehaviorRelay<Bool> { get }
     var sendResetRequest: PublishRelay<Void> { get }
+    var isLoading: Observable<Bool> { get }
+    var goBackAction: PublishRelay<Void> { get }
 }
 
 class ForgotPasswordViewModel: ForgotPasswordViewModelProtocol {
@@ -23,17 +25,27 @@ class ForgotPasswordViewModel: ForgotPasswordViewModelProtocol {
     // MARK: Properties
     var coordinator: ForgotPasswordCoordinatorProtocol!
     let disposeBag = DisposeBag()
+    let activityIndicator = ActivityIndicator()
     
     // Protocol conformation
-    let state = BehaviorRelay<State>(value: .standby)
+    let errorMessage = PublishRelay<String?>()
     let email = BehaviorRelay<String>(value: "")
     let isEmailFormatValid = BehaviorRelay<Bool>(value: false)
     let isSendResetRequestEnabled = BehaviorRelay<Bool>(value: false)
     let sendResetRequest = PublishRelay<Void>()
+    var isLoading: Observable<Bool> {
+        return activityIndicator.asObservable()
+    }
+    let goBackAction = PublishRelay<Void>()
     
     // MARK: Initializers
     init(coordinator: ForgotPasswordCoordinatorProtocol) {
         self.coordinator = coordinator
+        
+        // Go back action
+        goBackAction
+            .subscribe(onNext: { coordinator.goBack() })
+            .disposed(by: disposeBag)
         
         // Shared instance of validated email
         let validatedEmail = email
@@ -46,12 +58,12 @@ class ForgotPasswordViewModel: ForgotPasswordViewModelProtocol {
             .observe(on: SerialDispatchQueueScheduler(qos: .userInitiated))
             .filter { _, isValid in isValid }
             .map { email, isValid in }
-            .startProcessing(state: state)
-            .flatMapLatest { [email] in Auth.auth().rx.forgotPassword(email: email.value) }
-            .stopProcessing(state: state)
+            .flatMapLatest { [activityIndicator, email] in Auth.auth().rx.forgotPassword(email: email.value).trackActivity(activityIndicator) }
             .retry()
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: {  })
+            .subscribe(onNext: {
+                coordinator.finishForgotPasswordProcedure()
+            })
             .disposed(by: disposeBag)
         
         validatedEmail

@@ -13,12 +13,19 @@ import Firebase
 
 class ContainerViewModel: ContainerViewModelProtocol {
     
+    // MARK: - Properties
+    private let coordinator: ContainerCoordinatorProtocol
+    let disposeBag = DisposeBag()
+    let activityIndicator = ActivityIndicator()
+    
+    // MARK: Protocol conformation
     let isMenuOpen = BehaviorRelay<Bool>(value: false)
     let menuAction = PublishRelay<Void>()
     let isEmailVerified = BehaviorRelay<Bool>(value: false)
-    
-    let disposeBag = DisposeBag()
-    private let coordinator: ContainerCoordinatorProtocol
+    let signOutAction = PublishRelay<Void>()
+    var isLoading: Observable<Bool> {
+        return activityIndicator.asObservable()
+    }
     
     // MARK: - Initializer
     init(coordinator: ContainerCoordinatorProtocol) {
@@ -40,6 +47,12 @@ class ContainerViewModel: ContainerViewModelProtocol {
             .flatMap { _ in Auth.auth().rx.reloadUser() }
             .retry(.exponentialDelayed(maxCount: 1000, initial: 10, multiplier: 1), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
             .subscribe(onNext: { [isEmailVerified] in isEmailVerified.accept($0) })
+            .disposed(by: disposeBag)
+        
+        // Signing out
+        signOutAction
+            .flatMap { [activityIndicator] in Auth.auth().rx.signOut().trackActivity(activityIndicator) }
+            .subscribe(onNext: { coordinator.signOut() })
             .disposed(by: disposeBag)
             
     }

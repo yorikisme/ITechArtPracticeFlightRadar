@@ -12,6 +12,7 @@ import RxCocoa
 protocol SideMenuViewModelProtocol {
     var settings: PublishRelay<Void> { get }
     var signOut: PublishRelay<Void> { get }
+    var signOutAction: PublishRelay<Void> { get }
 }
 
 class SideMenuViewController: UIViewController {
@@ -32,7 +33,7 @@ class SideMenuViewController: UIViewController {
         
         signOutButton.rx
             .tap
-            .bind(to: viewModel.signOut)
+            .bind(to: viewModel.signOutAction)
             .disposed(by: disposeBag)
     }
 }

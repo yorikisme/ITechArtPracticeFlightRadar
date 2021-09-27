@@ -16,10 +16,17 @@ protocol SideMenuCoordinatorProtocol {
 }
 
 class SideMenuViewModel: SideMenuViewModelProtocol {
+    
+    // MARK: Properties
+    let coordinator: SideMenuCoordinatorProtocol
     let disposeBag = DisposeBag()
+    let activityIndicator = ActivityIndicator()
+    
+    // MARK: Protocol conformation
     let settings = PublishRelay<Void>()
     let signOut = PublishRelay<Void>()
-    let coordinator: SideMenuCoordinatorProtocol
+    let signOutAction = PublishRelay<Void>()
+    
     
     init(coordinator: SideMenuCoordinatorProtocol, service: NetworkManagerProtocol) {
         self.coordinator = coordinator
@@ -30,11 +37,12 @@ class SideMenuViewModel: SideMenuViewModelProtocol {
             .disposed(by: disposeBag)
         
         // Signing out
-        signOut
-            .debounce(.milliseconds(300), scheduler: ConcurrentMainScheduler.instance)
-            .flatMapLatest { Auth.auth().rx.signOut() }
-            .subscribe(onNext: { coordinator.signOut() })
-            .disposed(by: disposeBag)
+//        signOut
+//            .debounce(.milliseconds(300), scheduler: ConcurrentMainScheduler.instance)
+//            .flatMapLatest { [activityIndicator] in Auth.auth().rx.signOut().trackActivity(activityIndicator) }
+//            .subscribe(onNext: { coordinator.signOut() })
+//            .disposed(by: disposeBag)
+        
     }
     
 }

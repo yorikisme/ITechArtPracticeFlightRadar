@@ -40,6 +40,11 @@ class ContainerCoordinator: ContainerCoordinatorProtocol {
         containerViewController.sideMenuViewController = sideMenuViewController
         containerViewController.contentViewController = radarDashboardViewController
         
+        sideMenuViewModel
+            .signOutAction
+            .bind(to: containerViewModel.signOutAction)
+            .disposed(by: containerViewModel.disposeBag)
+        
         navigationController.pushViewController(containerViewController, animated: true)
     }
 }

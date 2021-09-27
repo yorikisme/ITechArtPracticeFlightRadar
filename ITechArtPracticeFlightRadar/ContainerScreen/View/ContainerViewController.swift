@@ -19,12 +19,15 @@ class ContainerViewController: UIViewController {
     @IBOutlet weak var sideMenuViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var radarViewWidthConstraint: NSLayoutConstraint!
     
+    // MARK: - Properties
     let disposeBag = DisposeBag()
     var viewModel: ContainerViewModelProtocol!
     var sideMenuViewController: UIViewController!
     var contentViewController: UIViewController!
     var blurEffectView: UIVisualEffectView!
+    var processingView: ProcessingView!
     
+    // MARK: - Lifecycle points
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
@@ -48,6 +51,17 @@ class ContainerViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        viewModel
+            .isLoading
+            .subscribe(onNext: { [weak self] in
+                if $0 {
+                    self?.showActivityIndicator()
+                } else {
+                    self?.removeActivityIndicator()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +74,7 @@ class ContainerViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    // MARK: - Methods
     func setChildViewControllers() {
         sideMenuViewWidthConstraint.constant = 0
         radarViewWidthConstraint.constant = 428
@@ -122,6 +137,16 @@ class ContainerViewController: UIViewController {
 
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
     }
+    
+    func showActivityIndicator() {
+        processingView = ProcessingView.createView()
+        view.addSubview(processingView)
+    }
+    
+    func removeActivityIndicator() {
+        guard let processingView = processingView else { return }
+        processingView.removeFromSuperview()
+    }
 }
 
 // MARK: - Protocols
@@ -129,4 +154,6 @@ protocol ContainerViewModelProtocol {
     var isMenuOpen: BehaviorRelay<Bool> { get }
     var menuAction: PublishRelay<Void> { get }
     var isEmailVerified: BehaviorRelay<Bool> { get }
+    var signOutAction: PublishRelay<Void> { get }
+    var isLoading: Observable<Bool> { get }
 }

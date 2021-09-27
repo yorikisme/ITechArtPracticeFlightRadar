@@ -8,10 +8,11 @@
 import Foundation
 import RxSwift
 import RxRelay
+import RxSwiftExt
 import Firebase
 
 protocol AuthenticationViewModelProtocol {
-    var state: BehaviorRelay<State> { get }
+    var errorMessage: PublishRelay<String?> { get }
     var email: BehaviorRelay<String> { get }
     var password: BehaviorRelay<String> { get }
     var isSignInEnabled: BehaviorRelay<Bool> { get }
@@ -21,15 +22,17 @@ protocol AuthenticationViewModelProtocol {
     var isEmailFormatValid: BehaviorRelay<Bool> { get }
     var isPasswordSecure: BehaviorRelay<Bool> { get }
     var googleAuthentication: PublishRelay<Void> { get }
+    var isLoading: Observable<Bool> { get }
 }
 
 class AuthenticationViewModel: AuthenticationViewModelProtocol {
     // MARK: - Properties
     var coordinator: AuthenticationCoordinatorProtocol!
     let disposeBag = DisposeBag()
+    let indicator = ActivityIndicator()
     
     // Protocol conformation
-    let state = BehaviorRelay<State>(value: .standby)
+    let errorMessage = PublishRelay<String?>()
     let email = BehaviorRelay<String>(value: "")
     let password = BehaviorRelay<String>(value: "")
     let isSignInEnabled = BehaviorRelay<Bool>(value: false)
@@ -39,6 +42,9 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     let isEmailFormatValid = BehaviorRelay<Bool>(value: false)
     let isPasswordSecure = BehaviorRelay<Bool>(value: false)
     let googleAuthentication = PublishRelay<Void>()
+    var isLoading: Observable<Bool> {
+        return indicator.asObservable()
+    }
     
     // MARK: - Initializers
     init(coordinator: AuthenticationCoordinator) {
@@ -74,14 +80,27 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
             .filter { $0.1 && $1.1 }
             .map { ($0.0, $1.0) }
             .observe(on: SerialDispatchQueueScheduler(qos: .userInitiated))
-            .startProcessing(state: state)
-            .flatMapLatest { Auth.auth().rx.signInWith(email: $0.0, password: $0.1) }
-            .stopProcessing(state: state)
+            .flatMapLatest { [errorMessage, indicator] in
+                Auth.auth().rx
+                    .signInWith(email: $0.0, password: $0.1)
+                    .trackActivity(indicator)
+                    .catch { error in
+                        let errorCode = (error as NSError).code
+                        print(errorCode)
+                        switch errorCode {
+                        case 17008, 17009, 17011:
+                            errorMessage.accept("Please, check your authentication credentials you provided")
+                        case 17020:
+                            errorMessage.accept("Network error, please, check your connection or try to sign in again later")
+                        default:
+                            errorMessage.accept("Unknown error occurred, please, try to sign in later")
+                        }
+                        return .empty()
+                    }
+            }
             .retry()
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [coordinator] _ in
-                coordinator.signIn()
-            })
+            .subscribe(onNext: { [coordinator] _ in coordinator.signIn() })
             .disposed(by: disposeBag)
         
         // Invalid email format check

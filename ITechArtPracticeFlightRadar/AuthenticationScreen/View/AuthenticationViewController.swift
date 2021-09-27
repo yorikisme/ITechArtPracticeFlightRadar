@@ -17,6 +17,7 @@ class AuthenticationViewController: UIViewController {
     // MARK: - Properties
     var viewModel: AuthenticationViewModelProtocol!
     let disposeBag = DisposeBag()
+    var processingView: ProcessingView!
     
     // MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -96,27 +97,21 @@ class AuthenticationViewController: UIViewController {
             .disposed(by: disposeBag)
         
         // State determination
-        var processingView: ProcessingView?
-        
         viewModel
-            .state
-            .observe(on: MainScheduler.instance)
+            .isLoading
             .subscribe(onNext: { [weak self] in
-                switch $0 {
-                case .standby:
-                    if let processingView = processingView {
-                        processingView.removeFromSuperview()
-                    }
-                case .processing:
-                    processingView = ProcessingView.createView()
-                    self?.view.addSubview(processingView!)
-                case .failure(let error):
-                    if let processingView = processingView {
-                        processingView.removeFromSuperview()
-                        self?.view.makeToast(error.localizedDescription)
-                    }
+                if $0 {
+                    self?.showActivityIndicator()
+                } else {
+                    self?.removeActivityIndicator()
                 }
             })
+            .disposed(by: disposeBag)
+        
+        // Occurred error message
+        viewModel
+            .errorMessage
+            .subscribe(onNext: { [weak self] message in self?.view.makeToast(message) })
             .disposed(by: disposeBag)
         
         // Forgot password
@@ -147,6 +142,16 @@ class AuthenticationViewController: UIViewController {
         animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .loop
         animationView.play()
+    }
+    
+    func showActivityIndicator() {
+        processingView = ProcessingView.createView()
+        view.addSubview(processingView)
+    }
+    
+    func removeActivityIndicator() {
+        guard let processingView = processingView else { return }
+        processingView.removeFromSuperview()
     }
     
     deinit {

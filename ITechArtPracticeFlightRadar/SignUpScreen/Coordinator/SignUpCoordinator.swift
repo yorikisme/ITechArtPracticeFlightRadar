@@ -10,6 +10,7 @@ import Firebase
 
 protocol SignUpCoordinatorProtocol: Coordinator {
     func signUp()
+    func goBack()
     func sendVerificationLetter(completion: @escaping (Error?) -> Void)
 }
 
@@ -34,6 +35,10 @@ class SignUpCoordinator: SignUpCoordinatorProtocol {
     func signUp() {
         let radarDashboardCoordinator = ContainerCoordinator(navigationController: navigationController, service: service)
         radarDashboardCoordinator.start()
+    }
+    
+    func goBack() {
+        navigationController.popToRootViewController(animated: true)
     }
     
     func sendVerificationLetter(completion: @escaping (Error?) -> Void) {

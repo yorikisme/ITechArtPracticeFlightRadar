@@ -15,8 +15,10 @@ class SignUpViewController: UIViewController {
     // MARK: Properties
     var viewModel: SignUpViewModelProtocol!
     let disposeBag = DisposeBag()
+    var processingView: ProcessingView!
     
     // MARK: - Outlets
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var invalidEmailFormatLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -117,27 +119,28 @@ class SignUpViewController: UIViewController {
             .disposed(by: disposeBag)
         
         // 9. State determination
-        var processingView: ProcessingView?
         
         viewModel
-            .state
-            .observe(on: MainScheduler.instance)
+            .isLoading
             .subscribe(onNext: { [weak self] in
-                switch $0 {
-                case .standby:
-                    if let processingView = processingView {
-                        processingView.removeFromSuperview()
-                    }
-                case .processing:
-                    processingView = ProcessingView.createView()
-                    self?.view.addSubview(processingView!)
-                case .failure(let error):
-                    if let processingView = processingView {
-                        processingView.removeFromSuperview()
-                        self?.view.makeToast(error.localizedDescription)
-                    }
+                if $0 {
+                    self?.showActivityIndicator()
+                } else {
+                    self?.removeActivityIndicator()
                 }
             })
+            .disposed(by: disposeBag)
+        
+        // 10. Occurred error message
+        viewModel
+            .errorMessage
+            .subscribe(onNext: { [weak self] message in self?.view.makeToast(message) })
+            .disposed(by: disposeBag)
+        
+        // 11. Go back
+        backButton.rx
+            .tap
+            .bind(to: viewModel.goBackAction)
             .disposed(by: disposeBag)
         
     }
@@ -145,6 +148,7 @@ class SignUpViewController: UIViewController {
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        backButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
         startBackgroundAnimation()
     }
     
@@ -153,6 +157,16 @@ class SignUpViewController: UIViewController {
         backgroundAnimationView.contentMode = .scaleAspectFill
         backgroundAnimationView.loopMode = .loop
         backgroundAnimationView.play()
+    }
+    
+    func showActivityIndicator() {
+        processingView = ProcessingView.createView()
+        view.addSubview(processingView)
+    }
+    
+    func removeActivityIndicator() {
+        guard let processingView = processingView else { return }
+        processingView.removeFromSuperview()
     }
 
 }

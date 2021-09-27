@@ -11,7 +11,7 @@ import RxSwift
 import RxRelay
 
 protocol SignUpViewModelProtocol {
-    var state: BehaviorRelay<State> { get }
+    var errorMessage: PublishRelay<String?> { get }
     var email: BehaviorRelay<String> { get }
     var password: BehaviorRelay<String> { get }
     var passwordConfirmation: BehaviorRelay<String> { get }
@@ -20,6 +20,8 @@ protocol SignUpViewModelProtocol {
     var passwordMatch: BehaviorRelay<Bool> { get }
     var isSignUpEnabled: BehaviorRelay<Bool> { get }
     var signUp: PublishRelay<Void> { get }
+    var isLoading: Observable<Bool> { get }
+    var goBackAction: PublishRelay<Void> { get }
 }
 
 class SignUpViewModel: SignUpViewModelProtocol {
@@ -27,17 +29,22 @@ class SignUpViewModel: SignUpViewModelProtocol {
     // MARK: - Properties
     var coordinator: SignUpCoordinatorProtocol!
     let disposeBag = DisposeBag()
+    let indicator = ActivityIndicator()
     
     // Protocol conformation
-    let state = BehaviorRelay<State>(value: .standby)
+    let errorMessage = PublishRelay<String?>()
     let email = BehaviorRelay<String>(value: "")
     let password = BehaviorRelay<String>(value: "")
     let passwordConfirmation = BehaviorRelay<String>(value: "")
     let isEmailValid = BehaviorRelay<Bool>(value: false)
     let isPasswordValid = BehaviorRelay<Bool>(value: false)
     let passwordMatch = BehaviorRelay<Bool>(value: false)
-    var isSignUpEnabled = BehaviorRelay<Bool>(value: false)
+    let isSignUpEnabled = BehaviorRelay<Bool>(value: false)
     let signUp = PublishRelay<Void>()
+    var isLoading: Observable<Bool> {
+        return indicator.asObservable()
+    }
+    let goBackAction = PublishRelay<Void>()
     
     init(coordinator: SignUpCoordinatorProtocol) {
         self.coordinator = coordinator
@@ -90,9 +97,21 @@ class SignUpViewModel: SignUpViewModelProtocol {
             .filter { $0.1 && $1.1 }
             .map { ($0.0, $1.0) }
             .observe(on: SerialDispatchQueueScheduler(qos: .userInitiated))
-            .startProcessing(state: state)
-            .flatMapLatest { Auth.auth().rx.signUpWith(email: $0.0, password: $0.1) }
-            .stopProcessing(state: state)
+            .flatMapLatest { [errorMessage, indicator] in
+                Auth.auth().rx
+                    .signUpWith(email: $0.0, password: $0.1)
+                    .trackActivity(indicator).catch { error in
+                        let errorCode = (error as NSError).code
+                        print(errorCode)
+                        switch errorCode {
+                        case 17007:
+                            errorMessage.accept("Current email unavailable to use")
+                        default:
+                            errorMessage.accept("Unknown error occurred")
+                        }
+                        return .empty()
+                    }
+            }
             .retry()
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [coordinator] _ in
@@ -105,6 +124,10 @@ class SignUpViewModel: SignUpViewModelProtocol {
                     }
                 }
             })
+            .disposed(by: disposeBag)
+        
+        goBackAction
+            .subscribe(onNext: { coordinator.goBack() })
             .disposed(by: disposeBag)
         
     }

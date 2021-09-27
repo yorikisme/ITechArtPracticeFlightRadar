@@ -9,14 +9,17 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Lottie
+import Toast
 
 class ForgotPasswordViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel: ForgotPasswordViewModelProtocol!
     let disposeBag = DisposeBag()
+    var processingView: ProcessingView!
     
     // MARK: - Outlets
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var invalidEmailFormatLabel: UILabel!
     @IBOutlet weak var sendRequestButton: UIButton!
@@ -51,33 +54,34 @@ class ForgotPasswordViewController: UIViewController {
             .disposed(by: disposeBag)
         
         // State determination
-        var processingView: ProcessingView?
-        
         viewModel
-            .state
-            .observe(on: MainScheduler.instance)
+            .isLoading
             .subscribe(onNext: { [weak self] in
-                switch $0 {
-                case .standby:
-                    if let processingView = processingView {
-                        processingView.removeFromSuperview()
-                    }
-                case .processing:
-                    processingView = ProcessingView.createView()
-                    self?.view.addSubview(processingView!)
-                case .failure(let error):
-                    if let processingView = processingView {
-                        processingView.removeFromSuperview()
-                        self?.view.makeToast(error.localizedDescription)
-                    }
+                if $0 {
+                    self?.showActivityIndicator()
+                } else {
+                    self?.removeActivityIndicator()
                 }
             })
             .disposed(by: disposeBag)
+        
+        // Occurred error message
+        viewModel
+            .errorMessage
+            .subscribe(onNext: { [weak self] message in self?.view.makeToast(message) })
+            .disposed(by: disposeBag)
+        
+        // Go back
+        backButton.rx
+            .tap
+            .bind(to: viewModel.goBackAction)
+            .disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false
+        backButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
         setupAnimation()
     }
     
@@ -88,6 +92,16 @@ class ForgotPasswordViewController: UIViewController {
         animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .loop
         animationView.play()
+    }
+    
+    func showActivityIndicator() {
+        processingView = ProcessingView.createView()
+        view.addSubview(processingView)
+    }
+    
+    func removeActivityIndicator() {
+        guard let processingView = processingView else { return }
+        processingView.removeFromSuperview()
     }
 
 }

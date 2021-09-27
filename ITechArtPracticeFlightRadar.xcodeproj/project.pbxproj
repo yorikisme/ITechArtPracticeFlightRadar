@@ -27,7 +27,6 @@
 		B76A198326E758B800B75EDE /* RadarDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */; };
 		B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */; };
 		B76A198726E78FA500B75EDE /* CoordinateRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */; };
-		B77827F326DF9BEA0058ADD5 /* ObservableTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */; };
 		B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */; };
 		B77827F726DFA84F0058ADD5 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */; };
 		B77827F926DFA8780058ADD5 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F826DFA8780058ADD5 /* ForgotPasswordViewModel.swift */; };
@@ -41,6 +40,7 @@
 		B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79039E726E8C1BD000908AD /* RxMapViewDelegateProxy.swift */; };
 		B79039EA26E8C27F000908AD /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79039E926E8C27F000908AD /* MKMapView+Rx.swift */; };
 		B79039EC26E8ED6C000908AD /* FlightInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79039EB26E8ED6C000908AD /* FlightInfo.swift */; };
+		B7950B4726FC71B700183DF1 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7950B4626FC71B700183DF1 /* ActivityIndicator.swift */; };
 		B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE46126E0C62E0019F860 /* SignUpViewController.swift */; };
 		B79DE46426E0C62E0019F860 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79DE46226E0C62E0019F860 /* SignUpViewController.xib */; };
 		B79DE46626E0C6450019F860 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE46526E0C6450019F860 /* SignUpViewModel.swift */; };
@@ -67,7 +67,6 @@
 		B7C0856226EA02750001C807 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C0856126EA02750001C807 /* NetworkManager.swift */; };
 		B7C0856C26EA5A2C0001C807 /* MyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = B7C0856B26EA5A2C0001C807 /* MyJSON.json */; };
 		B7D753FB26C15ABC0048F67E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B7D753FA26C15ABC0048F67E /* Lottie */; };
-		B7E5F2B626DCB732004010BF /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E5F2B526DCB732004010BF /* State.swift */; };
 		B7E5F2C426DD042C004010BF /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E5F2C326DD042C004010BF /* ProcessingView.swift */; };
 		B7E5F2C626DD044B004010BF /* ProcessingStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */; };
 		B7EB6F4C26CBD45000104EDF /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B7EB6F4B26CBD45000104EDF /* RxRelay */; };
@@ -98,7 +97,6 @@
 		B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarDashboardViewModel.swift; sourceTree = "<group>"; };
 		B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExtensions.swift; sourceTree = "<group>"; };
 		B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateRectangle.swift; sourceTree = "<group>"; };
-		B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTypeExtensions.swift; sourceTree = "<group>"; };
 		B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		B77827F826DFA8780058ADD5 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -111,6 +109,7 @@
 		B79039E726E8C1BD000908AD /* RxMapViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMapViewDelegateProxy.swift; sourceTree = "<group>"; };
 		B79039E926E8C27F000908AD /* MKMapView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
 		B79039EB26E8ED6C000908AD /* FlightInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfo.swift; sourceTree = "<group>"; };
+		B7950B4626FC71B700183DF1 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		B79DE46126E0C62E0019F860 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B79DE46226E0C62E0019F860 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		B79DE46526E0C6450019F860 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -133,7 +132,6 @@
 		B7B59F3B26F377BA00E223FF /* SideMenuState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuState.swift; sourceTree = "<group>"; };
 		B7C0856126EA02750001C807 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B7C0856B26EA5A2C0001C807 /* MyJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON.json; sourceTree = "<group>"; };
-		B7E5F2B526DCB732004010BF /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		B7E5F2C326DD042C004010BF /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
 		B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProcessingStateView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -343,10 +341,10 @@
 		B71996B026F87F0A00B18256 /* AppCommon */ = {
 			isa = PBXGroup;
 			children = (
-				B7E5F2B526DCB732004010BF /* State.swift */,
 				B7E5F2C326DD042C004010BF /* ProcessingView.swift */,
 				B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */,
 				B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */,
+				B7950B4626FC71B700183DF1 /* ActivityIndicator.swift */,
 			);
 			path = AppCommon;
 			sourceTree = "<group>";
@@ -356,7 +354,6 @@
 			children = (
 				B766E34B26D62F5900798B6C /* StringExtensions.swift */,
 				B766E34E26D62FE500798B6C /* ReactiveExtensions.swift */,
-				B77827F226DF9BEA0058ADD5 /* ObservableTypeExtensions.swift */,
 				B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */,
 				B79039E726E8C1BD000908AD /* RxMapViewDelegateProxy.swift */,
 				B79039E926E8C27F000908AD /* MKMapView+Rx.swift */,
@@ -572,14 +569,12 @@
 			files = (
 				B7A6156726F0A14100E91809 /* ContainerCoordinator.swift in Sources */,
 				B79039EC26E8ED6C000908AD /* FlightInfo.swift in Sources */,
-				B77827F326DF9BEA0058ADD5 /* ObservableTypeExtensions.swift in Sources */,
 				B79DE46626E0C6450019F860 /* SignUpViewModel.swift in Sources */,
 				B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */,
 				B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */,
 				B7A6156E26F0CAA500E91809 /* SideMenuViewController.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
 				B76A198726E78FA500B75EDE /* CoordinateRectangle.swift in Sources */,
-				B7E5F2B626DCB732004010BF /* State.swift in Sources */,
 				B7A6156926F0A49800E91809 /* ContainerViewController.swift in Sources */,
 				B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */,
 				B77827FB26DFA88D0058ADD5 /* ForgotPasswordCoordinator.swift in Sources */,
@@ -598,6 +593,7 @@
 				B79039EA26E8C27F000908AD /* MKMapView+Rx.swift in Sources */,
 				B77827F926DFA8780058ADD5 /* ForgotPasswordViewModel.swift in Sources */,
 				B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */,
+				B7950B4726FC71B700183DF1 /* ActivityIndicator.swift in Sources */,
 				B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */,
 				B784067926C3CCCE00F5AF03 /* AppCoordinator.swift in Sources */,
 				B7B59F3C26F377BA00E223FF /* SideMenuState.swift in Sources */,
