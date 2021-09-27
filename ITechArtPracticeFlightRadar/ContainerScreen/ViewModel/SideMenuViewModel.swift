@@ -12,7 +12,7 @@ import RxCocoa
 
 protocol SideMenuCoordinatorProtocol {
     func goToSettings()
-    func signOut()
+    //func signOut()
 }
 
 class SideMenuViewModel: SideMenuViewModelProtocol {
@@ -24,7 +24,7 @@ class SideMenuViewModel: SideMenuViewModelProtocol {
     
     // MARK: Protocol conformation
     let settings = PublishRelay<Void>()
-    let signOut = PublishRelay<Void>()
+    //let signOut = PublishRelay<Void>()
     let signOutAction = PublishRelay<Void>()
     
     

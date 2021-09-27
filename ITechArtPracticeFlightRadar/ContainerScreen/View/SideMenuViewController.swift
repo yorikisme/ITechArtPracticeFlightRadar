@@ -11,7 +11,7 @@ import RxCocoa
 
 protocol SideMenuViewModelProtocol {
     var settings: PublishRelay<Void> { get }
-    var signOut: PublishRelay<Void> { get }
+    //var signOut: PublishRelay<Void> { get }
     var signOutAction: PublishRelay<Void> { get }
 }
 

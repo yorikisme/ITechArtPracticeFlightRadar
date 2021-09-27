@@ -21,6 +21,10 @@
 		B72FF45426EB6F2E00BC6EE1 /* MyJSON13.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */; };
 		B72FF45626EB6F3900BC6EE1 /* MyJSON14.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */; };
 		B752047E2701B8FE0008886E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752047D2701B8FE0008886E /* ErrorMessage.swift */; };
+		B75204892701C4DF0008886E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75204882701C4DF0008886E /* SettingsViewModel.swift */; };
+		B752048B2701C4EE0008886E /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752048A2701C4EE0008886E /* SettingsCoordinator.swift */; };
+		B752049E2701F35B0008886E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752049C2701F35B0008886E /* SettingsViewController.swift */; };
+		B752049F2701F35B0008886E /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B752049D2701F35B0008886E /* SettingsViewController.xib */; };
 		B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */; };
 		B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */; };
 		B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34B26D62F5900798B6C /* StringExtensions.swift */; };
@@ -92,6 +96,10 @@
 		B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON13.json; sourceTree = "<group>"; };
 		B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON14.json; sourceTree = "<group>"; };
 		B752047D2701B8FE0008886E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		B75204882701C4DF0008886E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		B752048A2701C4EE0008886E /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		B752049C2701F35B0008886E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B752049D2701F35B0008886E /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
 		B766E34B26D62F5900798B6C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -352,6 +360,49 @@
 			path = AppCommon;
 			sourceTree = "<group>";
 		};
+		B752047F2701C45B0008886E /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B75204832701C4910008886E /* Model */,
+				B75204822701C48B0008886E /* View */,
+				B75204812701C4790008886E /* ViewModel */,
+				B75204802701C46B0008886E /* Coordinator */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		B75204802701C46B0008886E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B752048A2701C4EE0008886E /* SettingsCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B75204812701C4790008886E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B75204882701C4DF0008886E /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B75204822701C48B0008886E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B752049C2701F35B0008886E /* SettingsViewController.swift */,
+				B752049D2701F35B0008886E /* SettingsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B75204832701C4910008886E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B766E34D26D62F5D00798B6C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +447,7 @@
 				B71996A626F87C0400B18256 /* SignUpScreen */,
 				B71996A126F87B7400B18256 /* ForgotPasswordScreen */,
 				B71996AB26F87C4E00B18256 /* ContainerScreen */,
+				B752047F2701C45B0008886E /* SettingsScreen */,
 				B71996B026F87F0A00B18256 /* AppCommon */,
 				B7C0856026EA02410001C807 /* Services */,
 				B766E34D26D62F5D00798B6C /* Extensions */,
@@ -553,6 +605,7 @@
 				B72FF44626EB58CD00BC6EE1 /* MyJSON6.json in Resources */,
 				B7B59F3826F32E7D00E223FF /* ContainerViewController.xib in Resources */,
 				B72FF44026EB585A00BC6EE1 /* MyJSON3.json in Resources */,
+				B752049F2701F35B0008886E /* SettingsViewController.xib in Resources */,
 				B77D40FE26E6595700BA945E /* RadarDashboardViewController.xib in Resources */,
 				B72FF45626EB6F3900BC6EE1 /* MyJSON14.json in Resources */,
 				B72FF44426EB588700BC6EE1 /* MyJSON5.json in Resources */,
@@ -577,6 +630,7 @@
 				B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */,
 				B7A6156E26F0CAA500E91809 /* SideMenuViewController.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
+				B75204892701C4DF0008886E /* SettingsViewModel.swift in Sources */,
 				B76A198726E78FA500B75EDE /* CoordinateRectangle.swift in Sources */,
 				B7A6156926F0A49800E91809 /* ContainerViewController.swift in Sources */,
 				B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */,
@@ -597,6 +651,8 @@
 				B79039EA26E8C27F000908AD /* MKMapView+Rx.swift in Sources */,
 				B77827F926DFA8780058ADD5 /* ForgotPasswordViewModel.swift in Sources */,
 				B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */,
+				B752048B2701C4EE0008886E /* SettingsCoordinator.swift in Sources */,
+				B752049E2701F35B0008886E /* SettingsViewController.swift in Sources */,
 				B7950B4726FC71B700183DF1 /* ActivityIndicator.swift in Sources */,
 				B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */,
 				B784067926C3CCCE00F5AF03 /* AppCoordinator.swift in Sources */,

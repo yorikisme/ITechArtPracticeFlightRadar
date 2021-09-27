@@ -55,7 +55,8 @@ extension ContainerCoordinator: RadarDashboardCoordinatorProtocol {
 
 extension ContainerCoordinator: SideMenuCoordinatorProtocol {
     func goToSettings() {
-        print("Settings")
+        let settingsCoordinator = SettingsCoordinator(navigationController: navigationController, service: service)
+        settingsCoordinator.start()
     }
     
     func signOut() {
