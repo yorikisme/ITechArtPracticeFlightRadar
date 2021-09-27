@@ -20,6 +20,7 @@
 		B72FF45226EB6F2100BC6EE1 /* MyJSON12.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45126EB6F2100BC6EE1 /* MyJSON12.json */; };
 		B72FF45426EB6F2E00BC6EE1 /* MyJSON13.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */; };
 		B72FF45626EB6F3900BC6EE1 /* MyJSON14.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */; };
+		B752047E2701B8FE0008886E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752047D2701B8FE0008886E /* ErrorMessage.swift */; };
 		B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */; };
 		B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */; };
 		B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34B26D62F5900798B6C /* StringExtensions.swift */; };
@@ -90,6 +91,7 @@
 		B72FF45126EB6F2100BC6EE1 /* MyJSON12.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON12.json; sourceTree = "<group>"; };
 		B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON13.json; sourceTree = "<group>"; };
 		B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON14.json; sourceTree = "<group>"; };
+		B752047D2701B8FE0008886E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
 		B766E34B26D62F5900798B6C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				B7E5F2C526DD044B004010BF /* ProcessingStateView.xib */,
 				B784067826C3CCCE00F5AF03 /* AppCoordinator.swift */,
 				B7950B4626FC71B700183DF1 /* ActivityIndicator.swift */,
+				B752047D2701B8FE0008886E /* ErrorMessage.swift */,
 			);
 			path = AppCommon;
 			sourceTree = "<group>";
@@ -588,6 +591,7 @@
 				B7C0856226EA02750001C807 /* NetworkManager.swift in Sources */,
 				B7E5F2C426DD042C004010BF /* ProcessingView.swift in Sources */,
 				B7A95B4E26C140B7009B1BA8 /* SceneDelegate.swift in Sources */,
+				B752047E2701B8FE0008886E /* ErrorMessage.swift in Sources */,
 				B79DE46326E0C62E0019F860 /* SignUpViewController.swift in Sources */,
 				B784067E26C3E27300F5AF03 /* AuthenticationCoordinator.swift in Sources */,
 				B79039EA26E8C27F000908AD /* MKMapView+Rx.swift in Sources */,

@@ -12,7 +12,7 @@ import RxSwiftExt
 import Firebase
 
 protocol AuthenticationViewModelProtocol {
-    var errorMessage: PublishRelay<String?> { get }
+    var errorMessage: PublishRelay<String> { get }
     var email: BehaviorRelay<String> { get }
     var password: BehaviorRelay<String> { get }
     var isSignInEnabled: BehaviorRelay<Bool> { get }
@@ -32,7 +32,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
     let indicator = ActivityIndicator()
     
     // Protocol conformation
-    let errorMessage = PublishRelay<String?>()
+    let errorMessage = PublishRelay<String>()
     let email = BehaviorRelay<String>(value: "")
     let password = BehaviorRelay<String>(value: "")
     let isSignInEnabled = BehaviorRelay<Bool>(value: false)
@@ -85,16 +85,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
                     .signInWith(email: $0.0, password: $0.1)
                     .trackActivity(indicator)
                     .catch { error in
-                        let errorCode = (error as NSError).code
-                        print(errorCode)
-                        switch errorCode {
-                        case 17008, 17009, 17011:
-                            errorMessage.accept("Please, check your authentication credentials you provided")
-                        case 17020:
-                            errorMessage.accept("Network error, please, check your connection or try to sign in again later")
-                        default:
-                            errorMessage.accept("Unknown error occurred, please, try to sign in later")
-                        }
+                        ErrorMessage.failure(dueTo: error, observer: errorMessage)
                         return .empty()
                     }
             }

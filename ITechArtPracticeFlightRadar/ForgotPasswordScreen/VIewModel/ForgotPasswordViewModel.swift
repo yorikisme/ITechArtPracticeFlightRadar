@@ -11,7 +11,7 @@ import RxSwift
 import RxRelay
 
 protocol ForgotPasswordViewModelProtocol {
-    var errorMessage: PublishRelay<String?> { get }
+    var errorMessage: PublishRelay<String> { get }
     var email: BehaviorRelay<String> { get }
     var isEmailFormatValid: BehaviorRelay<Bool> { get }
     var isSendResetRequestEnabled: BehaviorRelay<Bool> { get }
@@ -28,7 +28,7 @@ class ForgotPasswordViewModel: ForgotPasswordViewModelProtocol {
     let activityIndicator = ActivityIndicator()
     
     // Protocol conformation
-    let errorMessage = PublishRelay<String?>()
+    let errorMessage = PublishRelay<String>()
     let email = BehaviorRelay<String>(value: "")
     let isEmailFormatValid = BehaviorRelay<Bool>(value: false)
     let isSendResetRequestEnabled = BehaviorRelay<Bool>(value: false)
@@ -58,7 +58,15 @@ class ForgotPasswordViewModel: ForgotPasswordViewModelProtocol {
             .observe(on: SerialDispatchQueueScheduler(qos: .userInitiated))
             .filter { _, isValid in isValid }
             .map { email, isValid in }
-            .flatMapLatest { [activityIndicator, email] in Auth.auth().rx.forgotPassword(email: email.value).trackActivity(activityIndicator) }
+            .flatMapLatest { [errorMessage, activityIndicator, email] in
+                Auth.auth().rx
+                    .forgotPassword(email: email.value)
+                    .trackActivity(activityIndicator)
+                    .catch { error in
+                        ErrorMessage.failure(dueTo: error, observer: errorMessage)
+                        return .empty()
+                    }
+            }
             .retry()
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: {

@@ -11,7 +11,7 @@ import RxSwift
 import RxRelay
 
 protocol SignUpViewModelProtocol {
-    var errorMessage: PublishRelay<String?> { get }
+    var errorMessage: PublishRelay<String> { get }
     var email: BehaviorRelay<String> { get }
     var password: BehaviorRelay<String> { get }
     var passwordConfirmation: BehaviorRelay<String> { get }
@@ -32,7 +32,7 @@ class SignUpViewModel: SignUpViewModelProtocol {
     let indicator = ActivityIndicator()
     
     // Protocol conformation
-    let errorMessage = PublishRelay<String?>()
+    let errorMessage = PublishRelay<String>()
     let email = BehaviorRelay<String>(value: "")
     let password = BehaviorRelay<String>(value: "")
     let passwordConfirmation = BehaviorRelay<String>(value: "")
@@ -100,15 +100,9 @@ class SignUpViewModel: SignUpViewModelProtocol {
             .flatMapLatest { [errorMessage, indicator] in
                 Auth.auth().rx
                     .signUpWith(email: $0.0, password: $0.1)
-                    .trackActivity(indicator).catch { error in
-                        let errorCode = (error as NSError).code
-                        print(errorCode)
-                        switch errorCode {
-                        case 17007:
-                            errorMessage.accept("Current email unavailable to use")
-                        default:
-                            errorMessage.accept("Unknown error occurred")
-                        }
+                    .trackActivity(indicator)
+                    .catch { error in
+                        ErrorMessage.failure(dueTo: error, observer: errorMessage)
                         return .empty()
                     }
             }
