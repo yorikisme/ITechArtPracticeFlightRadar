@@ -12,10 +12,11 @@ import RxCocoa
 enum ErrorMessage {
     
     // Error messages
-    static let authenticationError = "Please, check the authentication credentials you provided"
-    static let networkError = "Network error, please, check your connection or try to sign in again later"
-    static let internalError = "Internal error occurred, please, try to sign up later or contact the customer's service"
-    static let unknownError = "Unknown error occurred, please, try to sign in later"
+    static let authenticationError = "Please, check the authentication credentials you provide"
+    static let networkError = "Network error, please, check your connection or try again later"
+    static let internalSignUpError = "Internal error occurred, please, try to sign up later or contact the customer service"
+    static let internalSignInError = "Internal error occurred, please, try to sign in later or contact the customer service"
+    static let unknownError = "Unknown error occurred, please, try again later or contact the customer service"
     
     
     static func failure(dueTo error: Error, observer: PublishRelay<String>) {
@@ -23,9 +24,11 @@ enum ErrorMessage {
         print(errorCode)
         switch errorCode {
         case 17007:
-            observer.accept(ErrorMessage.internalError)
-        case 17008, 17009, 17011:
+            observer.accept(ErrorMessage.internalSignUpError)
+        case 17008, 17009:
             observer.accept(ErrorMessage.authenticationError)
+        case 17011:
+            observer.accept(ErrorMessage.internalSignInError)
         case 17020:
             observer.accept(ErrorMessage.networkError)
         default:

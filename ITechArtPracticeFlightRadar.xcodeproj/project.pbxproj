@@ -25,6 +25,10 @@
 		B752048B2701C4EE0008886E /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752048A2701C4EE0008886E /* SettingsCoordinator.swift */; };
 		B752049E2701F35B0008886E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752049C2701F35B0008886E /* SettingsViewController.swift */; };
 		B752049F2701F35B0008886E /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B752049D2701F35B0008886E /* SettingsViewController.xib */; };
+		B75204A22701F7C60008886E /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75204A02701F7C60008886E /* ChangeEmailViewController.swift */; };
+		B75204A32701F7C60008886E /* ChangeEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75204A12701F7C60008886E /* ChangeEmailViewController.xib */; };
+		B75204AA2701F8390008886E /* ChangeEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75204A92701F8390008886E /* ChangeEmailViewModel.swift */; };
+		B75204AC2701F8490008886E /* ChangeEmailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75204AB2701F8490008886E /* ChangeEmailCoordinator.swift */; };
 		B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */; };
 		B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */; };
 		B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766E34B26D62F5900798B6C /* StringExtensions.swift */; };
@@ -100,6 +104,10 @@
 		B752048A2701C4EE0008886E /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		B752049C2701F35B0008886E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B752049D2701F35B0008886E /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		B75204A02701F7C60008886E /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
+		B75204A12701F7C60008886E /* ChangeEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeEmailViewController.xib; sourceTree = "<group>"; };
+		B75204A92701F8390008886E /* ChangeEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewModel.swift; sourceTree = "<group>"; };
+		B75204AB2701F8490008886E /* ChangeEmailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailCoordinator.swift; sourceTree = "<group>"; };
 		B75D0EB726C2B2A60075E4CA /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		B75D0EB826C2B2A60075E4CA /* AuthenticationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
 		B766E34B26D62F5900798B6C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -403,6 +411,49 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B75204A42701F7D50008886E /* ChangeEmailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B75204A82701F81C0008886E /* Model */,
+				B75204A72701F8180008886E /* View */,
+				B75204A62701F80F0008886E /* ViewModel */,
+				B75204A52701F7FC0008886E /* Coordinator */,
+			);
+			path = ChangeEmailScreen;
+			sourceTree = "<group>";
+		};
+		B75204A52701F7FC0008886E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B75204AB2701F8490008886E /* ChangeEmailCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B75204A62701F80F0008886E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B75204A92701F8390008886E /* ChangeEmailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B75204A72701F8180008886E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B75204A02701F7C60008886E /* ChangeEmailViewController.swift */,
+				B75204A12701F7C60008886E /* ChangeEmailViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B75204A82701F81C0008886E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B766E34D26D62F5D00798B6C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +499,7 @@
 				B71996A126F87B7400B18256 /* ForgotPasswordScreen */,
 				B71996AB26F87C4E00B18256 /* ContainerScreen */,
 				B752047F2701C45B0008886E /* SettingsScreen */,
+				B75204A42701F7D50008886E /* ChangeEmailScreen */,
 				B71996B026F87F0A00B18256 /* AppCommon */,
 				B7C0856026EA02410001C807 /* Services */,
 				B766E34D26D62F5D00798B6C /* Extensions */,
@@ -593,6 +645,7 @@
 				B72FF45426EB6F2E00BC6EE1 /* MyJSON13.json in Resources */,
 				B7A95B6626C14756009B1BA8 /* GoogleService-Info.plist in Resources */,
 				B7C0856C26EA5A2C0001C807 /* MyJSON.json in Resources */,
+				B75204A32701F7C60008886E /* ChangeEmailViewController.xib in Resources */,
 				B7A9A6E926D91295005F559A /* authenticationScreenBackgroundAircraft.json in Resources */,
 				B79DE46426E0C62E0019F860 /* SignUpViewController.xib in Resources */,
 				B72FF44A26EB6E9900BC6EE1 /* MyJSON8.json in Resources */,
@@ -636,8 +689,10 @@
 				B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */,
 				B77827FB26DFA88D0058ADD5 /* ForgotPasswordCoordinator.swift in Sources */,
 				B75D0EB926C2B2A60075E4CA /* AuthenticationViewController.swift in Sources */,
+				B75204AA2701F8390008886E /* ChangeEmailViewModel.swift in Sources */,
 				B77D40FD26E6595700BA945E /* RadarDashboardViewController.swift in Sources */,
 				B7B59F3A26F3627E00E223FF /* ContainerViewModel.swift in Sources */,
+				B75204A22701F7C60008886E /* ChangeEmailViewController.swift in Sources */,
 				B76A198326E758B800B75EDE /* RadarDashboardViewModel.swift in Sources */,
 				B79DE46826E0C6590019F860 /* SignUpCoordinator.swift in Sources */,
 				B7A95C0526EBA4FC00687210 /* SideMenuViewModel.swift in Sources */,
@@ -656,6 +711,7 @@
 				B7950B4726FC71B700183DF1 /* ActivityIndicator.swift in Sources */,
 				B766E34F26D62FE500798B6C /* ReactiveExtensions.swift in Sources */,
 				B784067926C3CCCE00F5AF03 /* AppCoordinator.swift in Sources */,
+				B75204AC2701F8490008886E /* ChangeEmailCoordinator.swift in Sources */,
 				B7B59F3C26F377BA00E223FF /* SideMenuState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,8 @@
 import UIKit
 
 protocol SettingsCoordinatorProtocol: Coordinator {
+    func goToChangePasswordScreen()
+    func goBackToPreviousScreen()
 }
 
 class SettingsCoordinator: SettingsCoordinatorProtocol {
@@ -26,6 +28,15 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
         let viewModel = SettingsViewModel(coordinator: self)
         viewController.viewModel = viewModel
         navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func goToChangePasswordScreen() {
+        let coordinator = ChangeEmailCoordinator(navigationController: navigationController)
+        coordinator.start()
+    }
+    
+    func goBackToPreviousScreen() {
+        navigationController.popViewController(animated: true)
     }
     
 }

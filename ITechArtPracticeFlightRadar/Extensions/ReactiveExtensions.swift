@@ -91,4 +91,43 @@ extension Reactive where Base: Auth {
         }
     }
     
+    func changeUserEmail(to newEmail: String) -> Single<Void> {
+        return Single<Void>.create { observer in
+            base.currentUser?.updateEmail(to: newEmail, completion: { error in
+                if let error = error {
+                    observer(.failure(error))
+                    print("Change email error \(error.localizedDescription)")
+                } else {
+                    observer(.success(Void()))
+                    print("Change email success")
+                }
+            })
+            return Disposables.create {}
+        }
+    }
+    
+    func changeUserEmailTo(newEmail: String, passwordCheck: String) -> Single<Void> {
+        return Single<Void>.create { observer in
+            let userEmail = base.currentUser?.email
+            let credential = EmailAuthProvider.credential(withEmail: userEmail ?? "", password: passwordCheck)
+            base.currentUser?.reauthenticate(with: credential, completion: { result, error in
+                if let error = error {
+                    print("Reauthentication error")
+                    observer(.failure(error))
+                } else {
+                    base.currentUser?.updateEmail(to: newEmail, completion: { error in
+                        if let error = error {
+                            print("Update email error")
+                            observer(.failure(error))
+                        } else {
+                            print("Update email success")
+                            observer(.success(Void()))
+                        }
+                    })
+                }
+            })
+            return Disposables.create {}
+        }
+    }
+    
 }

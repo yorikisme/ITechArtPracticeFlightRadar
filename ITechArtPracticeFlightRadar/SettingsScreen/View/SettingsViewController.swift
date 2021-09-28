@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel: SettingsViewModelProtocol!
+    let disposeBag = DisposeBag()
     
     // MARK: - Outlets
     @IBOutlet weak var backButton: UIButton!
@@ -22,6 +23,18 @@ class SettingsViewController: UIViewController {
     // MARK: - Lifecycle points
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Tap changeEmail button
+        changeEmailButton.rx
+            .tap
+            .bind(to: viewModel.changeEmail)
+            .disposed(by: disposeBag)
+        
+        // Tap back button
+        backButton.rx
+            .tap
+            .bind(to: viewModel.goBackAction)
+            .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
