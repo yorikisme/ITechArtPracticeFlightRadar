@@ -54,7 +54,8 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
                 if let aircraft = aircrafts.first(where: { aircraft in
                     aircraft.transponderIdentifier == pin.annotation?.title
                 }) {
-                    pin.image = UIImage(systemName: "airplane")?.rotatedBy(degree: CGFloat(aircraft.course ?? 0))
+                    let image = UIImage(systemName: "airplane")?.rotatedBy(degree: -90)
+                    pin.image = image?.rotatedBy(degree: CGFloat(aircraft.course ?? 0))
                 }
             }
             .disposed(by: disposeBag)
@@ -72,6 +73,9 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
     func addAircraftPinWith(aircraft: Aircraft) {
         if let pin = mapView.annotations.first(where: { $0.title == aircraft.transponderIdentifier }) {
             (pin as! MKPointAnnotation).coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(aircraft.latitude ?? 0), longitude: CLLocationDegrees(aircraft.longitude ?? 0))
+            let annotationView = mapView.view(for: pin)
+            let image = UIImage(systemName: "airplane")?.rotatedBy(degree: -90)
+            annotationView?.image = image?.rotatedBy(degree: CGFloat(aircraft.course ?? 0))
         } else {
             let pin = MKPointAnnotation()
             let coordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(aircraft.latitude ?? 0), longitude: CLLocationDegrees(aircraft.longitude ?? 0))
@@ -82,9 +86,9 @@ class RadarDashboardViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let pin = annotation as! MKPointAnnotation
-        pin.coordinate = CLLocationCoordinate2D(latitude: 54, longitude: 27)
-        return MKAnnotationView(annotation: annotation, reuseIdentifier: "5")
-    }
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        let pin = annotation as! MKPointAnnotation
+//        pin.coordinate = CLLocationCoordinate2D(latitude: 54, longitude: 27)
+//        return MKAnnotationView(annotation: annotation, reuseIdentifier: "5")
+//    }
 }

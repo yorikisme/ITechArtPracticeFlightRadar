@@ -68,8 +68,10 @@ class ChangeEmailViewModel: ChangeEmailViewModelProtocol {
             .withLatestFrom(Observable.combineLatest(validatedEmail, validatedPassword))
             .filter { validatedEmail, validatedPassword in validatedEmail.1 && validatedPassword.1 }
             .flatMapLatest { [activityIndicator, errorMessage] validatedEmail, validatedPassword in
-                Auth.auth().rx
-                    .changeUserEmailTo(newEmail: validatedEmail.0, passwordCheck: validatedPassword.0)
+                Auth.auth().rx.reauthenticateUserBy(password: validatedPassword.0, newEmail: validatedEmail.0)
+                    .flatMap { newEmail in
+                        Auth.auth().rx.changeUserCurrentEmailTo(newEmail: newEmail)
+                    }
                     .trackActivity(activityIndicator)
                     .catch { error in
                         ErrorMessage.failure(dueTo: error, observer: errorMessage)

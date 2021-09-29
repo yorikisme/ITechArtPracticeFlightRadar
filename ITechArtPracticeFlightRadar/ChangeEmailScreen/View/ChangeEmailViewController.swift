@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Lottie
 
 class ChangeEmailViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class ChangeEmailViewController: UIViewController {
     @IBOutlet weak var newEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var animationView: AnimationView!
     
     // MARK: Lifecycle points
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class ChangeEmailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupAnimation()
         backButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
         
         // Email
@@ -83,6 +86,14 @@ class ChangeEmailViewController: UIViewController {
     }
     
     // MARK: - Methods
+    private func setupAnimation() {
+        // Background animation
+        animationView.animation = Animation.named("authenticationScreenBackgroundAircraft")
+        animationView.contentMode = .scaleAspectFill
+        animationView.loopMode = .loop
+        animationView.play()
+    }
+    
     func showActivityIndicator() {
         processingView = ProcessingView.createView()
         view.addSubview(processingView)

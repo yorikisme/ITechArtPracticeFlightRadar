@@ -39,8 +39,15 @@ open class RxMapViewDelegateProxy: DelegateProxy<MKMapView, MKMapViewDelegate>,
     }
     
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
-        pins.on(.next(pin))
+        let id = "aircraft"
+        var pin = mapView.dequeueReusableAnnotationView(withIdentifier: id)
+        if pin == nil {
+            pin = MKAnnotationView(annotation: annotation, reuseIdentifier: id)
+            pin?.canShowCallout = true
+        } else {
+            pin?.annotation = annotation
+        }
+        pins.on(.next(pin!))
         return pin
     }
     

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeEmailViewController" customModule="ITechArtPracticeFlightRadar" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="0eT-tu-aie" id="wmC-dE-rkm"/>
                 <outlet property="backButton" destination="CY9-KZ-m9U" id="gKV-U8-Tg8"/>
                 <outlet property="newEmailTextField" destination="199-r6-YFP" id="hD5-DZ-bH3"/>
                 <outlet property="passwordTextField" destination="tYt-1f-VLc" id="HwQ-bh-71A"/>
@@ -32,26 +33,40 @@
                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tYt-1f-VLc">
                     <rect key="frame" x="80" y="403" width="269" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AM-4n-3z2">
-                    <rect key="frame" x="192.66666666666666" y="445" width="43" height="36"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <rect key="frame" x="188.66666666666666" y="437.66666666666669" width="51" height="51"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
                     <state key="normal" title="Save"/>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="199-r6-YFP">
                     <rect key="frame" x="80" y="361" width="269" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                 </textField>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-tu-aie" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="555.66666666666663" width="428" height="370.33333333333337"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iTechArtFlightRadar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmY-KD-roO">
+                    <rect key="frame" x="41" y="226" width="347" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
+                    <color key="textColor" red="0.6160511971" green="0.89317280050000003" blue="0.9026809335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="0eT-tu-aie" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="0JT-Uq-G4N"/>
                 <constraint firstItem="1AM-4n-3z2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JJr-ks-bn5"/>
                 <constraint firstItem="1AM-4n-3z2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="W3I-Ur-PbI"/>
+                <constraint firstItem="0eT-tu-aie" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b8S-2X-cz7"/>
+                <constraint firstAttribute="trailing" secondItem="0eT-tu-aie" secondAttribute="trailing" id="f07-ub-A4a"/>
+                <constraint firstAttribute="bottom" secondItem="0eT-tu-aie" secondAttribute="bottom" id="pjc-nR-zpj"/>
             </constraints>
             <point key="canvasLocation" x="-16.822429906542055" y="115.98272138228943"/>
         </view>
