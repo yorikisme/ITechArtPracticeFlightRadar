@@ -25,8 +25,24 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
     // MARK: - Methods
     func start() {
         let viewController = SettingsViewController()
+        
+        let birthdayView = BirthdayView.createView()
+        let birthdayViewModel = BirthdayViewViewModel()
+        
+        birthdayView.configure(with: birthdayViewModel)
+        viewController.birthdayView = birthdayView
+        
         let viewModel = SettingsViewModel(coordinator: self)
         viewController.viewModel = viewModel
+        
+        birthdayViewModel
+            .newBirthdayDate
+            .subscribe(
+                onNext: {
+                    viewModel.newBirthdayDate.accept($0)
+                    viewModel.isChangeBirthdayInProgress.accept(false) })
+            .disposed(by: viewModel.disposeBag)
+        
         navigationController.pushViewController(viewController, animated: true)
     }
     

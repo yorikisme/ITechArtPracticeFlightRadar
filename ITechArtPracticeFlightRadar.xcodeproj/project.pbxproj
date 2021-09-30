@@ -20,6 +20,7 @@
 		B72FF45226EB6F2100BC6EE1 /* MyJSON12.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45126EB6F2100BC6EE1 /* MyJSON12.json */; };
 		B72FF45426EB6F2E00BC6EE1 /* MyJSON13.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */; };
 		B72FF45626EB6F3900BC6EE1 /* MyJSON14.json in Resources */ = {isa = PBXBuildFile; fileRef = B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */; };
+		B74D2E152705B31300D37864 /* BirthdayViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D2E142705B31300D37864 /* BirthdayViewViewModel.swift */; };
 		B752047E2701B8FE0008886E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752047D2701B8FE0008886E /* ErrorMessage.swift */; };
 		B75204892701C4DF0008886E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75204882701C4DF0008886E /* SettingsViewModel.swift */; };
 		B752048B2701C4EE0008886E /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752048A2701C4EE0008886E /* SettingsCoordinator.swift */; };
@@ -36,6 +37,8 @@
 		B76A198326E758B800B75EDE /* RadarDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */; };
 		B76A198526E75DB000B75EDE /* CoordinatorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */; };
 		B76A198726E78FA500B75EDE /* CoordinateRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */; };
+		B76FBFCE2704B98000CA55AA /* BirthdayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B76FBFCD2704B98000CA55AA /* BirthdayView.xib */; };
+		B76FBFD02704B9F800CA55AA /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FBFCF2704B9F800CA55AA /* BirthdayView.swift */; };
 		B77827F626DFA84F0058ADD5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */; };
 		B77827F726DFA84F0058ADD5 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */; };
 		B77827F926DFA8780058ADD5 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77827F826DFA8780058ADD5 /* ForgotPasswordViewModel.swift */; };
@@ -99,6 +102,7 @@
 		B72FF45126EB6F2100BC6EE1 /* MyJSON12.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON12.json; sourceTree = "<group>"; };
 		B72FF45326EB6F2E00BC6EE1 /* MyJSON13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON13.json; sourceTree = "<group>"; };
 		B72FF45526EB6F3900BC6EE1 /* MyJSON14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MyJSON14.json; sourceTree = "<group>"; };
+		B74D2E142705B31300D37864 /* BirthdayViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewViewModel.swift; sourceTree = "<group>"; };
 		B752047D2701B8FE0008886E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		B75204882701C4DF0008886E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		B752048A2701C4EE0008886E /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		B76A198226E758B800B75EDE /* RadarDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarDashboardViewModel.swift; sourceTree = "<group>"; };
 		B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExtensions.swift; sourceTree = "<group>"; };
 		B76A198626E78FA500B75EDE /* CoordinateRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateRectangle.swift; sourceTree = "<group>"; };
+		B76FBFCD2704B98000CA55AA /* BirthdayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BirthdayView.xib; sourceTree = "<group>"; };
+		B76FBFCF2704B9F800CA55AA /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 		B77827F426DFA84F0058ADD5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B77827F526DFA84F0058ADD5 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		B77827F826DFA8780058ADD5 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -391,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				B75204882701C4DF0008886E /* SettingsViewModel.swift */,
+				B74D2E142705B31300D37864 /* BirthdayViewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -400,6 +407,8 @@
 			children = (
 				B752049C2701F35B0008886E /* SettingsViewController.swift */,
 				B752049D2701F35B0008886E /* SettingsViewController.xib */,
+				B76FBFCD2704B98000CA55AA /* BirthdayView.xib */,
+				B76FBFCF2704B9F800CA55AA /* BirthdayView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -651,6 +660,7 @@
 				B72FF44A26EB6E9900BC6EE1 /* MyJSON8.json in Resources */,
 				B72FF43E26EB511C00BC6EE1 /* MyJSON2.json in Resources */,
 				B7A6156F26F0CAA500E91809 /* SideMenuViewController.xib in Resources */,
+				B76FBFCE2704B98000CA55AA /* BirthdayView.xib in Resources */,
 				B75D0EBA26C2B2A60075E4CA /* AuthenticationViewController.xib in Resources */,
 				B7E5F2C626DD044B004010BF /* ProcessingStateView.xib in Resources */,
 				B7A9A6EB26D9137A005F559A /* spinner.json in Resources */,
@@ -677,10 +687,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7A6156726F0A14100E91809 /* ContainerCoordinator.swift in Sources */,
+				B76FBFD02704B9F800CA55AA /* BirthdayView.swift in Sources */,
 				B79039EC26E8ED6C000908AD /* FlightInfo.swift in Sources */,
 				B79DE46626E0C6450019F860 /* SignUpViewModel.swift in Sources */,
 				B766E34C26D62F5900798B6C /* StringExtensions.swift in Sources */,
 				B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */,
+				B74D2E152705B31300D37864 /* BirthdayViewViewModel.swift in Sources */,
 				B7A6156E26F0CAA500E91809 /* SideMenuViewController.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
 				B75204892701C4DF0008886E /* SettingsViewModel.swift in Sources */,
