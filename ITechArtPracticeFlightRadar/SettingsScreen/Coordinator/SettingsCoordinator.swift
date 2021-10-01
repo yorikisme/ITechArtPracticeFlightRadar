@@ -29,7 +29,7 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
         let birthdayView = BirthdayView.createView()
         let birthdayViewModel = BirthdayViewViewModel()
         
-        birthdayView.configure(with: birthdayViewModel)
+        birthdayView.viewModel = birthdayViewModel
         viewController.birthdayView = birthdayView
         
         let viewModel = SettingsViewModel(coordinator: self)

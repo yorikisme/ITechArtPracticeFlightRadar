@@ -12,8 +12,12 @@ import RxCocoa
 class BirthdayView: UIView {
     
     // MARK: - Properties
-    var viewModel: BirthdayViewViewModelProtocol!
-    let disposeBag = DisposeBag()
+    var viewModel: BirthdayViewViewModelProtocol? {
+        didSet {
+            configure()
+        }
+    }
+    var disposeBag: DisposeBag?
     
     // MARK: - Outlets
     @IBOutlet weak var userBirthdayDatePicker: UIDatePicker!
@@ -23,18 +27,22 @@ class BirthdayView: UIView {
         super.awakeFromNib()
     }
     
-    func configure(with viewModel: BirthdayViewViewModelProtocol) {
-        self.viewModel = viewModel
+    private func configure() {
+        guard let viewModel = self.viewModel else {
+            disposeBag = nil
+            return
+        }
+        disposeBag = DisposeBag()
         userBirthdayDatePicker.maximumDate = Date()
         saveBirthdayButton.rx
             .tap
             .bind(to: viewModel.saveUserBirthdayAction)
-            .disposed(by: disposeBag)
+            .disposed(by: disposeBag!)
         
         userBirthdayDatePicker.rx
             .date
             .bind(to: viewModel.birthdayDate)
-            .disposed(by: disposeBag)
+            .disposed(by: disposeBag!)
     }
     
     static func createView() -> BirthdayView {

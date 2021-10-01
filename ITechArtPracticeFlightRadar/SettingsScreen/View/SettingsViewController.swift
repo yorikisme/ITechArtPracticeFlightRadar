@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Firebase
 
 class SettingsViewController: UIViewController {
     
@@ -36,7 +37,10 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.size.height / 2
-        dateFormatter.dateFormat = "dd.MM.yyyy"
+        userPhotoImageView.image = UIImage(named: "JenniferLawrence")
+        //dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
         
         // MARK: - User name
         /// Setup text property of userNameLabel
@@ -55,8 +59,13 @@ class SettingsViewController: UIViewController {
         viewModel
             .isChangeUserNameInProgress
             .map { !$0 }
-            .bind(to: changeUserNameView.rx.isHidden)
-            .disposed(by: disposeBag)
+            .subscribe(onNext: { [changeUserNameView] isHidden in
+                    UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseIn) {
+                        changeUserNameView?.isHidden = isHidden
+                    } completion: { _ in
+                        print("done")
+                    }
+            }).disposed(by: disposeBag)
         
         /// Setup text property of newUserNameTextField
         viewModel
@@ -108,15 +117,11 @@ class SettingsViewController: UIViewController {
         viewModel
             .isChangeBirthdayInProgress
             .map { !$0 }
-            .subscribe(onNext: { [birthdayView, birthdayPickerView] in
+            .subscribe(onNext: { [weak self] in
                 if $0 {
-                    birthdayPickerView?.isHidden = $0
-                    birthdayView?.removeFromSuperview()
+                    self?.hide(view: self?.birthdayPickerView, subview: self?.birthdayView)
                 } else {
-                    if let birthdayView = birthdayView {
-                        birthdayPickerView?.isHidden = $0
-                        birthdayPickerView?.addSubview(birthdayView)
-                    }
+                    self?.show(view: self?.birthdayPickerView, subview: self?.birthdayView)
                 }
             }).disposed(by: disposeBag)
         
@@ -146,6 +151,30 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         backButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
+        userEmailLabel.text = Auth.auth().currentUser?.email
+    }
+    
+    // MARK: - Methods
+    func show(view: UIView?, subview: UIView?) {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseIn)
+        {
+            if let subview = subview {
+                view?.isHidden = false
+                view?.addSubview(subview)
+            }
+        } completion: { _ in
+            print("Done")
+        }
+    }
+    
+    func hide(view: UIView?, subview: UIView?) {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseIn)
+        {
+            view?.isHidden = true
+            subview?.removeFromSuperview()
+        } completion: { _ in
+            print("Done")
+        }
     }
     
 }
