@@ -22,6 +22,12 @@ protocol SettingsViewModelProtocol {
     var isChangeBirthdayInProgress: BehaviorRelay<Bool> { get }
     var newBirthdayDate: BehaviorRelay<Date> { get }
     
+    var changePasswordAction: PublishRelay<Void> { get }
+    var isChangePasswordInProgress: BehaviorRelay<Bool> { get }
+    
+    var isLoading: BehaviorRelay<Bool> { get }
+    var errorMessage: PublishRelay<String> { get }
+    
     var goBackAction: PublishRelay<Void> { get }
 }
 
@@ -43,6 +49,12 @@ class SettingsViewModel: SettingsViewModelProtocol {
     let changeBirthdayAction = PublishRelay<Void>()
     let isChangeBirthdayInProgress = BehaviorRelay<Bool>(value: false)
     let newBirthdayDate = BehaviorRelay<Date>(value: Date(timeIntervalSince1970: 800000000))
+    
+    let changePasswordAction = PublishRelay<Void>()
+    let isChangePasswordInProgress = BehaviorRelay<Bool>(value: false)
+    
+    let isLoading = BehaviorRelay<Bool>(value: false)
+    let errorMessage = PublishRelay<String>()
     
     let goBackAction = PublishRelay<Void>()
     
@@ -79,6 +91,12 @@ class SettingsViewModel: SettingsViewModelProtocol {
         changeBirthdayAction
             .map { [isChangeBirthdayInProgress] in !isChangeBirthdayInProgress.value }
             .bind(to: isChangeBirthdayInProgress)
+            .disposed(by: disposeBag)
+        
+        // MARK: - Change password
+        changePasswordAction
+            .map { [isChangePasswordInProgress] in !isChangePasswordInProgress.value }
+            .bind(to: isChangePasswordInProgress)
             .disposed(by: disposeBag)
         
         // MARK: - Back

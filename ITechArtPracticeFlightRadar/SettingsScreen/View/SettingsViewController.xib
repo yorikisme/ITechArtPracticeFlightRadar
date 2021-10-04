@@ -16,8 +16,10 @@
                 <outlet property="changeBirthdayButton" destination="k53-cK-K4Y" id="g2Q-bo-Bly"/>
                 <outlet property="changeEmailButton" destination="R1q-nC-fPn" id="BtQ-Py-eCS"/>
                 <outlet property="changePasswordButton" destination="BIa-Ot-b1H" id="W1o-mY-wRz"/>
+                <outlet property="changePasswordDeskView" destination="hfS-Rk-5e0" id="ni9-BI-f9g"/>
                 <outlet property="changeUserNameButton" destination="ICT-j3-Wib" id="dOY-dU-fdY"/>
                 <outlet property="changeUserNameView" destination="Wou-ZD-JHu" id="lfO-dN-CZf"/>
+                <outlet property="menuOptionsStackView" destination="u03-oN-mcq" id="fDI-TZ-eUd"/>
                 <outlet property="newUserNameTextField" destination="2FH-hL-O1R" id="0WC-b2-xcG"/>
                 <outlet property="saveNewUserNameButton" destination="Oaj-Tq-qjc" id="Srd-VM-3tC"/>
                 <outlet property="userBirthdayLabel" destination="fBf-Mw-Vmi" id="Fwp-h4-w0j"/>
@@ -204,6 +206,13 @@
                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="wTp-dq-zNA"/>
+                                    </constraints>
+                                </view>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfS-Rk-5e0">
+                                    <rect key="frame" x="0.0" y="700" width="428" height="216"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="216" id="SOB-NH-aTX"/>
                                     </constraints>
                                 </view>
                             </subviews>

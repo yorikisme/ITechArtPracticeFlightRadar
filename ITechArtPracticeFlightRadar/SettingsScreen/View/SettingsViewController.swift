@@ -17,6 +17,8 @@ class SettingsViewController: UIViewController {
     let disposeBag = DisposeBag()
     let dateFormatter = DateFormatter()
     var birthdayView: BirthdayView!
+    var changePasswordView: ChangePasswordView!
+    var processingView: ProcessingView!
     
     // MARK: - Outlets
     @IBOutlet weak var userPhotoImageView: UIImageView!
@@ -32,6 +34,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var changeBirthdayButton: UIButton!
     @IBOutlet weak var birthdayPickerView: UIView!
     @IBOutlet weak var userBirthdayLabel: UILabel!
+    
+    @IBOutlet weak var menuOptionsStackView: UIStackView!
+    @IBOutlet weak var changePasswordDeskView: UIView!
     
     // MARK: - Lifecycle points
     override func viewDidLoad() {
@@ -132,6 +137,43 @@ class SettingsViewController: UIViewController {
             .bind(to: userBirthdayLabel.rx.text)
             .disposed(by: disposeBag)
         
+        // MARK: - Change password
+        /// Tap changePasswordButton
+        changePasswordButton.rx
+            .tap
+            .bind(to: viewModel.changePasswordAction)
+            .disposed(by: disposeBag)
+        
+        // Determine to show or hide changePasswordDeskView
+        viewModel
+            .isChangePasswordInProgress
+            .subscribe(onNext: { [weak self] in
+                if $0 {
+                    
+                    self?.show(view: self?.changePasswordDeskView, subview: self?.changePasswordView)
+                } else {
+                    self?.hide(view: self?.changePasswordDeskView, subview: self?.changePasswordView)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .isLoading
+            .subscribe(onNext: { [weak self] in
+                if $0 {
+                    self?.showActivityIndicator()
+                } else {
+                    self?.removeActivityIndicator()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        // Occurred error message
+        viewModel
+            .errorMessage
+            .subscribe(onNext: { [weak self] message in self?.view.makeToast(message) })
+            .disposed(by: disposeBag)
+        
         // MARK: - Back button
         /// Tap back button
         backButton.rx
@@ -175,6 +217,16 @@ class SettingsViewController: UIViewController {
         } completion: { _ in
             print("Done")
         }
+    }
+    
+    func showActivityIndicator() {
+        processingView = ProcessingView.createView()
+        view.addSubview(processingView)
+    }
+    
+    func removeActivityIndicator() {
+        guard let processingView = processingView else { return }
+        processingView.removeFromSuperview()
     }
     
 }

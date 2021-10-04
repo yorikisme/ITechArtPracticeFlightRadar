@@ -26,23 +26,47 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
     func start() {
         let viewController = SettingsViewController()
         
+        /// Birthday
         let birthdayView = BirthdayView.createView()
         let birthdayViewModel = BirthdayViewViewModel()
         
         birthdayView.viewModel = birthdayViewModel
         viewController.birthdayView = birthdayView
         
-        let viewModel = SettingsViewModel(coordinator: self)
-        viewController.viewModel = viewModel
+        let settingsViewModel = SettingsViewModel(coordinator: self)
+        viewController.viewModel = settingsViewModel
         
         birthdayViewModel
             .newBirthdayDate
             .subscribe(
                 onNext: {
-                    viewModel.newBirthdayDate.accept($0)
-                    viewModel.isChangeBirthdayInProgress.accept(false) })
-            .disposed(by: viewModel.disposeBag)
+                    settingsViewModel.newBirthdayDate.accept($0)
+                    settingsViewModel.isChangeBirthdayInProgress.accept(false) })
+            .disposed(by: settingsViewModel.disposeBag)
         
+        /// Password
+        let changePasswordView = ChangePasswordView.createView()
+        let changePasswordViewModel = ChangePasswordViewModel()
+        
+        changePasswordView.viewModel = changePasswordViewModel
+        viewController.changePasswordView = changePasswordView
+        
+        changePasswordViewModel.saveAction.subscribe(onNext: { _ in
+            settingsViewModel.isChangePasswordInProgress.accept(false)
+        })
+        .disposed(by: changePasswordViewModel.disposeBag)
+        
+        changePasswordViewModel
+            .isLoading
+            .bind(to: settingsViewModel.isLoading)
+            .disposed(by: changePasswordViewModel.disposeBag)
+        
+        changePasswordViewModel
+            .errorMessage
+            .bind(to: settingsViewModel.errorMessage)
+            .disposed(by: changePasswordViewModel.disposeBag)
+        
+        /// Push viewController
         navigationController.pushViewController(viewController, animated: true)
     }
     
