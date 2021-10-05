@@ -26,7 +26,7 @@ protocol SettingsViewModelProtocol {
     var isChangePasswordInProgress: BehaviorRelay<Bool> { get }
     
     var isLoading: BehaviorRelay<Bool> { get }
-    var errorMessage: PublishRelay<String> { get }
+    var infoMessage: PublishRelay<String> { get }
     
     var goBackAction: PublishRelay<Void> { get }
 }
@@ -54,7 +54,7 @@ class SettingsViewModel: SettingsViewModelProtocol {
     let isChangePasswordInProgress = BehaviorRelay<Bool>(value: false)
     
     let isLoading = BehaviorRelay<Bool>(value: false)
-    let errorMessage = PublishRelay<String>()
+    let infoMessage = PublishRelay<String>()
     
     let goBackAction = PublishRelay<Void>()
     

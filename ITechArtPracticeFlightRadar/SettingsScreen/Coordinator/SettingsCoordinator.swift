@@ -62,8 +62,8 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
             .disposed(by: changePasswordViewModel.disposeBag)
         
         changePasswordViewModel
-            .errorMessage
-            .bind(to: settingsViewModel.errorMessage)
+            .infoMessage
+            .bind(to: settingsViewModel.infoMessage)
             .disposed(by: changePasswordViewModel.disposeBag)
         
         /// Push viewController

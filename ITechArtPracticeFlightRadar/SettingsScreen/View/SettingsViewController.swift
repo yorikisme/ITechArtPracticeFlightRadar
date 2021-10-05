@@ -149,7 +149,6 @@ class SettingsViewController: UIViewController {
             .isChangePasswordInProgress
             .subscribe(onNext: { [weak self] in
                 if $0 {
-                    
                     self?.show(view: self?.changePasswordDeskView, subview: self?.changePasswordView)
                 } else {
                     self?.hide(view: self?.changePasswordDeskView, subview: self?.changePasswordView)
@@ -170,7 +169,7 @@ class SettingsViewController: UIViewController {
         
         // Occurred error message
         viewModel
-            .errorMessage
+            .infoMessage
             .subscribe(onNext: { [weak self] message in self?.view.makeToast(message) })
             .disposed(by: disposeBag)
         

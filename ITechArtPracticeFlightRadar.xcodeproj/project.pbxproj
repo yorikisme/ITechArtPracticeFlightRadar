@@ -414,8 +414,8 @@
 			children = (
 				B752049C2701F35B0008886E /* SettingsViewController.swift */,
 				B752049D2701F35B0008886E /* SettingsViewController.xib */,
-				B76FBFCD2704B98000CA55AA /* BirthdayView.xib */,
 				B76FBFCF2704B9F800CA55AA /* BirthdayView.swift */,
+				B76FBFCD2704B98000CA55AA /* BirthdayView.xib */,
 				B738FB14270AF8400073B1E4 /* ChangePasswordView.swift */,
 				B738FB16270AF8660073B1E4 /* ChangePasswordView.xib */,
 			);

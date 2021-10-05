@@ -22,7 +22,7 @@ protocol ChangePasswordViewModelProtocol {
     var saveAction: PublishRelay<Void> { get }
     
     var isLoading: Observable<Bool> { get }
-    var errorMessage: PublishRelay<String> { get }
+    var infoMessage: PublishRelay<String> { get }
     
     var cancelAction: PublishRelay<Void> { get }
 }
@@ -47,7 +47,7 @@ class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
     var isLoading: Observable<Bool> {
         return activityIndicator.asObservable()
     }
-    let errorMessage = PublishRelay<String>()
+    let infoMessage = PublishRelay<String>()
     
     var cancelAction = PublishRelay<Void>()
     
@@ -90,14 +90,14 @@ class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
         /// occurrence of saveAction
         saveAction
             .withLatestFrom(Observable.combineLatest(sharedCurrentPassword, sharedNewPassword))
-            .flatMapLatest { [activityIndicator, errorMessage] in
+            .flatMapLatest { [activityIndicator, infoMessage] in
                 Auth.auth().rx.reauthenticateUserBy(password: $0, newPassword: $1)
                     .flatMap { newPassword in
                         Auth.auth().rx.changeUserCurrentPasswordTo(newPassword: newPassword)
                     }
                     .trackActivity(activityIndicator)
                     .catch { error in
-                        ErrorMessage.failure(dueTo: error, observer: errorMessage)
+                        ErrorMessage.failure(dueTo: error, observer: infoMessage)
                         return .empty()
                     }
             }
@@ -106,7 +106,8 @@ class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
                         self?.currentPassword.accept("")
                         self?.newPassword.accept("")
                         self?.newPasswordConfirmation.accept("")
-                        print("Password successfully changed") })
+                        self?.infoMessage.accept("Password successfully changed")
+            })
             .disposed(by: disposeBag)
         
         /// occurrence of cancelAction
