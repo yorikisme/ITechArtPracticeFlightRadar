@@ -21,21 +21,25 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PT8-zB-nlh">
-                    <rect key="frame" x="20" y="103" width="84" height="51"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PT8-zB-nlh">
+                    <rect key="frame" x="20" y="90" width="84" height="51"/>
                     <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
                     <state key="normal" title="Settings"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZv-rc-rWn">
-                    <rect key="frame" x="20" y="162" width="83" height="51"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZv-rc-rWn">
+                    <rect key="frame" x="20" y="149" width="83" height="51"/>
                     <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
                     <state key="normal" title="Sign out"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q08-K7-vgQ"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="PT8-zB-nlh" firstAttribute="leading" secondItem="IfU-TA-2xh" secondAttribute="leading" constant="20" id="71H-4F-amb"/>
+                <constraint firstItem="EZv-rc-rWn" firstAttribute="top" secondItem="PT8-zB-nlh" secondAttribute="bottom" constant="8" symbolic="YES" id="Aus-tk-Gqr"/>
+                <constraint firstItem="EZv-rc-rWn" firstAttribute="leading" secondItem="IfU-TA-2xh" secondAttribute="leading" constant="20" id="KO3-Ac-Ag4"/>
+                <constraint firstItem="PT8-zB-nlh" firstAttribute="top" secondItem="IfU-TA-2xh" secondAttribute="top" constant="90" id="jxw-3V-Uhp"/>
+            </constraints>
             <point key="canvasLocation" x="40.579710144927539" y="18.75"/>
         </view>
     </objects>

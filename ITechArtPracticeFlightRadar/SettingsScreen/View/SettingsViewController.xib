@@ -14,8 +14,8 @@
                 <outlet property="backButton" destination="LVz-re-iLJ" id="drg-8B-qVp"/>
                 <outlet property="birthdayPickerView" destination="d8B-tO-OPx" id="D0Y-e5-sWP"/>
                 <outlet property="changeBirthdayButton" destination="k53-cK-K4Y" id="g2Q-bo-Bly"/>
-                <outlet property="changeEmailButton" destination="R1q-nC-fPn" id="BtQ-Py-eCS"/>
-                <outlet property="changePasswordButton" destination="BIa-Ot-b1H" id="W1o-mY-wRz"/>
+                <outlet property="changeEmailButton" destination="z6F-Tg-5i6" id="Len-0g-xgy"/>
+                <outlet property="changePasswordButton" destination="n4i-aP-Zbv" id="TsK-33-tjG"/>
                 <outlet property="changePasswordDeskView" destination="hfS-Rk-5e0" id="ni9-BI-f9g"/>
                 <outlet property="changeUserNameButton" destination="ICT-j3-Wib" id="dOY-dU-fdY"/>
                 <outlet property="changeUserNameView" destination="Wou-ZD-JHu" id="lfO-dN-CZf"/>
@@ -177,10 +177,9 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGQ-J4-ofh">
                                     <rect key="frame" x="0.0" y="500" width="428" height="100"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="R1q-nC-fPn">
-                                            <rect key="frame" x="123" y="31" width="183" height="39"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6F-Tg-5i6">
+                                            <rect key="frame" x="154" y="32" width="120" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Change email">
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
@@ -189,15 +188,16 @@
                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="Tq1-ew-tid"/>
+                                        <constraint firstItem="z6F-Tg-5i6" firstAttribute="centerX" secondItem="PGQ-J4-ofh" secondAttribute="centerX" id="XoJ-yR-NC9"/>
+                                        <constraint firstItem="z6F-Tg-5i6" firstAttribute="centerY" secondItem="PGQ-J4-ofh" secondAttribute="centerY" id="nyH-Ac-HVK"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBw-oW-jn3">
                                     <rect key="frame" x="0.0" y="600" width="428" height="100"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="BIa-Ot-b1H">
-                                            <rect key="frame" x="123" y="31" width="183" height="39"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4i-aP-Zbv">
+                                            <rect key="frame" x="135" y="32" width="158" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Change password">
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
@@ -205,6 +205,8 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                     <constraints>
+                                        <constraint firstItem="n4i-aP-Zbv" firstAttribute="centerY" secondItem="SBw-oW-jn3" secondAttribute="centerY" id="Hje-Kl-981"/>
+                                        <constraint firstItem="n4i-aP-Zbv" firstAttribute="centerX" secondItem="SBw-oW-jn3" secondAttribute="centerX" id="vUy-L4-UJv"/>
                                         <constraint firstAttribute="height" constant="100" id="wTp-dq-zNA"/>
                                     </constraints>
                                 </view>

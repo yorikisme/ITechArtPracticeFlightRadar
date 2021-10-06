@@ -12,10 +12,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthenticationViewController" customModule="ITechArtPracticeFlightRadar" customModuleProvider="target">
             <connections>
                 <outlet property="animationView" destination="Q00-XQ-D9T" id="TvZ-ez-t97"/>
+                <outlet property="dontHaveAnAccountLabel" destination="pH2-0A-Gof" id="aBA-Uw-4Ph"/>
                 <outlet property="emailTextField" destination="caj-Pj-vWJ" id="iAc-rK-719"/>
                 <outlet property="forgotPasswordButton" destination="vB3-IZ-C2X" id="MW2-eM-7F5"/>
                 <outlet property="insecurePasswordLabel" destination="VwE-Mp-fE2" id="6P6-Qp-8qf"/>
                 <outlet property="invalidEmailFormatLabel" destination="ovj-BC-2k7" id="a8v-6K-P3y"/>
+                <outlet property="orLabel" destination="RlB-Z4-HtB" id="3HD-MB-K4n"/>
                 <outlet property="passwordTextField" destination="ZGb-lb-aWe" id="hHl-u6-xS7"/>
                 <outlet property="signInButton" destination="ze8-2W-zC5" id="xyZ-hd-WaK"/>
                 <outlet property="signInWithGoogle" destination="idL-aB-29M" id="ly5-V4-6Ja"/>

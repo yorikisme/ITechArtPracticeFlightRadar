@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  ITechArtPracticeFlightRadar
+
+  Created by Yaroslav Karpulevich on 10/6/21.
+  
+*/
+
+"SgnN" = "Sign in";
+"Chng" = "Change";
+"Cncl" = "Cancel";
+"Sv" = "Save";
+"ChngMl" = "Change email";
+"ChngPsswrd" = "Change password";
+"Sttngs" = "Settings";
+"SgnT" = "Sign out";
+"FrgtPsswrd" = "Forgot password?";
+"DntHvNCcnt" = "Don't have an account?";
+"SgnP" = "Sign up";
+"R" = "or";
+"Ml" = "Email";
+"Psswrd" = "Password";
+"NvldMlFrmt" = "Invalid format";
+"NscrPsswrd" = "Password too short";

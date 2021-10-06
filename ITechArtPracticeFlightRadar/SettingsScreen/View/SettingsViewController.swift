@@ -47,6 +47,11 @@ class SettingsViewController: UIViewController {
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
         
+        // Setup localization
+        saveNewUserNameButton.setTitle(NSLocalizedString("Sv", comment: ""), for: .normal)
+        changeEmailButton.setTitle(NSLocalizedString("ChngMl", comment: ""), for: .normal)
+        changePasswordButton.setTitle(NSLocalizedString("ChngPsswrd", comment: ""), for: .normal)
+        
         // MARK: - User name
         /// Setup text property of userNameLabel
         viewModel
@@ -100,7 +105,7 @@ class SettingsViewController: UIViewController {
         /// Setup title of changeUserEmailButton
         viewModel
             .isChangeUserNameInProgress
-            .map { $0 == true ? "Cancel" : "Change" }
+            .map { $0 == true ? NSLocalizedString("Cncl", comment: "") : NSLocalizedString("Chng", comment: "") }
             .subscribe(
                 onNext: { [changeUserNameButton] in changeUserNameButton?.setTitle($0, for: .normal) })
             .disposed(by: disposeBag)
@@ -183,7 +188,7 @@ class SettingsViewController: UIViewController {
         /// Setup title of changeBirthdayButton
         viewModel
             .isChangeBirthdayInProgress
-            .map { $0 == true ? "Cancel" : "Change" }
+            .map { $0 == true ? NSLocalizedString("Cncl", comment: "") : NSLocalizedString("Chng", comment: "") }
             .subscribe(
                 onNext: { [changeBirthdayButton] in changeBirthdayButton?.setTitle($0, for: .normal) })
             .disposed(by: disposeBag)

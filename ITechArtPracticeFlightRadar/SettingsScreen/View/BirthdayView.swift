@@ -25,6 +25,7 @@ class BirthdayView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        saveBirthdayButton.setTitle(NSLocalizedString("Sv", comment: ""), for: .normal)
     }
     
     private func configure() {

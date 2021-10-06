@@ -26,13 +26,26 @@ class AuthenticationViewController: UIViewController {
     @IBOutlet weak var insecurePasswordLabel: UILabel!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var dontHaveAnAccountLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var orLabel: UILabel!
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var signInWithGoogle: GIDSignInButton!
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // setup localization
+        emailTextField.placeholder = NSLocalizedString("Ml", comment: "")
+        invalidEmailFormatLabel.text = NSLocalizedString("NvldMlFrmt", comment: "")
+        passwordTextField.placeholder = NSLocalizedString("Psswrd", comment: "")
+        insecurePasswordLabel.text = NSLocalizedString("NscrPsswrd", comment: "")
+        signInButton.setTitle(NSLocalizedString("SgnN", comment: ""), for: .normal)
+        forgotPasswordButton.setTitle(NSLocalizedString("FrgtPsswrd", comment: ""), for: .normal)
+        dontHaveAnAccountLabel.text = NSLocalizedString("DntHvNCcnt", comment: "")
+        signUpButton.setTitle(NSLocalizedString("SgnP", comment: ""), for: .normal)
+        orLabel.text = NSLocalizedString("R", comment: "")
         
         viewModel
             .email
