@@ -33,7 +33,6 @@ class ChangePasswordView: UIView {
         disposeBag = DisposeBag()
         
         // Localization
-        
         currentPasswordTextField.placeholder = NSLocalizedString("current_password", comment: "")
         newPasswordTextField.placeholder = NSLocalizedString("new_password", comment: "")
         insecurePasswordLabel.text = NSLocalizedString("invalid_password", comment: "")

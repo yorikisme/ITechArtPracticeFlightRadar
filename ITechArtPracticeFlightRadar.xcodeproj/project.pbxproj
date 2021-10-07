@@ -24,6 +24,7 @@
 		B738FB15270AF8400073B1E4 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738FB14270AF8400073B1E4 /* ChangePasswordView.swift */; };
 		B738FB17270AF8660073B1E4 /* ChangePasswordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B738FB16270AF8660073B1E4 /* ChangePasswordView.xib */; };
 		B738FB1C270B24850073B1E4 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B738FB1B270B24850073B1E4 /* ChangePasswordViewModel.swift */; };
+		B740B732270F47AD00113A3E /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B740B731270F47AD00113A3E /* UIImageExtensions.swift */; };
 		B74D2E152705B31300D37864 /* BirthdayViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D2E142705B31300D37864 /* BirthdayViewViewModel.swift */; };
 		B752047E2701B8FE0008886E /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B752047D2701B8FE0008886E /* ErrorMessage.swift */; };
 		B75204892701C4DF0008886E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75204882701C4DF0008886E /* SettingsViewModel.swift */; };
@@ -111,6 +112,7 @@
 		B738FB14270AF8400073B1E4 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		B738FB16270AF8660073B1E4 /* ChangePasswordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordView.xib; sourceTree = "<group>"; };
 		B738FB1B270B24850073B1E4 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		B740B731270F47AD00113A3E /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		B74D2E142705B31300D37864 /* BirthdayViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewViewModel.swift; sourceTree = "<group>"; };
 		B752047D2701B8FE0008886E /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		B75204882701C4DF0008886E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				B76A198426E75DB000B75EDE /* CoordinatorExtensions.swift */,
 				B79039E726E8C1BD000908AD /* RxMapViewDelegateProxy.swift */,
 				B79039E926E8C27F000908AD /* MKMapView+Rx.swift */,
+				B740B731270F47AD00113A3E /* UIImageExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				B79039E826E8C1BD000908AD /* RxMapViewDelegateProxy.swift in Sources */,
 				B74D2E152705B31300D37864 /* BirthdayViewViewModel.swift in Sources */,
 				B738FB15270AF8400073B1E4 /* ChangePasswordView.swift in Sources */,
+				B740B732270F47AD00113A3E /* UIImageExtensions.swift in Sources */,
 				B7A6156E26F0CAA500E91809 /* SideMenuViewController.swift in Sources */,
 				B784068226C40FCE00F5AF03 /* AuthenticationViewModel.swift in Sources */,
 				B75204892701C4DF0008886E /* SettingsViewModel.swift in Sources */,
