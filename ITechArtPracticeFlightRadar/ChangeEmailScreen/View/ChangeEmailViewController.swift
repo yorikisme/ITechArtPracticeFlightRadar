@@ -27,6 +27,10 @@ class ChangeEmailViewController: UIViewController {
     // MARK: Lifecycle points
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        newEmailTextField.placeholder = NSLocalizedString("new_email", comment: "")
+        passwordTextField.placeholder = NSLocalizedString("password_", comment: "")
+        saveButton.setTitle(NSLocalizedString("save_", comment: ""), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

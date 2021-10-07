@@ -6,19 +6,37 @@
   
 */
 
-"SgnN" = "Sign in";
-"Chng" = "Change";
-"Cncl" = "Cancel";
-"Sv" = "Save";
-"ChngMl" = "Change email";
-"ChngPsswrd" = "Change password";
-"Sttngs" = "Settings";
-"SgnT" = "Sign out";
-"FrgtPsswrd" = "Forgot password?";
-"DntHvNCcnt" = "Don't have an account?";
-"SgnP" = "Sign up";
-"R" = "or";
-"Ml" = "Email";
-"Psswrd" = "Password";
-"NvldMlFrmt" = "Invalid format";
-"NscrPsswrd" = "Password too short";
+"sign_in" = "Sign in";
+"change_" = "Change";
+"cancel_" = "Cancel";
+"save_" = "Save";
+"change_email" = "Change email";
+"change_password" = "Change password";
+"settings_" = "Settings";
+"sign_out" = "Sign out";
+"forgot_password" = "Forgot password?";
+"don't_have_an_account" = "Don't have an account?";
+"sign_up" = "Sign up";
+"sign_up_2" = "Sign up";
+"or_label_text" = "or";
+"email_" = "Email";
+"new_email" = "New email";
+"password_" = "Password";
+"invalid_email_format" = "Invalid format";
+"invalid_password" = "Password too short";
+"current_password" = "Current password";
+"new_password" = "New password";
+"confirm_password" = "Confirm password";
+"passwords_do_not_match" = "Passwords do not match";
+"please_fasten_your_seatbelts" = "Please, fasten your seatbelts";
+"password_successfully_changed" = "Password successfully changed";
+"send_" = "Send";
+"email_not_verified" = "Limited functionality mode, please, verify your email";
+
+"forgot_password_text" = "If you forgot your password, please, provide us with your account's email and we will send you a letter, following the instruction in it you will be able to reset your password.";
+
+"authentication_error" = "Please, check the authentication credentials you provide";
+"network_error" = "Network error, please, check your connection or try again later";
+"internal_sign_up_error" = "Internal error occurred, please, try to sign up later or contact the customer service";
+"internal_sign_in_error" = "Internal error occurred, please, try to sign in later or contact the customer service";
+"unknown_error" = "Unknown error occurred, please, try again later or contact the customer service";

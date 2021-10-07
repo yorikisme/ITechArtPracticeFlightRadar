@@ -20,6 +20,7 @@ class ForgotPasswordViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var invalidEmailFormatLabel: UILabel!
     @IBOutlet weak var sendRequestButton: UIButton!
@@ -27,6 +28,12 @@ class ForgotPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Localization
+        textLabel.text = NSLocalizedString("forgot_password_text", comment: "")
+        emailTextField.placeholder = NSLocalizedString("email_", comment: "")
+        invalidEmailFormatLabel.text = NSLocalizedString("invalid_email_format", comment: "")
+        sendRequestButton.setTitle(NSLocalizedString("send_", comment: ""), for: .normal)
         
         emailTextField.rx
             .text

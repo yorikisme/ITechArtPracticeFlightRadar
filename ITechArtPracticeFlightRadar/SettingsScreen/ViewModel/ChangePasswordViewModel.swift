@@ -106,7 +106,7 @@ class ChangePasswordViewModel: ChangePasswordViewModelProtocol {
                         self?.currentPassword.accept("")
                         self?.newPassword.accept("")
                         self?.newPasswordConfirmation.accept("")
-                        self?.infoMessage.accept("Password successfully changed")
+                        self?.infoMessage.accept(NSLocalizedString("password_successfully_changed", comment: ""))
             })
             .disposed(by: disposeBag)
         

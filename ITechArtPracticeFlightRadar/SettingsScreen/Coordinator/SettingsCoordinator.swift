@@ -66,6 +66,11 @@ class SettingsCoordinator: SettingsCoordinatorProtocol {
             .bind(to: settingsViewModel.infoMessage)
             .disposed(by: changePasswordViewModel.disposeBag)
         
+        changePasswordView
+            .cancelButton.rx
+            .tap.subscribe(onNext: { settingsViewModel.isChangePasswordInProgress.accept(false) })
+            .disposed(by: settingsViewModel.disposeBag)
+        
         /// Push viewController
         navigationController.pushViewController(viewController, animated: true)
     }

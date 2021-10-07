@@ -27,8 +27,8 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
         
         // Setup localization
-        settingsButton.setTitle(NSLocalizedString("Sttngs", comment: ""), for: .normal)
-        signOutButton.setTitle(NSLocalizedString("SgnT", comment: ""), for: .normal)
+        settingsButton.setTitle(NSLocalizedString("settings_", comment: ""), for: .normal)
+        signOutButton.setTitle(NSLocalizedString("sign_out", comment: ""), for: .normal)
         
         settingsButton.rx
             .tap

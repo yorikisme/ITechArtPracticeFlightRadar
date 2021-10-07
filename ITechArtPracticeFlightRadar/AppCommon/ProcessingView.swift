@@ -17,6 +17,7 @@ class ProcessingView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         startProcessing()
+        messageLabel.text = NSLocalizedString("please_fasten_your_seatbelts", comment: "")
     }
     
     static func createView() -> ProcessingView {

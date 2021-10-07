@@ -12,11 +12,11 @@ import RxCocoa
 enum ErrorMessage {
     
     // Error messages
-    static let authenticationError = "Please, check the authentication credentials you provide"
-    static let networkError = "Network error, please, check your connection or try again later"
-    static let internalSignUpError = "Internal error occurred, please, try to sign up later or contact the customer service"
-    static let internalSignInError = "Internal error occurred, please, try to sign in later or contact the customer service"
-    static let unknownError = "Unknown error occurred, please, try again later or contact the customer service"
+    static let authenticationError = NSLocalizedString("authentication_error", comment: "")
+    static let networkError = NSLocalizedString("network_error", comment: "")
+    static let internalSignUpError = NSLocalizedString("internal_sign_up_error", comment: "")
+    static let internalSignInError = NSLocalizedString("internal_sign_in_error", comment: "")
+    static let unknownError = NSLocalizedString("unknown_error", comment: "")
     
     
     static func failure(dueTo error: Error, observer: PublishRelay<String>) {

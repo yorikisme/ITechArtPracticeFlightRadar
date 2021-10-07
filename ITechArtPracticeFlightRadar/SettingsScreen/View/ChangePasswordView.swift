@@ -32,6 +32,16 @@ class ChangePasswordView: UIView {
         }
         disposeBag = DisposeBag()
         
+        // Localization
+        
+        currentPasswordTextField.placeholder = NSLocalizedString("current_password", comment: "")
+        newPasswordTextField.placeholder = NSLocalizedString("new_password", comment: "")
+        insecurePasswordLabel.text = NSLocalizedString("invalid_password", comment: "")
+        confirmNewPassword.placeholder = NSLocalizedString("confirm_password", comment: "")
+        passwordsDoNotMatchLabel.text = NSLocalizedString("passwords_do_not_match", comment: "")
+        saveButton.setTitle(NSLocalizedString("save_", comment: ""), for: .normal)
+        cancelButton.setTitle(NSLocalizedString("cancel_", comment: ""), for: .normal)
+        
         // MARK: - currentPasswordTextField
         currentPasswordTextField.rx
             .text

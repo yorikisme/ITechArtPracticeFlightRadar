@@ -32,6 +32,9 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         
+        // Localization
+        emailNotVerifiedLabel.text = NSLocalizedString("email_not_verified", comment: "")
+        
         setChildViewControllers()
         
         sideMenuButton.rx

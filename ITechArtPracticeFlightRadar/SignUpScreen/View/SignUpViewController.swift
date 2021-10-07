@@ -32,6 +32,15 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Localization
+        emailTextField.placeholder = NSLocalizedString("email_", comment: "")
+        invalidEmailFormatLabel.text = NSLocalizedString("invalid_email_format", comment: "")
+        passwordTextField.placeholder = NSLocalizedString("password_", comment: "")
+        invalidPasswordLabel.text = NSLocalizedString("invalid_password", comment: "")
+        confirmPasswordTextField.placeholder = NSLocalizedString("confirm_password", comment: "")
+        invalidConfirmPasswordLabel.text = NSLocalizedString("passwords_do_not_match", comment: "")
+        signUpButton.setTitle(NSLocalizedString("sign_up_2", comment: ""), for: .normal)
+        
         // 1. Sending text from emailTextField to viewModel's email
         emailTextField.rx
             .text

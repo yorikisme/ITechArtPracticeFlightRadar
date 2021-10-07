@@ -37,15 +37,15 @@ class AuthenticationViewController: UIViewController {
         super.viewDidLoad()
         
         // setup localization
-        emailTextField.placeholder = NSLocalizedString("Ml", comment: "")
-        invalidEmailFormatLabel.text = NSLocalizedString("NvldMlFrmt", comment: "")
-        passwordTextField.placeholder = NSLocalizedString("Psswrd", comment: "")
-        insecurePasswordLabel.text = NSLocalizedString("NscrPsswrd", comment: "")
-        signInButton.setTitle(NSLocalizedString("SgnN", comment: ""), for: .normal)
-        forgotPasswordButton.setTitle(NSLocalizedString("FrgtPsswrd", comment: ""), for: .normal)
-        dontHaveAnAccountLabel.text = NSLocalizedString("DntHvNCcnt", comment: "")
-        signUpButton.setTitle(NSLocalizedString("SgnP", comment: ""), for: .normal)
-        orLabel.text = NSLocalizedString("R", comment: "")
+        emailTextField.placeholder = NSLocalizedString("email_", comment: "")
+        invalidEmailFormatLabel.text = NSLocalizedString("invalid_email_format", comment: "")
+        passwordTextField.placeholder = NSLocalizedString("password_", comment: "")
+        insecurePasswordLabel.text = NSLocalizedString("invalid_password", comment: "")
+        signInButton.setTitle(NSLocalizedString("sign_in", comment: ""), for: .normal)
+        forgotPasswordButton.setTitle(NSLocalizedString("forgot_password", comment: ""), for: .normal)
+        dontHaveAnAccountLabel.text = NSLocalizedString("don't_have_an_account", comment: "")
+        signUpButton.setTitle(NSLocalizedString("sign_up", comment: ""), for: .normal)
+        orLabel.text = NSLocalizedString("or_label_text", comment: "")
         
         viewModel
             .email
